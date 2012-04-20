@@ -14,7 +14,7 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 
 # dotfiles
-alias df="cd ~/.dotfiles; mvim ."
+alias df="mvim ~/.dotfiles"
 
 # aliases - zshrc
 alias zshconfig="mvim ~/.zshrc"
