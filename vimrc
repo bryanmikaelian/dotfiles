@@ -1,4 +1,6 @@
 set nocompatible
+set nobackup
+set nowritebackup
 
 set number
 set ruler
