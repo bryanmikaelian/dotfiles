@@ -128,8 +128,8 @@ set modelines=10
 color lucius
 
 " Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+set backupdir=~/.vim/tmp
+set directory=~/.vim/tmp
 
 " Turn off jslint errors by default
 let g:JSLintHighlightErrorLine = 0
