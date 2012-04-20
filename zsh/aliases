@@ -15,5 +15,3 @@ alias df="mvim ~/.dotfiles"
 
 # aliases - zshrc
 alias zshconfig="mvim ~/.zshrc"
-
-# taco
