@@ -7,3 +7,6 @@ ZSH_THEME="geoffgarside"
 DISABLE_LS_COLORS="true"
 
 source $ZSH/oh-my-zsh.sh
+
+# NVM
+[[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
