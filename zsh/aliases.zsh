@@ -1,6 +1,7 @@
 # aliases - git
 alias gl='git pull'
 alias gp='git push'
+alias gcl='git clean -f'
 # alias gd='git diff'
 # alias gca='git commit -a'
 # alias gco='git checkout'
