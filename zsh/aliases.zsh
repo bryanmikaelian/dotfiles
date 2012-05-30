@@ -32,3 +32,6 @@ alias rs="rails server"
 alias rgc="rails generate controller"
 alias rgm="rails generate model"
 alias cdr="cd ~/Code/Rails"
+
+# postgres
+alias pgs="postgres -D /usr/local/var/pgsql/data"
