@@ -26,16 +26,3 @@
 # alias l="ls -lAh"
 # alias ll="ls -l"
 # alias la='ls -A'
-
-# # rails
-# alias rs="rails server"
-# alias rgc="rails generate controller"
-# alias rgm="rails generate model"
-# alias cdr="cd ~/Code/Rails"
-
-# # postgres
-# alias pgs="pg_ctl -D /usr/local/var/pgsql/data -l /usr/local/var/pgsql/server.log start"
-# alias pgk="pg_ctl -D /usr/local/var/pgsql/data stop -s -m fast"
-
-# # mvim
-# alias e="mvim ."
