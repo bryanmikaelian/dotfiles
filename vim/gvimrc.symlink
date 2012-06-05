@@ -22,9 +22,8 @@ nmap <d-7> 7gt
 nmap <d-8> 8gt
 nmap <d-9> 9gt
 
-
 " UI
-set guioptions-=TRm
+set guioptions-=T
 set guifont=DejaVu\ Sans\ Mono:h13
 colorscheme lucius
 
