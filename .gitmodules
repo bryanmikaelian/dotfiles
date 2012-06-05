@@ -1,3 +1,1 @@
-[submodule "libfoo"]
-  path = vim/vim.symlink/bundle/nerdtree
-  url = git://github.com/scrooloose/nerdtree.git
+
