@@ -1,3 +1,0 @@
-# Config
-source ~/.bash/paths
-

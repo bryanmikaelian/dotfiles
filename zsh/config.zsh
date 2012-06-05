@@ -1,6 +1,3 @@
-# Variables
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin
-
 # ZSH Configs
 ZSH=$HOME/.oh-my-zsh
 DISABLE_LS_COLORS="true"
