@@ -1,3 +1,7 @@
 [submodule "vim/vim.symlink/bundle/nerdtree"]
 	path = vim/vim.symlink/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+
+[submodule "vim/vim.symlink/bundle/Command-T"]
+	path = vim/vim.symlink/bundle/Command-T
+	url = https://github.com/wincent/Command-T.git
