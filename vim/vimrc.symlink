@@ -42,3 +42,4 @@ set nocompatible
 set nobackup
 set nowritebackup
 set noswapfile
+filetype plugin indent on
