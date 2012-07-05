@@ -13,3 +13,7 @@
 [submodule "vim/vim.symlink/bundle/vim-autoclose"]
 	path = vim/vim.symlink/bundle/vim-autoclose
 	url = git://github.com/Townk/vim-autoclose.git
+
+[submodule "vim/vim.symlink/bundle/vim-endwise"]
+	path = vim/vim.symlink/bundle/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
