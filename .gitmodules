@@ -12,3 +12,7 @@
 [submodule "vim/vim.symlink/bundle/vim-endwise"]
 	path = vim/vim.symlink/bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
+
+[submodule "vim/vim.symlink/plugins/vim-jade"]
+	path = vim/vim.symlink/plugins/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git
