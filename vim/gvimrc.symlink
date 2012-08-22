@@ -29,6 +29,7 @@ colorscheme lucius
 
 " Nerd Tree
 " Stolen from Janus.  Thank you @carlhuda for all you do
+nmap <d-]> :NERDTreeToggle<CR>
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 autocmd FocusGained * call s:UpdateNERDTree()
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
