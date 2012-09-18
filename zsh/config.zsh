@@ -9,3 +9,6 @@ source $ZSH/oh-my-zsh.sh
 
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# BAD AUTOCORRECT
+unsetopt correct_all
