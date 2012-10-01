@@ -22,6 +22,9 @@ nmap <d-7> 7gt
 nmap <d-8> 8gt
 nmap <d-9> 9gt
 
+" Gitv
+nmap <d-\> :Gitv<CR>
+
 " UI
 set guioptions-=T
 set guifont=DejaVu\ Sans\ Mono:h13
