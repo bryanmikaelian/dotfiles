@@ -34,3 +34,6 @@
 [submodule "vim/vim.symlink/bundle/gitv"]
 	path = vim/vim.symlink/bundle/gitv
 	url = git://github.com/gregsexton/gitv.git
+[submodule "vim/vim.symlink/bundle/vim-erl"]
+	path = vim/vim.symlink/bundle/vim-erl
+	url = git://github.com/jimenezrick/vimerl.git
