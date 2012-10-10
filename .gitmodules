@@ -37,3 +37,6 @@
 [submodule "vim/vim.symlink/bundle/vim-erl"]
 	path = vim/vim.symlink/bundle/vim-erl
 	url = git://github.com/jimenezrick/vimerl.git
+[submodule "vim/vim.symlink/bundle/vim-colorschemes"]
+	path = vim/vim.symlink/bundle/vim-colorschemes
+	url = git://github.com/flazz/vim-colorschemes.git
