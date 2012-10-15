@@ -9,4 +9,4 @@ alias gs='git status'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 alias gsiu='git submodule init && git submodule update'
-alias gsu 'git submodule foreach git pull'
+alias gsu='git submodule foreach git pull'
