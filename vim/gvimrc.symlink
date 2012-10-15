@@ -27,8 +27,8 @@ nmap <d-\> :Gitv<CR>
 
 " UI
 set guioptions-=T
-set guifont=Menlo:h13
-colorscheme lucius
+set guifont=Menlo:h14
+colorscheme wombat
 
 " Nerd Tree
 " Stolen from Janus.  Thank you @carlhuda for all you do
