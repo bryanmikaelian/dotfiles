@@ -1,1 +1,1 @@
-alias solrs='rake sunspot:solr:start'
+alias solrs='zeus rake sunspot:solr:start'
