@@ -72,4 +72,5 @@ set-window-option -g automatic-rename
 set -g mode-mouse off
 
 # color
+set -g default-terminal "iterm2"
 set -g default-terminal "screen-256color"

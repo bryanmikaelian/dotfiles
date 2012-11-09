@@ -13,5 +13,5 @@ alias la='ls -A'
 alias mdf="cd ~/.dotfiles && mvim ~/.dotfiles"
 
 # tmux
-alias tmuxstart="mux start bookshout"
+alias tmuxstart="TERM=screen-256color-bce mux start bookshout"
 alias tmuxkill="tmux kill-session"
