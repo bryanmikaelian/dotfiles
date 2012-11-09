@@ -1,0 +1,16 @@
+# ~/.tmuxinator/bookshout.yml
+# you can make as many tabs as you wish...
+
+project_name: Tmuxinator
+project_root: ~/Code/rethinkbooks/getsocialbooks.com
+rvm: 1.9.3@rails3.1
+tabs:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim .
+        - zeus start
+  # - shell: git pull
+  # - zeus: zeus start
+  # - database: rails db
+  # - server: rails s
