@@ -6,10 +6,13 @@ project_root: ~/Code/rethinkbooks/getsocialbooks.com
 rvm: 1.9.3@rails3.1
 tabs:
   - editor:
-      layout: main-vertical
+      layout: main-horizontal
       panes:
-        - vim .
-        - zeus start
+        - vim
+        - zeus server
+        - zeus console
+  - zeus: zeus start
+        
   # - shell: git pull
   # - zeus: zeus start
   # - database: rails db
