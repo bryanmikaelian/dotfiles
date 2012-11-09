@@ -12,3 +12,6 @@ source $ZSH/oh-my-zsh.sh
 
 # BAD AUTOCORRECT
 unsetopt correct_all
+
+# tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
