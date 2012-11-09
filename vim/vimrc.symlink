@@ -36,6 +36,10 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set guioptions-=T
+set background=dark
+set guifont=Menlo:h14
+colorscheme solarized
 
 " Configuration
 set nocompatible

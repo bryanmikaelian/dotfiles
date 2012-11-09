@@ -11,3 +11,7 @@ alias la='ls -A'
 
 # dotfiles
 alias mdf="cd ~/.dotfiles && mvim ~/.dotfiles"
+
+# tmux
+alias tmuxstart="mux start bookshout"
+alias tmuxkill="tmux kill-session"

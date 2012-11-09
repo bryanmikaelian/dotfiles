@@ -3,17 +3,12 @@
 
 project_name: Tmuxinator
 project_root: ~/Code/rethinkbooks/getsocialbooks.com
-rvm: 1.9.3@rails3.1
 tabs:
   - editor:
-      layout: main-horizontal
+      layout: fa61,238x66,0,0{147x66,0,0,44,90x66,148,0[90x19,148,0,46,90x21,148,20,47,90x24,148,42,48]}
       panes:
         - vim
         - zeus server
         - zeus console
-  - zeus: zeus start
-        
-  # - shell: git pull
-  # - zeus: zeus start
-  # - database: rails db
-  # - server: rails s
+        - 
+  - mysql: bsdev
