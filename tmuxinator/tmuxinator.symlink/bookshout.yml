@@ -7,7 +7,7 @@ tabs:
   - editor:
       layout: fa61,238x66,0,0{147x66,0,0,44,90x66,148,0[90x19,148,0,46,90x21,148,20,47,90x24,148,42,48]}
       panes:
-        - vim
+        - vim .
         - rails server
         - 
         - rails console
