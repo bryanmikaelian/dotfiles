@@ -26,7 +26,6 @@ set number
 set ruler
 set nolazyredraw
 set noshowcmd
-syntax on
 
 " Visual
 set showmatch
@@ -36,7 +35,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set background=dark
+syntax enable
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 " Configuration

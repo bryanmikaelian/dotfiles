@@ -1,7 +1,6 @@
 # cd
 alias ..='cd ..'
 alias c="cd ~/Code"
-alias cdrtb="cd ~/Code/rethinkbooks"
 
 # ls
 alias ls="ls -F"
@@ -13,5 +12,12 @@ alias la='ls -A'
 alias mdf="cd ~/.dotfiles && mvim ~/.dotfiles"
 
 # tmux
-alias tmuxstart="TERM=screen-256color-bce mux start bookshout"
+alias ts="TERM=screen-256color-bce mux start"
 alias tmuxkill="tmux kill-session"
+
+# Work
+alias bsdev='mysql socialbooks_development -uroot'
+alias cdrtb="cd ~/Code/rethinkbooks"
+alias cdbs="cdrtb; cd getsocialbooks.com"
+alias cdbsz="cdbs; zeus start"
+alias sup="mysqlstart; rup"
