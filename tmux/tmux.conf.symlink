@@ -87,6 +87,7 @@ set -g mode-mouse off
 
 
 #### COLOUR (Solarized 256)
+set -g default-terminal "screen-256color"
 
 # default statusbar colors
 set-option -g status-bg colour235 #base02
