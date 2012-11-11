@@ -28,7 +28,8 @@ nmap <d-\> :Gitv<CR>
 " UI
 set guioptions-=T
 set background=dark
-set guifont=Menlo:h14
+" set guifont=Menlo:h14
+set guifont=Menlo\ for\ Powerline:h14
 colorscheme solarized
 
 " Nerd Tree

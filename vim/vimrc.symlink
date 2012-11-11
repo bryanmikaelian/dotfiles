@@ -38,6 +38,8 @@ set smartcase
 syntax enable
 let g:solarized_termtrans = 1
 colorscheme solarized
+let g:Powerline_symbols = 'fancy'
+
 
 " Configuration
 set nocompatible
