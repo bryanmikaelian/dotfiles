@@ -45,8 +45,6 @@ set -g mode-mouse off
 
 #### COLOUR (Solarized dark)
 
-set -g default-terminal "screen-256color"
-
 # default statusbar colors
 set-option -g status-bg black #base02
 set-option -g status-fg yellow #yellow
@@ -76,7 +74,6 @@ set-option -g display-panes-colour brightred #orange
 
 # clock
 set-window-option -g clock-mode-colour green #green
-
 
 # status bar
 set-option -g status on
