@@ -12,8 +12,8 @@ alias la='ls -A'
 alias mdf="cd ~/.dotfiles && mvim ~/.dotfiles"
 
 # tmux
-alias tmux="tmux -2"
-# alias ts="TERM=screen-256color-bce mux start"
+alias tmux="TERM=screen-256color-bce tmux"
+alias mux="TERM=screen-256color-bce mux"
 alias tmuxkill="tmux kill-session"
 
 # Work

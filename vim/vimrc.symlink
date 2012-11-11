@@ -36,6 +36,7 @@ set incsearch
 set ignorecase
 set smartcase
 syntax enable
+syntax on
 let g:solarized_termtrans = 1
 colorscheme solarized
 let g:Powerline_symbols = 'fancy'
