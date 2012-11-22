@@ -9,6 +9,9 @@ tabs:
       panes:
         - vim .
         - 
+  - console:
+      layout: main-horizontal
+      pains:
         - zeus console
   - server:
       layout: main-horizontal
