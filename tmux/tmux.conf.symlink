@@ -75,15 +75,15 @@ set -g mode-mouse off
 # # clock
 # set-window-option -g clock-mode-colour green #green
 
-# # status bar
-# set-option -g status on
-# set-option -g status-interval 2
-# set-option -g status-utf8 on
-# set-option -g status-justify "centre"
-# set-option -g status-left-length 60
-# set-option -g status-right-length 90
-# set-option -g status-left "#(~/.tmux/extras/tmux-powerline/status-left.sh)"
-# set-option -g status-right "#(~/.tmux/extras/tmux-powerline/status-right.sh)"
+# status bar
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-utf8 on
+set-option -g status-justify "centre"
+set-option -g status-left-length 60
+set-option -g status-right-length 90
+set-option -g status-left "#(~/.tmux/extras/tmux-powerline/status-left.sh)"
+set-option -g status-right "#(~/.tmux/extras/tmux-powerline/status-right.sh)"
 
 
 #### COLOUR (Solarized 256)
