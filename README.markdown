@@ -10,10 +10,10 @@ Installation
 ============
 For an exact setup of my machine, do the following:
 
-1) Download and install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
-2) Clone this repo to a directory of your choice. I use ~/.dotfiles.
-3) cd into that directory
-4) rake install
+1. Download and install [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh)
+2. Clone this repo to a directory of your choice. I use ~/.dotfiles.
+3. cd into that directory
+4. rake install
 
 Boom.  All the files/directories that ended in .symlink will now exist under ~.  ZSH files will also link over.
 
