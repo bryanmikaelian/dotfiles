@@ -13,4 +13,4 @@ tabs:
   - server:
       layout: main-horizontal
       panes:
-        - rails server
+        - tail -f log/development.log
