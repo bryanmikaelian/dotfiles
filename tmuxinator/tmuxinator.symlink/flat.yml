@@ -5,19 +5,12 @@ project_name: Tmuxinator
 project_root: ~/Code/Rails/flat
 tabs:
   - main:
-      layout: dee0,238x59,0,0{159x59,0,0,0,78x59,160,0[78x29,160,0,3,78x29,160,30,4]}
+      layout: 34e5,208x55,0,0[208x42,0,0,4,208x12,0,43{139x12,0,43,10,68x12,140,43,11}]
       panes:
         - vim .
         - 
-  - console:
-      layout: main-horizontal
-      pains:
-        - zeus console
+        - rails console
   - server:
       layout: main-horizontal
       panes:
-        - zeus server
-  - guard: 
-      layout: main-horizontal
-      panes:
-        - bundle exec guard
+        - tail -f log/development.log
