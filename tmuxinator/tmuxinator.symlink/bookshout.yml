@@ -4,7 +4,7 @@
 project_name: Tmuxinator
 project_root: ~/Code/rethinkbooks/getsocialbooks.com
 tabs:
-  - main:
+  - editor:
       layout: 34e5,208x55,0,0[208x42,0,0,4,208x12,0,43{139x12,0,43,10,68x12,140,43,11}]
       panes:
         - vim .
@@ -13,4 +13,9 @@ tabs:
   - server:
       layout: main-horizontal
       panes:
-      - rails server
+      - tail -f log/development.log
+
+  - mysql:
+      layout: main-horizontal
+      panes:
+      - bsdev
