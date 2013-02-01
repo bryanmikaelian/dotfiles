@@ -1,19 +1,11 @@
 # ~/.tmuxinator/default.yml
-# you can make as many tabs as you wish...
 
 project_name: Tmuxinator
-project_root: ~/Code/Rails
+project_root: ~/Code
 tabs:
   - main:
-      layout: dee0,238x59,0,0{159x59,0,0,0,78x59,160,0[78x29,160,0,3,78x29,160,30,4]}
+      layout: a118,208x53,0,0{139x53,0,0,9,68x53,140,0[68x36,140,0,10,68x16,140,37,11]}
       panes:
-        - vim .
         - 
-  - console:
-      layout: main-horizontal
-      pains:
-        - zeus console
-  - server:
-      layout: main-horizontal
-      panes:
-        - zeus server
+        -
+        -
