@@ -18,4 +18,4 @@ tabs:
   - compass:
       layout: main-horizontal
       panes:
-      - compass watch views/stylesheets
+      - compass watch --css-dir views/stylesheets
