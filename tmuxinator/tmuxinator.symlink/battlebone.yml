@@ -9,7 +9,7 @@ tabs:
       panes:
         - vim .
         - 
-        - rake watch
+        - rake styles:watch
   - server:
       layout: main-horizontal
       panes:

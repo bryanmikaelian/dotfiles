@@ -1,4 +1,4 @@
-lias rs='rails server'
+alias rs='rails server'
 alias rgc='rails generate controller'
 alias rgm='rails generate model'
 alias cdr='cd ~/Code/Rails'
