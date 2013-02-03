@@ -9,13 +9,8 @@ tabs:
       panes:
         - vim .
         - 
-        - irb
+        - rake watch
   - server:
       layout: main-horizontal
       panes:
-        - unicorn
-
-  - compass:
-      layout: main-horizontal
-      panes:
-       - compass watch
+      - rake start
