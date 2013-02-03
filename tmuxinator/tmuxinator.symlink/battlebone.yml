@@ -13,9 +13,9 @@ tabs:
   - server:
       layout: main-horizontal
       panes:
-      - unicorn
+        - unicorn
 
   - compass:
       layout: main-horizontal
       panes:
-      - compass watch --css-dir views/stylesheets
+       - compass watch
