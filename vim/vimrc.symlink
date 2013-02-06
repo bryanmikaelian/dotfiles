@@ -1,7 +1,7 @@
 " Pathogen
 call pathogen#infect()
 
-" Text Formatting
+" Text Formatting - General
 set autoindent
 set smartindent
 set nowrap
@@ -11,7 +11,9 @@ set softtabstop=2
 set expandtab
 set nosmarttab
 set encoding=utf-8
-au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79 " Python is now using the standard rules.  BECAUSE I WRITE PYTHON
+
+" Special Case Text Formatting
+au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
 " Language syntax highlighting
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby " random files that are ruby-esq
@@ -64,6 +66,7 @@ nmap <Leader>2 2gt
 nmap <Leader>3 3gt
 nmap <Leader>4 4gt
 nmap <Leader>5 5gt
+nmap <Leader>6 6gt
 
 " Nerd tree
 nmap <Leader>] :NERDTreeToggle<Esc>
