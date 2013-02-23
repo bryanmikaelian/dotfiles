@@ -20,3 +20,8 @@ tabs:
       layout: main-horizontal
       panes:
       - bsdev
+
+  - terminal:
+      layout: main-horizontal
+      panes:
+      - cdrtb; cd getsocialbooks.com
