@@ -15,7 +15,7 @@ compinit
 # load every completion after autocomplete loads
 # for config_file ($ZSH/**/completion.sh) source $config_file
 
-PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin:${GOPATH//://bin:}/bin
 
 # Tmux
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
