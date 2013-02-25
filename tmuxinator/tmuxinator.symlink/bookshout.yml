@@ -9,12 +9,11 @@ tabs:
       panes:
         - vim .
         - 
-        - zeus console
+        - rails console
   - server:
       layout: main-horizontal
       panes:
-      # - tail -f log/development.log
-      - zeus server
+      - tail -f log/development.log
 
   - mysql:
       layout: main-horizontal
