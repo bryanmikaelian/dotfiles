@@ -1,0 +1,1 @@
+alias revel='bin/revel'
