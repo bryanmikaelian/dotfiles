@@ -24,3 +24,8 @@ tabs:
       layout: main-horizontal
       panes:
       - cdrtb; cd getsocialbooks.com
+
+  - spork:
+      layout: main-horizontal
+      panes:
+      - cdrtb; cd getsocialbooks.com; spork
