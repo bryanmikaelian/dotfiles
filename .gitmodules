@@ -58,3 +58,9 @@
 [submodule "vim/vim.symlink/bundle/vim-vroom"]
 	path = vim/vim.symlink/bundle/vim-vroom
 	url = https://github.com/skalnik/vim-vroom.git
+[submodule "vim/vim.symlink/bundle/webapi-vim"]
+	path = vim/vim.symlink/bundle/webapi-vim
+	url = git@github.com:mattn/webapi-vim.git
+[submodule "vim/vim.symlink/bundle/gist-vim"]
+	path = vim/vim.symlink/bundle/gist-vim
+	url = git@github.com:mattn/gist-vim.git
