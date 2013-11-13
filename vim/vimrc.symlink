@@ -39,7 +39,7 @@ set ignorecase
 set smartcase
 syntax enable
 syntax on
-set background=dark
+set background=light
 
 " Solarized
 let g:solarized_termcolors = "16"
