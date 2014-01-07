@@ -13,4 +13,7 @@ windows:
   - server:
       layout: main-horizontal
       panes:
-      - tail -f log/development.log
+        - tail -f log/development.log
+  - guard:
+      panes:
+        - guard  

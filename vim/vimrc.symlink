@@ -46,7 +46,7 @@ let g:solarized_termcolors = "16"
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 let g:Powerline_symbols = 'fancy'
-colorscheme base16-default
+colorscheme base16-tomorrow
 
 
 " Configuration
