@@ -1,0 +1,19 @@
+# ~/.tmuxinator/bookshout.yml
+# you can make as many tabs as you wish...
+
+project_name: Tmuxinator
+project_root: ~/Code/rethinkbooks/book-loads
+windows:
+  - editor:
+      layout: a118,208x53,0,0{139x53,0,0,9,68x53,140,0[68x36,140,0,10,68x16,140,37,11]}
+      panes:
+        - vim .
+        - 
+        - rails console
+  - server:
+      layout: main-horizontal
+      panes:
+      - tail -f log/development.log
+  - guard:
+      panes:
+        - guard  
