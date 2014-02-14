@@ -37,6 +37,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set splitbelow
+set splitright
 syntax enable
 syntax on
 set background=dark
@@ -67,6 +69,12 @@ nmap <Leader>3 3gt
 nmap <Leader>4 4gt
 nmap <Leader>5 5gt
 nmap <Leader>6 6gt
+
+" Switch between panes more naturally
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " Nerd tree
 nmap <Leader>] :NERDTreeToggle<Esc>
