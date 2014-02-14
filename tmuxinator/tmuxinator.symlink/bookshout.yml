@@ -4,28 +4,17 @@
 project_name: Tmuxinator
 project_root: ~/Code/rethinkbooks/getsocialbooks.com
 windows:
-  - editor:
-      layout: a118,208x53,0,0{139x53,0,0,9,68x53,140,0[68x36,140,0,10,68x16,140,37,11]}
+  - vim:
       panes:
         - vim .
+  - console:
+      layout: a516,238x62,0,0[238x23,0,0{139x23,0,0,1,98x23,140,0,6},238x38,0,24,3]
+      panes:
         - 
-        - rails console
-  - server:
-      layout: main-horizontal
-      panes:
-      - tail -f log/development.log
-
-  - mysql:
-      layout: main-horizontal
-      panes:
-      - bsdev
-
+        - 
+        - rails c
   - terminal:
-      layout: main-horizontal
+      layout: 7839,238x62,0,0{119x62,0,0,2,118x62,120,0,5}
       panes:
-      - cdrtb; cd getsocialbooks.com
-
-  - spork:
-      layout: main-horizontal
-      panes:
-      - cdrtb; cd getsocialbooks.com; spork
+        - tail -f log/development.log
+        - tail -f log/test.log
