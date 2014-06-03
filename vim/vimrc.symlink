@@ -19,6 +19,7 @@ au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Berksfile,Bowerfile,config.ru}    set ft=ruby " random files that are ruby-esq
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
 au BufNewFile,BufRead *.json set ft=javascript " json
+au BufNewFile,BufRead *.hamlc set ft=haml
 
 " UI
 set laststatus=2
