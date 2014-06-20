@@ -76,3 +76,6 @@
 [submodule "vim/vim.symlink/bundle/xptemplate"]
 	path = vim/vim.symlink/bundle/xptemplate
 	url = git@github.com:drmingdrmer/xptemplate.git
+[submodule "vim/vim.symlink/bundle/vim-indenty-guides"]
+	path = vim/vim.symlink/bundle/vim-indenty-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git

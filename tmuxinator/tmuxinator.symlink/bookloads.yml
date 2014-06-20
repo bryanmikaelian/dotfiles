@@ -1,0 +1,15 @@
+project_name: Tmuxinator
+project_root: ~/Code/Scala/book-processor
+windows:
+  - vim:
+      panes:
+        - vim .
+  - terminal:
+      panes:
+        - 
+  - sbt:
+      layout: a516,238x62,0,0[238x23,0,0{139x23,0,0,1,98x23,140,0,6},238x38,0,24,3]
+      panes:
+        - sbt
+        - sbt
+        - sbt console
