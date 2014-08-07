@@ -2,7 +2,7 @@
 # you can make as many tabs as you wish...
 
 project_name: Tmuxinator
-project_root: ~/Code/puhsh/puhsh
+project_root: ~/Code/puhsh/pic_now
 windows:
   - vim:
       panes:
@@ -14,7 +14,7 @@ windows:
       layout: a516,238x62,0,0[238x23,0,0{139x23,0,0,1,98x23,140,0,6},238x38,0,24,3]
       panes:
         - bundle exec guard  
-        - karma start
+        -
         - bundle exec rails c
   - logs:
       layout: 7839,238x62,0,0{119x62,0,0,2,118x62,120,0,5}

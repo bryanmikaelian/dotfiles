@@ -1,7 +1,7 @@
 # ~/.tmuxinator/default.yml
 
 project_name: Tmuxinator
-project_root: ~/Code/rethinkbooks/book-ingestion
+project_root: ~/Code/rethinkbooks/book-loads
 windows:
   - vim:
       panes:
