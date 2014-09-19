@@ -1,15 +1,20 @@
+# ~/.tmuxinator/bookshout.yml
+# you can make as many tabs as you wish...
+
 project_name: Tmuxinator
-project_root: ~/Code/Scala/book-processor
+project_root: ~/Code/rethinkbooks/book-loads
 windows:
   - vim:
       panes:
         - vim .
-  - terminal:
-      panes:
-        - 
-  - sbt:
+  - console:
       layout: a516,238x62,0,0[238x23,0,0{139x23,0,0,1,98x23,140,0,6},238x38,0,24,3]
       panes:
-        - sbt
-        - sbt
-        - sbt console
+        - 
+        - 
+        - rails c
+  - terminal:
+      layout: 7839,238x62,0,0{119x62,0,0,2,118x62,120,0,5}
+      panes:
+        - tail -f log/development.log
+        - tail -f log/test.log

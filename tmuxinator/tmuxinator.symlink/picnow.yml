@@ -1,7 +1,8 @@
-# ~/.tmuxinator/default.yml
+# ~/.tmuxinator/bookshout.yml
+# you can make as many tabs as you wish...
 
 project_name: Tmuxinator
-project_root: ~/Code/rethinkbooks/book-ingestion
+project_root: ~/Code/puhsh/picnow
 windows:
   - vim:
       panes:
