@@ -79,3 +79,21 @@
 [submodule "vim/vim.symlink/bundle/vim-go"]
 	path = vim/vim.symlink/bundle/vim-go
 	url = git@github.com:fatih/vim-go.git
+[submodule "vim/vim.symlink/bundle/vim-emblem"]
+	path = vim/vim.symlink/bundle/vim-emblem
+	url = git@github.com:heartsentwined/vim-emblem.git
+[submodule "vim/vim.symlink/bundle/vim-rails"]
+	path = vim/vim.symlink/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vim/vim.symlink/bundle/vim-snipmate"]
+	path = vim/vim.symlink/bundle/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate.git
+[submodule "vim/vim.symlink/bundle/vim-addon-mv-utils"]
+	path = vim/vim.symlink/bundle/vim-addon-mv-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/vim.symlink/bundle/tlib_vim"]
+	path = vim/vim.symlink/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/vim.symlink/bundle/vim-snippets"]
+	path = vim/vim.symlink/bundle/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
