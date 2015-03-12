@@ -100,3 +100,6 @@
 [submodule "vim/vim.symlink/bundle/vim-javascript"]
 	path = vim/vim.symlink/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "fish/oh-my-fish.symlink"]
+	path = fish/oh-my-fish.symlink
+	url = git@github.com:bpinto/oh-my-fish.git
