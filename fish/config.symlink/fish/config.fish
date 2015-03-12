@@ -1,12 +1,15 @@
-# # Editor
-# set -x EDITOR 'atom'
-#
-# # Go
-# set -x GOROOT /usr/local/go
-# set -x GOPATH $HOME/Code/Go
+# Editor
+set -x EDITOR 'atom'
+
+# Go
+set -x GOROOT /usr/local/go
+set -x GOPATH $HOME/Code/Go
 
 # Path to your oh-my-fish.
 set fish_path $HOME/.oh-my-fish
+
+# Theme
+set fish_theme toaster
 
 # All built-in plugins can be found at ~/.oh-my-fish/plugins/
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
