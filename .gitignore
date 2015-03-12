@@ -4,3 +4,5 @@ vim/.netrwhist
 vim/vim.symlink/.DS_Store
 vim/vim.symlink/.netrwhist
 fish/config.symlink/fish/fish_history
+fish/fish_read_history
+fish/fishd.*
