@@ -20,7 +20,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Berksfile,Bowerfile
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
 au BufNewFile,BufRead *.json set ft=javascript " json
 au BufNewFile,BufRead *.hamlc set ft=haml
-au BufNewFile,BufRead *.handlebars set ft=html
+au BufNewFile,BufRead *.{handlebars,hbs} set ft=html
 
 " UI
 set laststatus=2

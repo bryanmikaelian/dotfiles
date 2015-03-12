@@ -6,7 +6,7 @@ project_root: ~/Code/puhsh/puhsh
 windows:
   - vim:
       panes:
-        - vim .
+        - atom .
   - terminal:
       panes:
         - 

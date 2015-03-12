@@ -6,14 +6,16 @@ project_root: ~/Code/rethinkbooks/book-loads
 windows:
   - vim:
       panes:
-        - vim .
-  - console:
-      layout: a516,238x62,0,0[238x23,0,0{139x23,0,0,1,98x23,140,0,6},238x38,0,24,3]
+        - atom .
+  - terminal:
       panes:
         - 
-        - 
+  - railsc:
+      layout: a516,238x62,0,0[238x23,0,0{139x23,0,0,1,98x23,140,0,6},238x38,0,24,3]
+      panes:
+        - guard  
         - rails c
-  - terminal:
+  - logs:
       layout: 7839,238x62,0,0{119x62,0,0,2,118x62,120,0,5}
       panes:
         - tail -f log/development.log
