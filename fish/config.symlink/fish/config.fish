@@ -9,7 +9,7 @@ set -x GOPATH $HOME/Code/Go
 set fish_path $HOME/.oh-my-fish
 
 # Theme
-set fish_theme toaster
+set fish_theme fox
 
 # All built-in plugins can be found at ~/.oh-my-fish/plugins/
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
@@ -17,7 +17,7 @@ set fish_theme toaster
 set fish_plugins theme
 set fish_plugins rvm
 set fish_plugins tmux
-set fish_plugins rails
+# set fish_plugins rails
 
 # Path to your custom folder (default path is ~/.oh-my-fish/custom)
 #set fish_custom $HOME/dotfiles/oh-my-fish
