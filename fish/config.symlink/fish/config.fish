@@ -24,3 +24,5 @@ set fish_plugins tmux
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
+
+# rvm
