@@ -1,7 +1,7 @@
 # Credit: Zach Holeman
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
-export ZSH_THEME=awesomepanda
+export ZSH_THEME=theunraveler
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -21,5 +21,9 @@ PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin:${GOPATH//://bin:}/bin
 # Tmux
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
+
+# rbenv
+eval "$(rbenv init - --no-rehash)"
+
 # Plugins
-plugins=(battery)
+plugins=(rbenv)
