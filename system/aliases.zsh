@@ -17,8 +17,4 @@ alias mux="TERM=screen-256color-bce mux"
 alias tmuxkill="tmux kill-session"
 
 # Work
-alias bsdev='mysql socialbooks_development -uroot'
-alias cdrtb="cd ~/Code/rethinkbooks"
-alias cdbs="cdrtb; cd getsocialbooks.com"
-alias cdbsz="cdbs; zeus start"
 alias sup="mysqlstart; rup"
