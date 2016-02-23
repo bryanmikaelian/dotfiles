@@ -1,6 +1,11 @@
 " Pathogen
 call pathogen#infect()
 
+" Plugged
+call plug#begin('~/.vim/plugged')
+call plug#end()
+
+
 " Text Formatting - General
 set autoindent
 set smartindent

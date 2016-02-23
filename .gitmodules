@@ -103,6 +103,3 @@
 [submodule "fish/oh-my-fish.symlink"]
 	path = fish/oh-my-fish.symlink
 	url = git@github.com:bpinto/oh-my-fish.git
-[submodule "vim/vim.symlink/bundle/vim-plug"]
-	path = vim/vim.symlink/bundle/vim-plug
-	url = git@github.com:junegunn/vim-plug.git
