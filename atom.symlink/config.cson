@@ -1,0 +1,24 @@
+"*":
+  "base16-syntax":
+    scheme: "Ashes"
+  core:
+    themes: [
+      "atom-dark-ui"
+      "base16-syntax"
+    ]
+  editor:
+    fontFamily: "Hack"
+    fontSize: 13
+    invisibles: {}
+    preferredLineLength: 150
+    tabType: "soft"
+  "exception-reporting":
+    userId: "20948e1e-4dda-36c5-7c11-045ffcf46a0b"
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
+  react: {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
