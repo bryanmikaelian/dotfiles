@@ -1,6 +1,6 @@
 [user]
 	name = Bryan Mikaelian
-	email = bryan.mikaelian@gmail.com
+	email = bryan@librato.com
 
 [color]
   ui = true
@@ -23,3 +23,5 @@ fap = fetch --all -p
 stat = status
 st = status --short
 co = checkout
+[core]
+	excludesfile = /Users/bryanmikaelian/.gitignore

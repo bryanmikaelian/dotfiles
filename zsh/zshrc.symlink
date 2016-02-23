@@ -26,4 +26,12 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$
 eval "$(rbenv init - --no-rehash)"
 
 # Plugins
-plugins=(rbenv)
+# plugins=(rbenv)
+
+
+# chruby
+# RUBIES+=(~/.rbenv/versions/*)
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# source /usr/local/opt/chruby/share/chruby/auto.sh
+
+export SEGMENTIO_SECRET_KEY=JuKYxjuTP06OAxA923aBIDE3CTS08xsI

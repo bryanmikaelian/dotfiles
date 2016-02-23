@@ -1,6 +1,7 @@
 # cd
 alias ..='cd ..'
 alias c="cd ~/Code"
+alias cdl= "cd ~/Code/librato"
 
 # ls
 alias ls="ls -F"
