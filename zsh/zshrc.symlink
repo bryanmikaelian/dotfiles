@@ -35,3 +35,8 @@ eval "$(rbenv init - --no-rehash)"
 # source /usr/local/opt/chruby/share/chruby/auto.sh
 
 export SEGMENTIO_SECRET_KEY=JuKYxjuTP06OAxA923aBIDE3CTS08xsI
+
+# aem 
+if [ -s $HOME/.awsam/bash.rc ]; then
+  source $HOME/.awsam/bash.rc
+fi
