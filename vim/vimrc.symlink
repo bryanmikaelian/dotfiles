@@ -1,10 +1,6 @@
-" Pathogen
-call pathogen#infect()
-
 " Plugged
 call plug#begin('~/.vim/plugged')
 call plug#end()
-
 
 " Text Formatting - General
 set autoindent
@@ -24,13 +20,14 @@ au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Berksfile,Bowerfile,config.ru}    set ft=ruby " random files that are ruby-esq
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
 au BufNewFile,BufRead *.json set ft=javascript " json
+au BufNewFile,BufRead *.es6 set ft=javascript " ES6
 au BufNewFile,BufRead *.hamlc set ft=haml
 au BufNewFile,BufRead *.{handlebars,hbs} set ft=html
 
 " UI
 set laststatus=2
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,.node_modules
 set number
 set ruler
 set nolazyredraw
@@ -50,18 +47,10 @@ syntax enable
 syntax on
 set background=dark
 
-" Solarized
-let g:solarized_termcolors = "16"
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:Powerline_symbols = 'fancy'
-colorscheme base16-tomorrow
-
 " Indent Guides
 let g:indent_guides_guide_size=1
 let g:indent_guide_start_level=2
 let g:indent_guides_enable_on_vim_startup = 1
-
 
 " Configuration
 set nocompatible
