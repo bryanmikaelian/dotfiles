@@ -24,3 +24,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+
+# Intellij
+.idea/
+*.iml
