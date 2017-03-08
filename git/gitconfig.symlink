@@ -1,6 +1,7 @@
 [user]
 	name = Bryan Mikaelian
 	email = bryan@librato.com
+	signingkey = 3948C899
 
 [color]
   ui = true
@@ -24,4 +25,4 @@ stat = status
 st = status --short
 co = checkout
 [core]
-	excludesfile = /Users/bryanmikaelian/.gitignore
+	excludesfile = /Users/bmikaelian/.gitignore

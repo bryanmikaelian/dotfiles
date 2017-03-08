@@ -3,6 +3,7 @@ vim/.DS_Store
 vim/.netrwhist
 vim/vim.symlink/.DS_Store
 vim/vim.symlink/.netrwhist
+vim/vim.symlink/plugged
 fish/config.symlink/fish/fish_history
 fish/fish_read_history
 fish/config.symlink/fish/fishd.*

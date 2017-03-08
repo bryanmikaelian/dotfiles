@@ -1,7 +1,7 @@
 # Credit: Zach Holeman
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
-export ZSH_THEME=wezm
+export ZSH_THEME=avit
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -36,7 +36,19 @@ eval "$(rbenv init - --no-rehash)"
 
 export SEGMENTIO_SECRET_KEY=JuKYxjuTP06OAxA923aBIDE3CTS08xsI
 
-# aem
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+# unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+# export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+
+# Librato-specific local dev
 if [ -s $HOME/.awsam/bash.rc ]; then
   source $HOME/.awsam/bash.rc
 fi
