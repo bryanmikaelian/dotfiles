@@ -1,7 +1,7 @@
 # Credit: Zach Holeman
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
-export ZSH_THEME=theunraveler
+export ZSH_THEME=hyperzsh
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -35,3 +35,14 @@ eval "$(rbenv init - --no-rehash)"
 # source /usr/local/opt/chruby/share/chruby/auto.sh
 
 export SEGMENTIO_SECRET_KEY=JuKYxjuTP06OAxA923aBIDE3CTS08xsI
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+# unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+# export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"

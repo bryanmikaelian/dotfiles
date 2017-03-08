@@ -19,3 +19,6 @@ alias tmuxkill="tmux kill-session"
 
 # Work
 alias sup="mysqlstart; rup"
+
+# Docker
+alias dockercleanup="docker rm `docker ps -aq`"

@@ -1,12 +1,12 @@
-" Pathogen
-call pathogen#infect()
-
 " Plugged
 call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'scrooloose/nerdtree'
+  Plug 'Valloric/YouCompleteMe'
+  Plug 'Townk/vim-autoclose'
+  Plug 'kien/ctrlp.vim'
 call plug#end()
-
 
 " Text Formatting - General
 set autoindent
@@ -18,6 +18,7 @@ set softtabstop=2
 set expandtab
 set nosmarttab
 set encoding=utf-8
+set relativenumber
 
 " Special Case Text Formatting
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -52,18 +53,10 @@ syntax enable
 syntax on
 set background=dark
 
-" Solarized
-let g:solarized_termcolors = "16"
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-let g:Powerline_symbols = 'fancy'
-colorscheme base16-tomorrow
-
 " Indent Guides
 let g:indent_guides_guide_size=1
 let g:indent_guide_start_level=2
 let g:indent_guides_enable_on_vim_startup = 1
-
 
 " Configuration
 set nocompatible
@@ -90,30 +83,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Nerd tree
-nmap <Leader>] :NERDTreeToggle<Esc>
-autocmd FocusGained * call s:UpdateNERDTree()
+" NERDTree
+" map <Leader>] :NERDTreeToggle<Esc>
 
-" NERDTree utility function
-function s:UpdateNERDTree(...)
-  let stay = 0
-
-  if(exists("a:1"))
-    let stay = a:1
-  end
-
-  if exists("t:NERDTreeBufName")
-    let nr = bufwinnr(t:NERDTreeBufName)
-    if nr != -1
-      exe nr . "wincmd w"
-      exe substitute(mapcheck("R"), "<CR>", "", "")
-      if !stay
-        wincmd p
-      end
-    endif
-  endif
-
-  if exists(":CommandTFlush") == 2
-    CommandTFlush
-  endif
-endfunction
