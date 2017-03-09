@@ -1,6 +1,7 @@
 # cd
 alias ..='cd ..'
 alias c="cd ~/Code"
+alias code=c
 alias cdl= "cd ~/Code/librato"
 
 # ls
@@ -17,7 +18,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias mux="TERM=screen-256color-bce mux"
 alias tmuxkill="tmux kill-session"
 
-# Work
+# DBs
 alias sup="mysqlstart; rup"
 
 # Docker

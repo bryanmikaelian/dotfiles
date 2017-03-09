@@ -1,25 +1,16 @@
 require 'rake'
 
 task :install do
- linkables = Dir.glob('*/**{.symlink}')
-
-  skip_all = false
-  overwrite_all = false
-  backup_all = false
-
+  linkables = Dir.glob('*/**{.symlink}')
   linkables.each do |linkable|
-    overwrite = false
-    backup = false
-
     file = linkable.split('/').last.split('.symlink').last
     target = "#{ENV["HOME"]}/.#{file}"
 
-    `ln -s "$PWD/#{linkable}" "#{target}"`
+    `ln -sf "$PWD/#{linkable}" "#{target}"`
   end
 end
 
 task :uninstall do
-
   Dir.glob('**/*.symlink').each do |linkable|
 
     file = linkable.split('/').last.split('.symlink').last

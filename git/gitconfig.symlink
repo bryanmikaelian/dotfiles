@@ -1,7 +1,6 @@
 [user]
-	name = Bryan Mikaelian
-	email = bryan@librato.com
-	signingkey = 3948C899
+  name = Bryan Mikaelian
+  email = bryan.mikaelian@gmail.com
 
 [color]
   ui = true
