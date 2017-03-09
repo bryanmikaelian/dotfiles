@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Text Formatting - General
@@ -100,6 +101,9 @@ map <Leader>] <plug>NERDTreeTabsToggle<ESC>
 
 " CtrlP
 let g:ctrlp_dont_split = 'NERD'
+
+" Vim Airline
+let g:airline_theme='base16'
 
 " Rails/Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
