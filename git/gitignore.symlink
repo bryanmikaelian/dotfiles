@@ -59,7 +59,7 @@ vim/vim.symlink/plugged
 
 # IntelliJ
 /out/
-.idea/
+*.idea/
 *.iml
 project/
 

@@ -23,5 +23,6 @@ fap = fetch --all -p
 stat = status
 st = status --short
 co = checkout
+
 [core]
-	excludesfile = /Users/bmikaelian/.gitignore
+	excludesfile = $HOME/.gitignore
