@@ -29,3 +29,6 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Configure global gitignore
+git config --global core.excludesfile $HOME/.gitignore

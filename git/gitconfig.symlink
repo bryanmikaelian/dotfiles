@@ -18,11 +18,6 @@ user = bryanmikaelian
 
 [alias]
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-df = diff
-fap = fetch --all -p
-stat = status
-st = status --short
-co = checkout
-
+s = status --short
 [core]
-	excludesfile = $HOME/.gitignore
+	excludesfile = /Users/bryanmikaelian/.gitignore
