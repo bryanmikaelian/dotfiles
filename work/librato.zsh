@@ -13,5 +13,5 @@ export SPACES_API_URI="http://api.librato.dev"
 export SPACES_TEST_API_URI="http://0.0.0.0:9292"
 export SPACES_DIRECT_API="http://0.0.0.0:9292"
 
-export SSL_CERT_FILE="/Users/bryanmikaelian/.ssl/cacert.pem"
+export SSL_CERT_FILE="${HOME}/.ssl/cacert.pem"
 export SEGMENTIO_SECRET_KEY=JuKYxjuTP06OAxA923aBIDE3CTS08xsI

@@ -4,8 +4,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'scrooloose/nerdtree'
   Plug 'Valloric/YouCompleteMe'
-  Plug 'Townk/vim-autoclose'
   Plug 'kien/ctrlp.vim'
+  Plug 'tpope/vim-rails'
+  Plug 'honza/vim-snippets'
+  Plug 'sirver/ultisnips'
+  Plug 'jistr/vim-nerdtree-tabs'
+  Plug 'thoughtbot/vim-rspec'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Text Formatting - General
@@ -19,6 +25,7 @@ set expandtab
 set nosmarttab
 set encoding=utf-8
 set relativenumber
+set shortmess+=c
 
 " Special Case Text Formatting
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -86,3 +93,20 @@ nnoremap <C-H> <C-W><C-H>
 
 " NERDTree
 " map <Leader>] :NERDTreeToggle<Esc>
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+map <Leader>] <plug>NERDTreeTabsToggle<ESC>
+
+" CtrlP
+let g:ctrlp_dont_split = 'NERD'
+
+" Rails/Rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
