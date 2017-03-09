@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'thoughtbot/vim-rspec'
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
+  Plug 'bling/vim-airline'
 call plug#end()
 
 " Text Formatting - General
