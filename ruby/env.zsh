@@ -1,5 +1,0 @@
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# rbenv
-eval "$(rbenv init - --no-rehash)"
