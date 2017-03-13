@@ -101,6 +101,7 @@ nnoremap <C-H> <C-W><C-H>
 " map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
+let NERDTreeShowLineNumbers=1
 map <Leader>] <plug>NERDTreeTabsToggle<ESC>
 
 " CtrlP
