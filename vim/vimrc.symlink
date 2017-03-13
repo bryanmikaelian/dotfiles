@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'ervandew/supertab'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'kchmck/vim-coffee-script'
 call plug#end()
 
 " Text Formatting - General
