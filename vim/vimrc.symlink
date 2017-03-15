@@ -107,6 +107,7 @@ map <Leader>] <plug>NERDTreeTabsToggle<ESC>
 
 " CtrlP
 let g:ctrlp_dont_split = 'NERD'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
 
 " Vim Airline
 let g:airline_theme='base16'
