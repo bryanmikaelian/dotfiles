@@ -20,5 +20,4 @@ user = bryanmikaelian
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 s = status --short
 [core]
-	excludesfile = /Users/bryanmikaelian/.gitignore
 	excludesfile = /Users/bmikaelian/.gitignore
