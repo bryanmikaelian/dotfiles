@@ -2,8 +2,8 @@ if [ -s $HOME/.awsam/bash.rc ]; then
   source $HOME/.awsam/bash.rc
 fi
 
-export SL_API_DB="mysql2://metrics:@localhost/metrics_development"
-export SL_API_TEST_DB="mysql2://metrics:@localhost/metrics_test"
+export SL_API_DB="mysql2://metrics:@127.0.0.1/metrics_development"
+export SL_API_TEST_DB="mysql2://metrics:@127.0.0.1/metrics_test"
 export SL_API_TSSTORE_URI=cassandra://127.0.0.1
 export SL_API_URI="http://0.0.0.0:9292"
 
