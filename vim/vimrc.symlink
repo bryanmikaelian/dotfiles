@@ -18,6 +18,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'ervandew/supertab'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'kchmck/vim-coffee-script'
+  Plug 'mxw/vim-jsx'
+  Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " Text Formatting - General
@@ -32,6 +34,7 @@ set nosmarttab
 set encoding=utf-8
 set relativenumber
 set shortmess+=c
+set autoread
 
 " Special Case Text Formatting
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -41,6 +44,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Berksfile,Bowerfile
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
 au BufNewFile,BufRead *.json set ft=javascript " json
 au BufNewFile,BufRead *.es6 set ft=javascript " ES6
+au BufNewFile,BufRead *.babelrc set ft=javascript " babel
 au BufNewFile,BufRead *.hamlc set ft=haml
 au BufNewFile,BufRead *.{handlebars,hbs} set ft=html
 
@@ -66,7 +70,7 @@ set splitbelow
 set splitright
 syntax enable
 syntax on
-set background=light
+set background=dark
 
 " Indent Guides
 let g:indent_guides_guide_size=1
@@ -112,6 +116,12 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
 
 " Vim Airline
 let g:airline_theme='base16'
+
+" React
+let g:jsx_ext_required = 0
+
+" Flow
+let g:javascript_plugin_flow = 1
 
 " Rails/Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
