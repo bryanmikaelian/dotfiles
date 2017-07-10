@@ -1,16 +1,19 @@
 " Plugged
 call plug#begin('~/.vim/plugged')
+  " Plug 'jistr/vim-nerdtree-tabs'
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
   Plug 'bling/vim-airline'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
-  " Plug 'jistr/vim-nerdtree-tabs'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'kchmck/vim-coffee-script'
   Plug 'kien/ctrlp.vim'
+  Plug 'mitermayer/vim-prettier'
+  Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
+  Plug 'raimondi/delimitmate'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'sirver/ultisnips'
@@ -19,9 +22,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-sensible'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'mxw/vim-jsx'
-  Plug 'mitermayer/vim-prettier'
-  Plug 'raimondi/delimitmate'
 call plug#end()
 
 " Text Formatting - General
@@ -36,6 +36,7 @@ set nosmarttab
 set encoding=utf-8
 set relativenumber
 set shortmess+=c
+set autoread
 
 " Copy paste
 set clipboard=unnamed
@@ -48,6 +49,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Berksfile,Bowerfile
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
 au BufNewFile,BufRead *.json set ft=javascript " json
 au BufNewFile,BufRead *.es6 set ft=javascript " ES6
+au BufNewFile,BufRead *.babelrc set ft=javascript " babel
 au BufNewFile,BufRead *.hamlc set ft=haml
 au BufNewFile,BufRead *.{handlebars,hbs} set ft=html
 
@@ -134,6 +136,12 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
 
 " Vim Airline
 let g:airline_theme='base16'
+
+" React
+let g:jsx_ext_required = 0
+
+" Flow
+let g:javascript_plugin_flow = 1
 
 " Rails/Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
