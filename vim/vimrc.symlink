@@ -1,23 +1,27 @@
 " Plugged
 call plug#begin('~/.vim/plugged')
-  Plug 'tpope/vim-sensible'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'scrooloose/nerdtree'
-  Plug 'scrooloose/nerdcommenter'
   Plug 'Valloric/YouCompleteMe'
-  Plug 'kien/ctrlp.vim'
-  Plug 'tpope/vim-rails'
-  Plug 'honza/vim-snippets'
-  Plug 'sirver/ultisnips'
-  Plug 'jistr/vim-nerdtree-tabs'
-  Plug 'thoughtbot/vim-rspec'
   Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-fugitive'
   Plug 'bling/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'ervandew/supertab'
-  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'honza/vim-snippets'
+  " Plug 'jistr/vim-nerdtree-tabs'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'kchmck/vim-coffee-script'
+  Plug 'kien/ctrlp.vim'
+  Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'pangloss/vim-javascript'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'scrooloose/nerdtree'
+  Plug 'sirver/ultisnips'
+  Plug 'thoughtbot/vim-rspec'
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-sensible'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'mxw/vim-jsx'
+  Plug 'mitermayer/vim-prettier'
+  Plug 'raimondi/delimitmate'
 call plug#end()
 
 " Text Formatting - General
@@ -32,6 +36,9 @@ set nosmarttab
 set encoding=utf-8
 set relativenumber
 set shortmess+=c
+
+" Copy paste
+set clipboard=unnamed
 
 " Special Case Text Formatting
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -99,16 +106,30 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" netrw
+let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 25
+"map <Leader>] :Explore</ESC>
+"augroup ProjectDrawer
+  "autocmd!
+  "autocmd VimEnter * :Vexplore
+  "set number
+"augroup END
+
+
 " NERDTree
-" map <Leader>] :NERDTreeToggle<Esc>
+ map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=40
-map <Leader>] <plug>NERDTreeTabsToggle<ESC>
+"map <Leader>] <plug>NERDTreeTabsToggle<ESC>
 
 " CtrlP
-let g:ctrlp_dont_split = 'NERD'
+" let g:ctrlp_dont_split = 'NERD'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
 
 " Vim Airline
@@ -129,3 +150,19 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" JS
+let g:javascript_plugin_flow = 1
+let g:jsx_ext_required = 0
+
+" vim-prettier
+let g:prettier#config#print_width = 80
+let g:prettier#config#tab_width = 2
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#semi = 'true'
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#parser = 'flow'
+
