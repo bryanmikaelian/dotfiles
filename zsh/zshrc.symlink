@@ -34,3 +34,9 @@ eval "$(rbenv init - --no-rehash)"
 
 # Configure global gitignore
 git config --global core.excludesfile $HOME/.gitignore
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bmikaelian/.gce/path.zsh.inc' ]; then source '/Users/bmikaelian/.gce/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bmikaelian/.gce/completion.zsh.inc' ]; then source '/Users/bmikaelian/.gce/completion.zsh.inc'; fi
