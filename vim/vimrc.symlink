@@ -123,12 +123,22 @@ let g:netrw_banner = 0
 
 
 " NERDTree
- map <Leader>] :NERDTreeToggle<Esc>
+function! ShowFileInNERDTree()
+  if exists("t:NERDTreeBufName")
+    NERDTreeFind
+  else
+    NERDTree
+    wincmd l
+    NERDTreeFind
+  endif
+endfunction
+
+map <leader>f :call ShowFileInNERDTree()<cr>
+map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=40
-"map <Leader>] <plug>NERDTreeTabsToggle<ESC>
 
 " CtrlP
 " let g:ctrlp_dont_split = 'NERD'
