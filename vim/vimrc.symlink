@@ -138,7 +138,7 @@ map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
-let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=30
 
 " CtrlP
 " let g:ctrlp_dont_split = 'NERD'
