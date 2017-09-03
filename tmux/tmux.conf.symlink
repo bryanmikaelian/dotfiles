@@ -8,6 +8,8 @@ set -g default-terminal "screen-256color"
 # Set shell
 set -g default-shell $SHELL
 
+set -g mouse on
+
 # Keybindings
 unbind C-b
 unbind C-a

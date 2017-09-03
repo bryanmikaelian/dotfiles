@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
   " Plug 'jistr/vim-nerdtree-tabs'
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
+  Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
