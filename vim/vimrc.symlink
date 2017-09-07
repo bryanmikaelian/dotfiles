@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
+  Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
