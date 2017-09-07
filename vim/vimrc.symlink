@@ -188,3 +188,7 @@ let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#parser = 'flow'
 
+" Splits
+noremap <leader>sc :close<CR>
+noremap <leader>sh :sp<CR>
+noremap <leader>sv :vsp<CR>
