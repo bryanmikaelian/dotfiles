@@ -84,6 +84,12 @@ setw -g window-status-bg green
 setw -g window-status-fg black
 setw -g window-status-attr reverse
 
+# window names
+set-option -g allow-rename off
+
+# Renumber
+set-option -g renumber-windows on
+
 # left info
 set -g status-left ''
 
