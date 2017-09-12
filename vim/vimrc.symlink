@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
+  Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -192,3 +193,7 @@ let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#parser = 'flow'
 
+" Splits
+noremap <leader>sc :close<CR>
+noremap <leader>sh :sp<CR>
+noremap <leader>sv :vsp<CR>
