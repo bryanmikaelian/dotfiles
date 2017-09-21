@@ -15,7 +15,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
+  Plug 'posva/vim-vue'
   Plug 'raimondi/delimitmate'
+  Plug 'rhysd/vim-crystal'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'sirver/ultisnips'
@@ -56,6 +58,7 @@ au BufNewFile,BufRead *.json set ft=javascript " json
 au BufNewFile,BufRead *.babelrc set ft=javascript " babel
 au BufNewFile,BufRead *.hamlc set ft=haml
 au BufNewFile,BufRead *.{handlebars,hbs,ejs} set ft=html
+au BufNewFile,BufRead *.cr set ft=crystal
 
 " UI
 set laststatus=2
