@@ -5,11 +5,11 @@ call plug#begin('~/.vim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
-  Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
+  "Plug 'isRuslan/vim-es6'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'kchmck/vim-coffee-script'
@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
