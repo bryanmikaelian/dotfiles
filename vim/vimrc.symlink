@@ -1,6 +1,8 @@
 " Plugged
 call plug#begin('~/.vim/plugged')
   " Plug 'jistr/vim-nerdtree-tabs'
+  "Plug 'kien/ctrlp.vim'
+  Plug '/usr/local/opt/fzf'
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
   Plug 'albfan/nerdtree-git-plugin'
@@ -9,8 +11,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   Plug 'kchmck/vim-coffee-script'
-  Plug 'kien/ctrlp.vim'
   Plug 'mitermayer/vim-prettier'
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
@@ -152,9 +154,13 @@ let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=30
 
+" fzf"
+let g:fzf_layout = { 'down': '~15%' }
+nnoremap <Leader>f :Files<cr>
+
 " CtrlP
 " let g:ctrlp_dont_split = 'NERD'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
+" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
 
 " Vim Airline
 let g:airline_theme='base16'
