@@ -1,15 +1,16 @@
 " Plugged
 call plug#begin('~/.vim/plugged')
   " Plug 'jistr/vim-nerdtree-tabs'
+  "Plug 'isRuslan/vim-es6'
   "Plug 'kien/ctrlp.vim'
   Plug '/usr/local/opt/fzf'
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
+  Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
-  "Plug 'isRuslan/vim-es6'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'kchmck/vim-coffee-script'
