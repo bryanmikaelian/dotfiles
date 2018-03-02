@@ -43,9 +43,14 @@ set softtabstop=2
 set expandtab
 set nosmarttab
 set encoding=utf-8
-set relativenumber
 set shortmess+=c
 set autoread
+
+" Relative numbers
+set relativenumber
+set numberwidth=3
+autocmd WinEnter,FocusGained * :setlocal number relativenumber
+autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
 
 " Copy paste
 if $TMUX == ''
