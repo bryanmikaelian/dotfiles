@@ -11,9 +11,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
+  Plug 'jparise/vim-graphql'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'kchmck/vim-coffee-script'
+  Plug 'leafgarland/typescript-vim'
   Plug 'mitermayer/vim-prettier'
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
@@ -30,7 +32,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'jparise/vim-graphql'
 call plug#end()
 
 " Text Formatting - General
