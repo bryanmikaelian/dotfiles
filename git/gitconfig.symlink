@@ -1,6 +1,7 @@
 [user]
   name = Bryan Mikaelian
   email = bryan.mikaelian@gmail.com
+	signingkey = D53CE794A159EE9A
 
 [color]
   ui = true

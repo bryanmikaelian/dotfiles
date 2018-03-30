@@ -77,3 +77,8 @@ fabric.properties
 
 # PyTest
 .cache
+
+# VSCode
+.vscode
+.vsworkspace
+*.code-workspace

@@ -23,3 +23,9 @@ alias sup="mysqlstart; rup"
 
 # Docker
 alias dockercleanup="docker rm `docker ps -aq`"
+
+# MySQL + mycli
+alias mysql="mycli"
+
+# Hub
+alias git="hub"

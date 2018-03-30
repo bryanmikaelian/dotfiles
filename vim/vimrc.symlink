@@ -14,13 +14,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'kchmck/vim-coffee-script'
-  Plug 'mitermayer/vim-prettier'
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'raimondi/delimitmate'
   Plug 'rhysd/vim-crystal'
+  Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
   Plug 'sirver/ultisnips'
@@ -95,7 +96,7 @@ set background=dark
 
 " Indent Guides
 let g:indent_guides_guide_size=1
-let g:indent_guide_start_level=2
+let g:indent_guide_start_level=1
 let g:indent_guides_enable_on_vim_startup = 0
 nmap <Leader>i <plug>IndentGuidesToggle<Esc>
 
@@ -159,7 +160,7 @@ map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
-let g:NERDTreeWinSize=30
+let g:NERDTreeWinSize=50
 
 " fzf"
 let g:fzf_layout = { 'down': '~15%' }
@@ -197,17 +198,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " JS
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
-
-" vim-prettier
-let g:prettier#config#print_width = 80
-let g:prettier#config#tab_width = 2
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#semi = 'true'
-let g:prettier#config#single_quote = 'false'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#trailing_comma = 'all'
-let g:prettier#config#parser = 'flow'
 
 " Splits
 noremap <leader>sc :close<CR>
