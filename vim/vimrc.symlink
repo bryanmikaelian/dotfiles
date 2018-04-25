@@ -1,8 +1,5 @@
 " Plugged
 call plug#begin('~/.vim/plugged')
-  " Plug 'jistr/vim-nerdtree-tabs'
-  "Plug 'isRuslan/vim-es6'
-  "Plug 'kien/ctrlp.vim'
   Plug '/usr/local/opt/fzf'
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
@@ -11,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
+  Plug 'jiangmiao/auto-pairs'
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -22,7 +20,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  Plug 'raimondi/delimitmate'
   Plug 'rhysd/vim-crystal'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/nerdcommenter'
@@ -95,7 +92,6 @@ set splitbelow
 set splitright
 syntax enable
 syntax on
-set background=light
 
 " Indent Guides
 let g:indent_guides_guide_size=1
@@ -133,19 +129,6 @@ noremap <leader>sc :close<CR>
 noremap <leader>sh :sp<CR>
 noremap <leader>sv :vsp<CR>
 
-" netrw
-let g:netrw_banner = 0
-"let g:netrw_liststyle = 3
-"let g:netrw_browse_split = 4
-"let g:netrw_altv = 1
-"let g:netrw_winsize = 25
-"map <Leader>] :Explore</ESC>
-"augroup ProjectDrawer
-  "autocmd!
-  "autocmd VimEnter * :Vexplore
-  "set number
-"augroup END
-
 
 " NERDTree
 function! ShowFileInNERDTree()
@@ -158,7 +141,7 @@ function! ShowFileInNERDTree()
   endif
 endfunction
 
-map <leader>f :call ShowFileInNERDTree()<cr>
+map <Leader>F :call ShowFileInNERDTree()<cr>
 map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
@@ -166,12 +149,16 @@ let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=50
 
 " fzf"
-let g:fzf_layout = { 'down': '~15%' }
+let g:fzf_layout = { 'left': '~40%' }
 nnoremap <Leader>f :Files<cr>
+nnoremap <Leader>fgs :GFiles?<cr>
+nnoremap <Leader>fgg :GGrep<cr>
 
-" CtrlP
-" let g:ctrlp_dont_split = 'NERD'
-" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
+" fzf GGrep
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 " Vim Airline
 let g:airline_theme='base16'
@@ -180,7 +167,7 @@ let g:airline_theme='base16'
 let g:jsx_ext_required = 0
 
 " Flow
-let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow = 0
 
 " Rails/Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -198,10 +185,6 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" JS
-let g:javascript_plugin_flow = 0
-let g:jsx_ext_required = 0
 
 " Splits
 noremap <leader>sc :close<CR>
