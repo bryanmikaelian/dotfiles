@@ -148,12 +148,16 @@ let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=50
 
 " fzf"
-let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_layout = { 'left': '~40%' }
 nnoremap <Leader>f :Files<cr>
+nnoremap <Leader>fgs :GFiles?<cr>
+nnoremap <Leader>fgg :GGrep<cr>
 
-" CtrlP
-" let g:ctrlp_dont_split = 'NERD'
-" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
+" fzf GGrep
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 " Vim Airline
 let g:airline_theme='base16'
