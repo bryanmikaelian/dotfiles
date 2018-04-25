@@ -36,3 +36,6 @@ if [ -f '/Users/bmikaelian/.gce/path.zsh.inc' ]; then source '/Users/bmikaelian/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bmikaelian/.gce/completion.zsh.inc' ]; then source '/Users/bmikaelian/.gce/completion.zsh.inc'; fi
+
+# FZF
+export FZF_DEFAULT_COMMAND='fd --type f'
