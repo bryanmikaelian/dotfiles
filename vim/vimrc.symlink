@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'neovimhaskell/haskell-vim'
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -94,7 +95,7 @@ set splitbelow
 set splitright
 syntax enable
 syntax on
-set background=dark
+set background=light
 
 " Indent Guides
 let g:indent_guides_guide_size=1
@@ -188,17 +189,18 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " YCM
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<c-n>'
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " JS
-let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow = 0
 let g:jsx_ext_required = 0
 
 " Splits
