@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'mxw/vim-jsx'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'neovimhaskell/haskell-vim'
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -57,6 +58,9 @@ autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
 if $TMUX == ''
   set clipboard+=unnamed
 endif
+
+" Switch words
+nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>:noh<CR>
 
 " Special Case Text Formatting
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -151,8 +155,8 @@ let g:NERDTreeWinSize=70
 " fzf"
 let g:fzf_layout = { 'down': '~25%' }
 nnoremap <Leader>f :Files<cr>
-nnoremap <Leader>fgs :GFiles?<cr>
-nnoremap <Leader>fgg :GGrep<cr>
+nnoremap <Leader>gs :GFiles?<cr>
+nnoremap <Leader>gg :GGrep?<cr>
 
 " fzf GGrep
 command! -bang -nargs=* GGrep
@@ -167,7 +171,7 @@ let g:airline_theme='base16'
 let g:jsx_ext_required = 0
 
 " Flow
-let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow = 0
 
 " Rails/Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -176,14 +180,17 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " YCM
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<c-n>'
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Splits
 noremap <leader>sc :close<CR>
