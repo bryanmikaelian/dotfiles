@@ -5,7 +5,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
+  Plug 'derekwyatt/vim-scala'
   Plug 'elixir-lang/vim-elixir'
+  Plug 'ensime/ensime-vim'
   Plug 'ervandew/supertab'
   Plug 'honza/vim-snippets'
   Plug 'jiangmiao/auto-pairs'
@@ -60,10 +62,9 @@ endif
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
 " Language syntax highlighting
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,Berksfile,Bowerfile,config.ru}    set ft=ruby " random files that are ruby-esq
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
+au BufNewFile,BufRead {Gemfile,Rakefile,Vagrantfile,config.ru}    set ft=ruby " random files that are ruby-esq
+au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
 au BufNewFile,BufRead *.json set ft=javascript " json
-" au BufNewFile,BufRead *.es6 set ft=javascript " ES6
 au BufNewFile,BufRead *.babelrc set ft=javascript " babel
 au BufNewFile,BufRead *.hamlc set ft=haml
 au BufNewFile,BufRead *.{handlebars,hbs,ejs} set ft=html
@@ -145,10 +146,10 @@ map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=70
 
 " fzf"
-let g:fzf_layout = { 'left': '~40%' }
+let g:fzf_layout = { 'down': '~25%' }
 nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>fgs :GFiles?<cr>
 nnoremap <Leader>fgg :GGrep<cr>
