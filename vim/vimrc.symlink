@@ -8,7 +8,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'elixir-lang/vim-elixir'
   Plug 'ervandew/supertab'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'honza/vim-snippets'
+  Plug 'isRuslan/vim-es6'
   Plug 'jiangmiao/auto-pairs'
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -20,7 +22,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'neovimhaskell/haskell-vim'
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'tag': '0.2.0' }
   Plug 'rhysd/vim-crystal'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/nerdcommenter'
@@ -68,6 +70,7 @@ au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au BufNewFile,BufRead {Gemfile,Rakefile,Vagrantfile,config.ru}    set ft=ruby " random files that are ruby-esq
 au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
 au BufNewFile,BufRead *.json set ft=javascript " json
+augroup filetype javascript syntax=javascript
 au BufNewFile,BufRead *.babelrc set ft=javascript " babel
 au BufNewFile,BufRead *.hamlc set ft=haml
 au BufNewFile,BufRead *.{handlebars,hbs,ejs} set ft=html
@@ -108,6 +111,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 filetype plugin indent on
+
+" Mouse
+set mouse=a
 
 " Comments
 map <Leader>/ <plug>NERDCommenterToggle<Esc>
@@ -152,7 +158,7 @@ let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=70
 
 " fzf"
-let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_layout = { 'down': '~35%' }
 nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>gs :GFiles?<cr>
 nnoremap <Leader>gg :GGrep?<cr>
@@ -195,3 +201,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 noremap <leader>sc :close<CR>
 noremap <leader>sh :sp<CR>
 noremap <leader>sv :vsp<CR>
+
+" Prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+
+" ctags
+set tags=tags

@@ -29,3 +29,6 @@ alias mysql="mycli"
 
 # Hub
 alias git="hub"
+
+# ctags
+alias ctags="`brew --prefix`/bin/ctags"

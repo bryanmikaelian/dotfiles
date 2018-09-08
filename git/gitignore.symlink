@@ -82,3 +82,6 @@ fabric.properties
 .vscode
 .vsworkspace
 *.code-workspace
+
+# Tags
+tags

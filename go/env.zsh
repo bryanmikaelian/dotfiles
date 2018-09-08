@@ -1,2 +1,2 @@
-export GOROOT=/usr/local/go
+export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Code/Go
