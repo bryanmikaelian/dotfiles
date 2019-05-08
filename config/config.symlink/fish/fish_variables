@@ -4,7 +4,9 @@ SETUVAR --export EDITOR:vim
 SETUVAR --export FZF_DEFAULT_COMMAND:fd\x20\x2d\x2dtype\x20f
 SETUVAR --export --path GOPATH:/Users/bryanmikaelian/Code/Go
 SETUVAR --export GOROOT:/usr/local/opt/go/libexec
+SETUVAR --export GPG_TTY:/dev/ttys005
 SETUVAR --export --path PATH:\x1d
+SETUVAR __fish_classic_git_prompt_initialized:\x1d
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
@@ -36,4 +38,3 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-
