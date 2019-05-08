@@ -9,6 +9,7 @@ set -xU GPG_TTY (tty)
 
 status --is-interactive; and source (rbenv init -|psub)
 
+alias git='hub'
 alias gl='git pull'
 alias gp='git push'
 alias gcl='git clean -f'
