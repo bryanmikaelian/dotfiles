@@ -4,6 +4,11 @@ vim/.netrwhist
 vim/vim.symlink/.DS_Store
 vim/vim.symlink/.netrwhist
 vim/vim.symlink/plugged
-fish/config.symlink/fish/fish_history
-fish/fish_read_history
-fish/config.symlink/fish/fishd.*
+
+config/config.symlink/fish/fish_history
+config/fish_read_history
+config/config.symlink/fish/fishd.*
+
+config/config.symlink/yarn
+config/config.symlink/configstore
+config/config.symlink/karabiner
