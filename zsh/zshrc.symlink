@@ -28,9 +28,6 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 # rbenv
 eval "$(rbenv init - --no-rehash)"
 
-# Configure global gitignore
-git config --global core.excludesfile $HOME/.gitignore
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/bmikaelian/.gce/path.zsh.inc' ]; then source '/Users/bmikaelian/.gce/path.zsh.inc'; fi
 
