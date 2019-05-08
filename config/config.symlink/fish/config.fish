@@ -5,7 +5,7 @@ set -xU FZF_DEFAULT_COMMAND 'fd --type f'
 set -xU GOROOT /usr/local/opt/go/libexec
 set -xU GOPATH $HOME/Code/Go
 
-set -xU GPG_TTY (tty)
+set -xg GPG_TTY (tty)
 
 status --is-interactive; and source (rbenv init -|psub)
 

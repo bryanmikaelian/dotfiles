@@ -9,7 +9,7 @@ SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX_HEIGHT:40\x25
 SETUVAR --export --path GOPATH:/Users/bryanmikaelian/Code/Go
 SETUVAR --export GOROOT:/usr/local/opt/go/libexec
-SETUVAR --export GPG_TTY:/dev/ttys005
+SETUVAR --export GPG_TTY:/dev/ttys006
 SETUVAR --export --path PATH:\x1d
 SETUVAR __fish_classic_git_prompt_initialized:\x1d
 SETUVAR __fish_init_2_39_8:\x1d
