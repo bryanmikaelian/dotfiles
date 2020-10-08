@@ -4,7 +4,7 @@ export PATH="./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/s
 export EDITOR='vim'
 
 # Theme
-export ZSH_THEME=gallifrey
+export ZSH_THEME=cloud
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -16,48 +16,14 @@ for config_file ($HOME/.dotfiles/**/*.zsh) source $config_file
 autoload -U compinit
 compinit
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
-
-NPM_PACKAGES="${HOME}/.npm-packages"
-PATH="$NPM_PACKAGES/bin:$PATH"
-
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# rbenv
-eval "$(rbenv init - --no-rehash)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/bmikaelian/.gce/path.zsh.inc' ]; then source '/Users/bmikaelian/.gce/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/bmikaelian/.gce/completion.zsh.inc' ]; then source '/Users/bmikaelian/.gce/completion.zsh.inc'; fi
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-# Segment
-alias robo='robo --config /Users/bryan.mikaelian/Code/Go/src/github.com/segmentio/robofiles/development/robo.yml'
-export SEGMENT_TEAM=platform
-source $GOPATH/src/github.com/segmentio/dotfiles/index.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # GPG
 export GPG_TTY=$(tty)
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/bryanmikaelian/.nvm/versions/node/v7.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/bryanmikaelian/.nvm/versions/node/v7.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/bryanmikaelian/.nvm/versions/node/v7.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/bryanmikaelian/.nvm/versions/node/v7.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/bryanmikaelian/.nvm/versions/node/v7.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/bryanmikaelian/.nvm/versions/node/v7.7.1/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-
-# rbenv
-eval "$(rbenv init -)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

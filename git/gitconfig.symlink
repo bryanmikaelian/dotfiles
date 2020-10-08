@@ -1,7 +1,7 @@
 [user]
   name = Bryan Mikaelian
   email = bryan.mikaelian@gmail.com
-  signingkey = 3664049CF7FFF8F1
+  signingkey = 233F533C95BE74E4
 
 [color]
   ui = true
@@ -22,7 +22,7 @@ lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen
 s = status --short
 	shove = push --force-with-lease
 [core]
-	excludesfile = /Users/bryanmikaelian/.gitignore
+	excludesfile = ~/.gitignore
 [grep]
 	lineNumber = true
 [url "ssh://git@github.com/"]

@@ -27,7 +27,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/nerdcommenter'
   Plug 'scrooloose/nerdtree'
-  Plug 'sirver/ultisnips'
   Plug 'thoughtbot/vim-rspec'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rails'
