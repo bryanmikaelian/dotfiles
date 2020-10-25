@@ -1,7 +1,7 @@
 [user]
   name = Bryan Mikaelian
   email = bryan.mikaelian@gmail.com
-  signingkey = 233F533C95BE74E4
+  signingkey =  8A2DA994F352313B
 
 [color]
   ui = true
@@ -28,6 +28,6 @@ s = status --short
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg

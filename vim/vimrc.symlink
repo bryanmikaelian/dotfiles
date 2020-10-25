@@ -156,7 +156,8 @@ let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=70
 
-" fzf"
+" fzf
+set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '~35%' }
 nnoremap <Leader>f :Files<cr>
 nnoremap <Leader>gs :GFiles?<cr>
