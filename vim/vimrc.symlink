@@ -2,8 +2,8 @@
 call plug#begin('~/.vim/plugged')
   Plug '/usr/local/opt/fzf'
   Plug 'Valloric/YouCompleteMe'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'albfan/nerdtree-git-plugin'
+  "Plug 'airblade/vim-gitgutter'
+  "Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'elixir-lang/vim-elixir'
@@ -83,7 +83,7 @@ set number
 set ruler
 set nolazyredraw
 set noshowcmd
-set background=light
+set background=dark
 
 " Visual
 set showmatch
