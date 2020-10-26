@@ -32,3 +32,6 @@ alias git="hub"
 
 # ctags
 alias ctags="`brew --prefix`/bin/ctags"
+
+# k8
+alias kc="kubectl"

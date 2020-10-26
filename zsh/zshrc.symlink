@@ -23,6 +23,8 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
+# ssh
+eval "$(ssh-agent -s)"
 
 # GPG
 export GPG_TTY=$(tty)
