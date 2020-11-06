@@ -1,6 +1,5 @@
 " Plugged
 call plug#begin('~/.vim/plugged')
-  Plug '/usr/local/opt/fzf'
   Plug 'Valloric/YouCompleteMe'
   "Plug 'airblade/vim-gitgutter'
   "Plug 'albfan/nerdtree-git-plugin'
@@ -13,7 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'isRuslan/vim-es6'
   Plug 'jiangmiao/auto-pairs'
   Plug 'jparise/vim-graphql'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf', { 'do':  { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'kchmck/vim-coffee-script'
   Plug 'leafgarland/typescript-vim'
@@ -159,7 +158,7 @@ let g:NERDTreeWinSize=70
 " fzf
 set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '~35%' }
-nnoremap <Leader>f :Files<cr>
+nnoremap <Leader>f :FZF<cr>
 nnoremap <Leader>gs :GFiles?<cr>
 nnoremap <Leader>gg :GGrep?<cr>
 
