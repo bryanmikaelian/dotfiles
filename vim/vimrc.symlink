@@ -1,8 +1,8 @@
 " Plugged
 call plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe'
-  "Plug 'airblade/vim-gitgutter'
-  "Plug 'albfan/nerdtree-git-plugin'
+  Plug 'airblade/vim-gitgutter'
+  " Plug 'albfan/nerdtree-git-plugin'
   Plug 'bling/vim-airline'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'elixir-lang/vim-elixir'

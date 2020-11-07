@@ -8,6 +8,10 @@ task :install do
 
     `ln -sf "$PWD/#{linkable}" "#{target}"`
   end
+
+  Dir.glob('gnupg/*.conf').each do |conf|
+    `touch "$HOME/.#{conf}"; ln -sf "$PWD/gnupg/#{conf}" "$HOME/.#{conf}"`
+  end
 end
 
 task :uninstall do
