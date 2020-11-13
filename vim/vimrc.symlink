@@ -161,6 +161,7 @@ let g:fzf_layout = { 'down': '~35%' }
 nnoremap <Leader>f :FZF<cr>
 nnoremap <Leader>gs :GFiles?<cr>
 nnoremap <Leader>gg :GGrep?<cr>
+nnoremap <Leader>ag :Ag<cr>
 
 " fzf GGrep
 command! -bang -nargs=* GGrep
@@ -207,3 +208,6 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 " ctags
 set tags=tags
+
+" Fugitive
+nnoremap <Leader>g :Git<cr>

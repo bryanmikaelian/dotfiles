@@ -28,6 +28,6 @@ s = status --short
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg
