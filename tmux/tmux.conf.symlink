@@ -63,23 +63,20 @@ bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
 
 # colors
-set -g pane-border-fg colour250
-set -g pane-active-border-fg colour213
+# set -g pane-border-fg colour250
+# set -g pane-active-border-fg colour213
 
 # window mode
-setw -g mode-bg colour6
-setw -g mode-fg colour0
+# setw -g mode-bg colour6
+# setw -g mode-fg colour0
 
 # window status
-set -g window-status-format "#[fg=#18FFFF,bg=#263238] #I #[fg=#18FFFF,bg=#263238] #W #[fg=#18FFFF,bg=default,nobold,noitalics,nounderscore]"
-set -g window-status-current-format "#[fg=colour171,bg=#263238] #I #[fg=#FF4081,bg=#263238] #W #[fg=colour165,bg=default,nobold,noitalics,nounderscore]"
-setw -g window-status-current-attr dim
 
 # window names
 set-option -g allow-rename off
 
 # Renumber
-set-option -g renumber-windows on
+set-option -g renumber-windows off
 
 # left info
 set -g status-left ''
@@ -88,19 +85,54 @@ set -g status-left ''
 set-option -g base-index 1
 
 # prefix highlight
-set -g @prefix_highlight_copy_mode_attr "fg=#ffcb6b,bg=default"
 
 # status bar
-set -g status-position top
-set -g status-bg default
-set -g status-fg colour137
+# set -g status-position bottom
+# set -g status-bg default
+# set -g status-fg colour137
 set -g status-attr dim
-set -g status-left ''
+set -g status-left ""
 set -g status-right-length 50
 set -g status-left-length 20
-set -g status-right "#{prefix_highlight}#[fg=#18FFFF,bg=#263238] %Y-%m-%d #[fg=#18FFFF,bg=#263238,nobold,noitalics,nounderscore]|#[fg=#18FFFF,bg=#263238] %H:%M "
-set -g window-status-separator ""
+set -g window-status-separator " "
 set -g monitor-activity off
 
-
 set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
+
+# COLOUR (base16)
+
+set -g @prefix_highlight_copy_mode_attr "fg=#ffcb6b,bg=default"
+set -g status-right ""
+# set -g window-status-format "#[fg=#18FFFF,bg=#263238] #I #[fg=#18FFFF,bg=#263238] #W #[fg=#18FFFF,bg=default,nobold,noitalics,nounderscore]"
+set -g window-status-format "#[fg=#ffc6d,bg=default] #I #[fg=#ffc6d,bg=#263238] #W #[fg=$ffc6d,bg=#ffc6d,nobold,noitalics,nounderscore]"
+set -g window-status-current-format "#[fg=#ffc6d,bg=default] #I #[fg=#ffc6d,bg=#263238] #W #[fg=#ffc6d,bg=#ffc6d,nobold,noitalics,nounderscore]"
+setw -g window-status-current-attr dim
+
+# default statusbar colors
+set -g status-style "fg=#d4cfc9,bg=#272935"
+
+# default window title colors
+setw window-status-style "fg=#d4cfc9,bg=default"
+
+# active window title colors
+setw -g window-status-current-style "fg=#ffc66d,bg=default"
+
+# pane border
+set -g pane-border-style "fg=#272935"
+set -g pane-active-border-style "fg=#3a4055"
+
+# message text
+set -g message-style "fg=#e6e1dc,bg=#272935"
+
+# pane number display
+set -g display-panes-active-colour "#a5c261"
+set -g display-panes-colour "#ffc66d"
+
+# clock
+setw -g clock-mode-colour "#a5c261"
+
+# copy mode highligh
+setw -g mode-style "fg=#d4cfc9,bg=#3a4055"
+
+# bell
+setw -g window-status-bell-style "fg=#272935,bg=#da4939"

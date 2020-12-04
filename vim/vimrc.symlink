@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'neovimhaskell/haskell-vim'
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'tag': '0.2.0' }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'rhysd/vim-crystal'
   Plug 'rust-lang/rust.vim'
   Plug 'scrooloose/nerdcommenter'
@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'posva/vim-vue'
 call plug#end()
 
 " Text Formatting - General
@@ -153,7 +154,8 @@ map <Leader>] :NERDTreeToggle<Esc>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
-let g:NERDTreeWinSize=70
+let g:NERDTreeWinSize=45
+let g:NERDTreeWinPos = "right"
 
 " fzf
 set rtp+=/usr/local/opt/fzf
@@ -204,7 +206,6 @@ noremap <leader>sv :vsp<CR>
 
 " Prettier
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
 
 " ctags
 set tags=tags
