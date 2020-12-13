@@ -2,7 +2,6 @@
 alias ..='cd ..'
 alias c="cd ~/Code"
 alias code=c
-alias cdl= "cd ~/Code/librato"
 
 # ls
 alias ls="ls -F"
@@ -29,9 +28,6 @@ alias mysql="mycli"
 
 # Hub
 alias git="hub"
-
-# ctags
-alias ctags="`brew --prefix`/bin/ctags"
 
 # k8
 alias kc="kubectl"
