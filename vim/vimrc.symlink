@@ -2,10 +2,12 @@
 call plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
-  Plug 'bling/vim-airline'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'chuling/equinusocio-material.vim'
   Plug 'ervandew/supertab'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'haishanh/night-owl.vim'
+  Plug 'itchyny/lightline.vim'
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/fzf', { 'do':  { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -72,7 +74,6 @@ set number
 set ruler
 set nolazyredraw
 set noshowcmd
-" set background=dark
 
 " Visual
 set showmatch
@@ -84,11 +85,13 @@ set ignorecase
 set smartcase
 set splitbelow
 set splitright
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set termguicolors
+
 syntax enable
 colorscheme night-owl
+set background=dark
+set termguicolors
+
+let g:lightline = { 'colorscheme': 'nightowl' }
 
 " Indent Guides
 let g:indent_guides_guide_size=1
