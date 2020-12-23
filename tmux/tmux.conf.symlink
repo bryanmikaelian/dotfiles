@@ -139,19 +139,9 @@ set-option -g default-command "which reattach-to-user-namespace > /dev/null && r
 # setw -g window-status-bell-style "fg=#272935,bg=#da4939"
 
 
-###########
-# night owl
-# #########
-set -g @nightowl-show-network true
-set -g @nightowl-show-farenheit false
-set -g @nightowl-show-battery false
-set -g @nightowl-show-weather false
-set -g @nightowl-show-timezone false
-
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'kylepeeler/tmux-nightowl'
 
 # # Other examples:
 # # set -g @plugin 'github_username/plugin_name'

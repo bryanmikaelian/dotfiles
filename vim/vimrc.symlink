@@ -4,10 +4,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'chuling/equinusocio-material.vim'
+  Plug 'edkolev/tmuxline.vim'
   Plug 'ervandew/supertab'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'haishanh/night-owl.vim'
-  Plug 'itchyny/lightline.vim'
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/fzf', { 'do':  { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -15,15 +15,17 @@ call plug#begin('~/.vim/plugged')
   Plug 'mxw/vim-jsx'
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
+  Plug 'preservim/nerdcommenter'
+  Plug 'preservim/nerdtree'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'rust-lang/rust.vim'
-  Plug 'scrooloose/nerdcommenter'
-  Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-sensible'
   Plug 'tpope/vim-surround'
+  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Text Formatting - General
@@ -36,7 +38,7 @@ set softtabstop=2
 set expandtab
 set nosmarttab
 set encoding=utf-8
-set shortmess+=c
+set shortmess+=a
 set autoread
 
 " Relative numbers
@@ -74,6 +76,7 @@ set number
 set ruler
 set nolazyredraw
 set noshowcmd
+set guifont=Hack\ Nerd\ Font\ 13
 
 " Visual
 set showmatch
@@ -90,8 +93,6 @@ syntax enable
 colorscheme night-owl
 set background=dark
 set termguicolors
-
-let g:lightline = { 'colorscheme': 'nightowl' }
 
 " Indent Guides
 let g:indent_guides_guide_size=1
@@ -144,8 +145,9 @@ function! ShowFileInNERDTree()
   endif
 endfunction
 
-map <Leader>F :call ShowFileInNERDTree()<cr>
-map <Leader>] :NERDTreeToggle<Esc>
+nnoremap <Leader>F :call ShowFileInNERDTree()<CR>
+nnoremap <Leader>] :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeFocus<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowLineNumbers=1
@@ -168,6 +170,7 @@ command! -bang -nargs=* GGrep
 
 " Vim Airline
 let g:airline_theme='night_owl'
+let g:airline_powerline_fonts = 1
 
 " React
 let g:jsx_ext_required = 0
