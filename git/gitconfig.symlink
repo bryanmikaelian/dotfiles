@@ -2,7 +2,7 @@
   name = Bryan Mikaelian
   email = bryan@netlify.com
   # signingkey = 101DEC6CF5D95407
-  signingkey = CDEC714F215354AD
+  signingkey = C78DFE418FB4151E
 
 [color]
   ui = true

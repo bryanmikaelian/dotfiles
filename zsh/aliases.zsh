@@ -5,7 +5,6 @@ alias vim=nvim
 # cd
 alias ..='cd ..'
 alias c="cd ~/Code"
-alias code=c
 
 # ls
 alias ls="ls -F"

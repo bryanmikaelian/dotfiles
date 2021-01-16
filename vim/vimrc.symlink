@@ -1,4 +1,5 @@
 " Plugged
+
 call plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
@@ -6,8 +7,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'chuling/equinusocio-material.vim'
   Plug 'edkolev/tmuxline.vim'
   Plug 'ervandew/supertab'
+  Plug 'evanleck/vim-svelte', {'branch': 'main'}
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'haishanh/night-owl.vim'
+  Plug 'honza/vim-snippets'
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/fzf', { 'do':  { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -19,6 +22,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'rust-lang/rust.vim'
+  Plug 'SirVer/ultisnips'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-sensible'
@@ -185,17 +189,18 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " YCM
-let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 let g:SuperTabDefaultCompletionType = '<c-n>'
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
+
 " Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " Splits
 noremap <leader>sc :close<CR>
