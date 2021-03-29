@@ -1,4 +1,4 @@
-export PATH="./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:$HOME/.rvm/bin:$GOPATH/bin:/bin:$HOME/.cargo/bin:/usr/local/go/bin"
+export PATH="./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:$HOME/.rvm/bin:$GOPATH/bin:/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/bin"
 
 # Editor
 export EDITOR='nvim'
@@ -35,3 +35,5 @@ if [ -f '/home/bryan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/bryan/googl
 
 # starship
 eval "$(starship init zsh)"
+
+export PATH="$PATH:$(go env GOPATH)/bin"

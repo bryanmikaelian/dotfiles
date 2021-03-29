@@ -77,7 +77,7 @@ bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
 set-option -g allow-rename off
 
 # Renumber
-set-option -g renumber-windows off
+set-option -g renumber-windows on
 
 # left info
 set -g status-left ''
@@ -96,7 +96,7 @@ set -g status-left ""
 set -g status-right-length 50
 set -g status-left-length 20
 set -g window-status-separator " "
-set -g monitor-activity off
+set-option -g renumber-windows on
 
 set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
 
