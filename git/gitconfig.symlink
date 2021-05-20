@@ -1,8 +1,12 @@
 [user]
   name = Bryan Mikaelian
-  email = bryan@netlify.com
+  # email = bryan.mikaelian+gaming-arch@gmail.com
+  email = 312291+bryanmikaelian@users.noreply.github.com
   # signingkey = 101DEC6CF5D95407
-  signingkey = C78DFE418FB4151E
+  # signingkey = C78DFE418FB4151E
+
+  # Bryan's Gaming Machine - Arch Linux
+  signingkey = EB0E6837C031F06C
 
 [color]
   ui = true
@@ -26,9 +30,9 @@ s = status --short
 	excludesfile = ~/.gitignore
 [grep]
 	lineNumber = true
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
 [commit]
-	gpgsign = true
+    gpgsign = true
 [gpg]
 	program = gpg
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
