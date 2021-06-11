@@ -1,35 +1,46 @@
-" Plugged
-
 call plug#begin('~/.vim/plugged')
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'SirVer/ultisnips'
+  " Plug 'Valloric/YouCompleteMe'
   Plug 'airblade/vim-gitgutter'
+  Plug 'chriskempson/base16-vim'
   Plug 'christoomey/vim-tmux-navigator'
-  Plug 'chuling/equinusocio-material.vim'
+  Plug 'drewtempelmeyer/palenight.vim'
   Plug 'edkolev/tmuxline.vim'
   Plug 'ervandew/supertab'
-  Plug 'evanleck/vim-svelte', {'branch': 'main'}
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'haishanh/night-owl.vim'
+  Plug 'guns/vim-clojure-highlight'
+  Plug 'guns/vim-sexp'
   Plug 'honza/vim-snippets'
+  Plug 'hrsh7th/nvim-compe'
   Plug 'jparise/vim-graphql'
   Plug 'junegunn/fzf', { 'do':  { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'leafgarland/typescript-vim'
+  Plug 'luochen1990/rainbow'
   Plug 'mxw/vim-jsx'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'pangloss/vim-javascript'
   Plug 'posva/vim-vue'
   Plug 'preservim/nerdcommenter'
   Plug 'preservim/nerdtree'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'rust-lang/rust.vim'
-  Plug 'SirVer/ultisnips'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'tpope/vim-fireplace'
   Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-rails'
+  Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-sexp-mappings-for-regular-people'
   Plug 'tpope/vim-surround'
+  Plug 'venantius/vim-cljfmt'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'ryanoasis/vim-devicons'
+  " telescope
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+
 call plug#end()
 
 " Text Formatting - General
@@ -94,7 +105,7 @@ set splitbelow
 set splitright
 
 syntax enable
-colorscheme night-owl
+colorscheme palenight
 set background=dark
 set termguicolors
 
@@ -158,6 +169,12 @@ let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize=45
 let g:NERDTreeWinPos = "right"
 
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 " fzf
 set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '~35%' }
@@ -173,7 +190,8 @@ command! -bang -nargs=* GGrep
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
 
 " Vim Airline
-let g:airline_theme='night_owl'
+"
+let g:airline_theme='palenight'
 let g:airline_powerline_fonts = 1
 
 " React
@@ -182,25 +200,19 @@ let g:jsx_ext_required = 0
 " Flow
 let g:javascript_plugin_flow = 0
 
-" Rails/Rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " YCM
-let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<c-n>'
-let g:ycm_server_use_vim_stdout = 2
-let g:ycm_server_log_level = 'debug'
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
+" let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<c-n>'
+" let g:ycm_server_use_vim_stdout = 2
+" let g:ycm_server_log_level = 'debug'
+" nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 
 " Snippets
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" let g:UltiSnipsExpandTrigger = '<tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " Splits
 noremap <leader>sc :close<CR>
@@ -215,3 +227,32 @@ set tags=tags
 
 " Fugitive
 nnoremap <Leader>g :Git<cr>
+
+" compe
+set completeopt=menuone,noselect
+let g:compe = {}                  
+let g:compe.enabled = v:true      
+let g:compe.source = {            
+  \ 'path': v:true,               
+  \ 'buffer': v:true,             
+  \ 'nvim_lsp': v:true,
+  \ 'utltisnips': v:true
+  \ }                             
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+
+" lsp
+lua << EOF
+require'lspconfig'.solargraph.setup{}
+require'lspconfig'.clojure_lsp.setup{}
+EOF
+
+" rainbow
+let g:rainbow_active = 1
+
+" clojure-specific
+let g:clj_fmt_autosave = 0
