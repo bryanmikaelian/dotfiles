@@ -58,7 +58,7 @@ This function should only modify configuration layer settings."
              clojure-enable-linters 'clj-kondo
              clojure-enable-fancify-symbols t
              clojure-backend 'lsp)
-     treemacs)
+     neotree)
 
 
    ;; List of additional packages that will be installed without being wrapped
@@ -559,7 +559,10 @@ This function should only modify configuration layer settings."
     (setq treemacs-position 'right)
     (setq treemacs-no-png-images t)
     (setq treemacs-show-hidden-files nil)
+    (setq neo-theme 'icons)
+    (setq neo-window-position 'right)
     (require 'all-the-icons)
+    (setq display-line-numbers t)
     )
 
 
