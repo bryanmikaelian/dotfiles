@@ -1,12 +1,15 @@
 [user]
   name = Bryan Mikaelian
-  # email = bryan.mikaelian+gaming-arch@gmail.com
   email = 312291+bryanmikaelian@users.noreply.github.com
+
   # signingkey = 101DEC6CF5D95407
   # signingkey = C78DFE418FB4151E
 
+  # Bryan's Netlify Laptop
+  signingkey = 307D9098E012FE0F
+
   # Bryan's Gaming Machine - Arch Linux
-  signingkey = EB0E6837C031F06C
+  # signingkey = EB0E6837C031F06C
 
 [color]
   ui = true
