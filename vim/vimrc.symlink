@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
   Plug 'SirVer/ultisnips'
   " Plug 'Valloric/YouCompleteMe'
-  Plug 'akinsho/nvim-bufferline.lua'
+  " Plug 'akinsho/nvim-bufferline.lua'
   Plug 'airblade/vim-gitgutter'
   Plug 'arcticicestudio/nord-vim'
   Plug 'christoomey/vim-tmux-navigator'
