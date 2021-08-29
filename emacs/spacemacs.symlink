@@ -33,6 +33,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(sql
      yaml
+     javascript
      clojure
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -252,9 +253,10 @@ This function should only modify configuration layer settings."
       ;; a non-negative integer (pixel size), or a floating-point (point size).
       ;; Point size is recommended, because it's device independent. (default 10.0)
       dotspacemacs-default-font '("Cascadia Code PL"
-                                  :size 13.0
+                                  :size 14.0
                                   :weight normal
-                                  :width normal)
+                                  :width normal
+                                  :powerline-scale 1.2)
 
       ;; The leader key (default "SPC")
       dotspacemacs-leader-key "SPC"
