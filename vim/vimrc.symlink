@@ -379,7 +379,5 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-require("bufferline").setup{}
-
 EOF
 
