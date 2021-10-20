@@ -8,13 +8,12 @@ task :install do
 
     if root == 'config'
       target = "#{ENV["HOME"]}/.config/#{file}"
-      `ln -sf "$PWD/#{linkable}" "#{target}"`
     else
       target = "#{ENV["HOME"]}/.#{file}"
     end
 
     puts "symlinking #{linkable} to #{target}"
-
+    `ln -sf "$PWD/#{linkable}" "#{target}"`
   end
 end
 
