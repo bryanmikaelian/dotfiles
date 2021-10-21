@@ -3,14 +3,17 @@ require 'rake'
 task :install do
   linkables = Dir.glob('*/**{.symlink}')
   linkables.each do |linkable|
-    file = linkable.split('/').last.split('.symlink').last
-    target = "#{ENV["HOME"]}/.#{file}"
+    root, sym = linkable.split('/')
+    file = sym.split('.symlink').last
 
+    if root == 'config'
+      target = "#{ENV["HOME"]}/.config/#{file}"
+    else
+      target = "#{ENV["HOME"]}/.#{file}"
+    end
+
+    puts "symlinking #{linkable} to #{target}"
     `ln -sf "$PWD/#{linkable}" "#{target}"`
-  end
-
-  Dir.glob('gnupg/*.conf').each do |conf|
-    `touch "$HOME/.#{conf}"; ln -sf "$PWD/gnupg/#{conf}" "$HOME/.#{conf}"`
   end
 end
 

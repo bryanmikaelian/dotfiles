@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'rust-lang/rust.vim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'sroelants/clojure-fancify-symbols.vim'
   Plug 'tpope/vim-fireplace'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-repeat'
@@ -349,7 +350,7 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 lua << EOF
 vim.opt.termguicolors = true
 
-require'lspconfig'.solargraph.setup{}
+-- require'lspconfig'.solargraph.setup{}
 require'lspconfig'.clojure_lsp.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.html.setup{}
@@ -377,6 +378,12 @@ require'nvim-treesitter.configs'.setup {
       "#81A1C1",
       "#5E81AC"
     }
+  }
+}
+
+require('telescope').setup {
+  defaults = {
+    file_ignore_patterns = { "node_modules" }
   }
 }
 

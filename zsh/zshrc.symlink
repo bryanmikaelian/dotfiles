@@ -1,5 +1,6 @@
 export PATH="./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:$HOME/.rvm/bin:$GOPATH/bin:/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/bin"
 
+
 # Editor
 export EDITOR='nvim'
 
@@ -42,4 +43,8 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 eval "$(rbenv init - zsh)"
 
 # solana
-export PATH="$PATH:$HOME/.local/share/solana/install/active_release/bin"
+export PATH="$PATH:$HOME/.local/share/solana/install/active_release/bin" 
+
+# ruby archlinux
+# export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+# export PATH="$PATH:$GEM_HOME/bin"
