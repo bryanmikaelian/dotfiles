@@ -41,3 +41,5 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 # rbenv
 eval "$(rbenv init - zsh)"
 
+# solana
+export PATH="$PATH:$HOME/.local/share/solana/install/active_release/bin"
