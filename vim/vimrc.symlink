@@ -1,36 +1,32 @@
 call plug#begin('~/.vim/plugged')
-  Plug 'SirVer/ultisnips'
-  " Plug 'Valloric/YouCompleteMe'
-  " Plug 'akinsho/nvim-bufferline.lua'
-  Plug 'airblade/vim-gitgutter'
+  " core
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  
+  " plugins
   Plug 'arcticicestudio/nord-vim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'edkolev/tmuxline.vim'
   Plug 'ervandew/supertab'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'famiu/feline.nvim'
+  Plug 'glepnir/dashboard-nvim'
   Plug 'guns/vim-sexp'
   Plug 'guns/vim-clojure-static'
   Plug 'guns/vim-clojure-highlight'
   Plug 'honza/vim-snippets'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'jparise/vim-graphql'
-  Plug 'junegunn/fzf', { 'do':  { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'leafgarland/typescript-vim'
+  Plug 'lewis6991/gitsigns.nvim'
   Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'mxw/vim-jsx'
-  Plug 'neovim/nvim-lspconfig'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'onsails/lspkind-nvim'
-  Plug 'pangloss/vim-javascript'
   Plug 'p00f/nvim-ts-rainbow'
-  Plug 'posva/vim-vue'
   Plug 'preservim/nerdcommenter'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'rust-lang/rust.vim'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'sroelants/clojure-fancify-symbols.vim'
   Plug 'tpope/vim-fireplace'
   Plug 'tpope/vim-fugitive'
@@ -42,25 +38,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'venantius/vim-cljfmt'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  " telescope
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'windwp/nvim-autopairs'
 
 call plug#end()
-
-" Text Formatting - General
-set autoindent
-set smartindent
-set nowrap
-set tabstop=4
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-set nosmarttab
-set encoding=utf-8
-set shortmess+=a
-set autoread
 
 " Relative numbers
 set relativenumber
@@ -79,26 +59,6 @@ nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>:noh<CR>
 " Special Case Text Formatting
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
-" Language syntax highlighting
-au BufNewFile,BufRead {Gemfile,Rakefile,Vagrantfile,config.ru}    set ft=ruby " random files that are ruby-esq
-au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
-au BufNewFile,BufRead *.json set ft=javascript " json
-augroup filetype javascript syntax=javascript
-au BufNewFile,BufRead *.babelrc set ft=javascript " babel
-au BufNewFile,BufRead *.hamlc set ft=haml
-au BufNewFile,BufRead *.{handlebars,hbs,ejs} set ft=html
-au BufNewFile,BufRead *.cr set ft=crystal
-
-" UI
-set laststatus=2
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,.node_modules
-set number
-set ruler
-set nolazyredraw
-set noshowcmd
-set guifont=Cascadia\ Mono\ PL\ Regular
-
 " Visual
 set showmatch
 set mat=5
@@ -109,17 +69,6 @@ set ignorecase
 set smartcase
 set splitbelow
 set splitright
-
-syntax enable
-colorscheme nord
-set background=dark
-set termguicolors
-
-" Indent Guides
-let g:indent_guides_guide_size=1
-let g:indent_guide_start_level=1
-let g:indent_guides_enable_on_vim_startup = 0
-nmap <Leader>i <plug>IndentGuidesToggle<Esc>
 
 " Configuration
 set nocompatible
@@ -153,27 +102,6 @@ noremap <C-H> <C-W><C-H>
 noremap <leader>sc :close<CR>
 noremap <leader>sh :sp<CR>
 noremap <leader>sv :vsp<CR>
-
-
-" NERDTree
-" function! ShowFileInNERDTree()
-"   if exists("t:NERDTreeBufName")
-"     NERDTreeFind
-"   else
-"     NERDTree
-"     wincmd l
-"     NERDTreeFind
-"   endif
-" endfunction
-" 
-" nnoremap <Leader>F :call ShowFileInNERDTree()<CR>
-" nnoremap <Leader>] :NERDTreeToggle<CR>
-" nnoremap <Leader>n :NERDTreeFocus<CR>
-" let NERDTreeMinimalUI=1
-" let NERDTreeDirArrows=1
-" let NERDTreeShowLineNumbers=1
-" let g:NERDTreeWinSize=45
-" let g:NERDTreeWinPos = "right"
 
 " Nvim Tree
 let g:nvim_tree_side = 'right' "left by default
@@ -235,8 +163,6 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeOpen, NvimTreeClose and NvimTreeFocus are also available if you need them
 
-set termguicolors " this variable must be enabled for colors to be applied properly
-
 " a list of groups can be found at `:help nvim_tree_highlight`
 
 highlight NvimTreeFolderIcon guibg=blue
@@ -270,52 +196,15 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 
-
-
 " Telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" fzf
-set rtp+=/usr/local/opt/fzf
-let g:fzf_layout = { 'down': '~35%' }
-nnoremap <Leader>f :FZF<cr>
-nnoremap <Leader>gs :GFiles?<cr>
-nnoremap <Leader>gg :GGrep?<cr>
-nnoremap <Leader>ag :Ag<cr>
-
-" fzf GGrep
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
-
 " Vim Airline
-"
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
-
-" React
-let g:jsx_ext_required = 0
-
-" Flow
-let g:javascript_plugin_flow = 0
-
-" YCM
-" let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<c-n>'
-" let g:ycm_server_use_vim_stdout = 2
-" let g:ycm_server_log_level = 'debug'
-" nnoremap <leader>jd :YcmCompleter GoTo<CR>
-
-
-" Snippets
-" let g:UltiSnipsExpandTrigger = '<tab>'
-" let g:UltiSnipsJumpForwardTrigger = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " Splits
 noremap <leader>sc :close<CR>
@@ -331,29 +220,41 @@ set tags=tags
 " Fugitive
 nnoremap <Leader>g :Git<cr>
 
-" compe
-set completeopt=menuone,noselect
-let g:compe = {}                  
-let g:compe.enabled = v:true      
-let g:compe.source = {            
-  \ 'path': v:true,               
-  \ 'buffer': v:true,             
-  \ 'nvim_lsp': v:true,
-  \ 'utltisnips': v:true
-  \ }                             
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+set wildmode=list:longest,list:full
+
+" dashboard
+let g:dashboard_default_executive = "telescope"
 
 lua << EOF
+
+-- ui
+vim.opt.laststatus = 2
+vim.opt.lazyredraw = false
+vim.opt.showcmd = false
+vim.opt.guifont = 'Cascadia Mono PL Regular'
+
+-- text and formatting
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.wrap = false
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
+vim.opt.smarttab = false
+vim.opt.encoding = 'utf-8'
+vim.o.shortmess = vim.o.shortmess .. 'a'
+vim.opt.autoread = true
+
+-- colors
+vim.api.nvim_command [[colorscheme nord]]
+vim.opt.syntax = 'enable'
+vim.opt.background = 'dark'
 vim.opt.termguicolors = true
 
--- require'lspconfig'.solargraph.setup{}
-require'lspconfig'.clojure_lsp.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.html.setup{}
+
+-- plugin configs
+require('gitsigns').setup()
 
 require'indent_blankline'.setup{
     buftype_exclude = {"terminal"},
@@ -362,16 +263,16 @@ require'indent_blankline'.setup{
 require('lspkind').init({})
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
   highlight = {
     enable = true,
-    disable = { },  -- list of language that will be disabled
+    disable = {},
     additional_vim_regex_highlighting = false
   },
   rainbow = {
     enable = true,
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    extended_mode = true,
+    max_file_lines = nil,
     colors = {
       "#8fbcbb",
       "#88C0D0",
@@ -387,5 +288,6 @@ require('telescope').setup {
   }
 }
 
-EOF
+require('nvim-autopairs').setup{}
 
+EOF
