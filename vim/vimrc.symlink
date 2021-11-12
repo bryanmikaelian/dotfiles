@@ -59,6 +59,16 @@ nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>:noh<CR>
 " Special Case Text Formatting
 au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
+" Language syntax highlighting
+au BufNewFile,BufRead {Gemfile,Rakefile,Vagrantfile,config.ru}    set ft=ruby " random files that are ruby-esq
+au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
+au BufNewFile,BufRead *.json set ft=javascript " json
+augroup filetype javascript syntax=javascript
+au BufNewFile,BufRead *.babelrc set ft=javascript " babel
+au BufNewFile,BufRead *.hamlc set ft=haml
+au BufNewFile,BufRead *.{handlebars,hbs,ejs} set ft=html
+au BufNewFile,BufRead *.cr set ft=crystal
+
 " Visual
 set showmatch
 set mat=5
@@ -218,8 +228,6 @@ let g:prettier#autoformat = 0
 set tags=tags
 
 " Fugitive
-nnoremap <Leader>g :Git<cr>
-
 set wildmode=list:longest,list:full
 
 " dashboard
@@ -231,7 +239,7 @@ lua << EOF
 vim.opt.laststatus = 2
 vim.opt.lazyredraw = false
 vim.opt.showcmd = false
-vim.opt.guifont = 'Cascadia Mono PL Regular'
+vim.opt.guifont = 'CaskaydiaCove Nerd Font Mono'
 
 -- text and formatting
 vim.opt.autoindent = true
@@ -290,4 +298,45 @@ require('telescope').setup {
 
 require('nvim-autopairs').setup{}
 
+require'nvim-tree'.setup {
+  disable_netrw       = true,
+  hijack_netrw        = true,
+  open_on_setup       = false,
+  ignore_ft_on_setup  = {},
+  auto_close          = false,
+  open_on_tab         = false,
+  hijack_cursor       = false,
+  update_cwd          = false,
+  update_to_buf_dir   = {
+    enable = true,
+    auto_open = true,
+  },
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
+  system_open = {
+    cmd  = nil,
+    args = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {}
+  },
+  view = {
+    width = 40,
+    height = 30,
+    hide_root_folder = false,
+    side = 'right',
+    auto_resize = false,
+    mappings = {
+      custom_only = false,
+      list = {}
+    }
+  }
+}
+
+
+>>>>>>> 70bd5a3 (git config and vim)
 EOF
