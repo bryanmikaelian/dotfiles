@@ -89,5 +89,3 @@ tags
 .vscode/launch.json
 .vscode/settings.json
 .idea
-
-.solargraph.yml
