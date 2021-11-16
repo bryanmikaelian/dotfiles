@@ -1,54 +1,9 @@
-call plug#begin('~/.vim/plugged')
-  " core
-  Plug 'nvim-lua/popup.nvim'
-  Plug 'nvim-lua/plenary.nvim'
-  
-  " plugins
-  Plug 'arcticicestudio/nord-vim'
-  Plug 'aserowy/tmux.nvim'
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'edkolev/tmuxline.vim'
-  Plug 'ervandew/supertab'
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'famiu/feline.nvim'
-  Plug 'glepnir/dashboard-nvim'
-  Plug 'guns/vim-sexp'
-  Plug 'guns/vim-clojure-static'
-  Plug 'guns/vim-clojure-highlight'
-  Plug 'honza/vim-snippets'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'kyazdani42/nvim-tree.lua'
-  Plug 'lewis6991/gitsigns.nvim'
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'onsails/lspkind-nvim'
-  Plug 'p00f/nvim-ts-rainbow'
-  Plug 'preservim/nerdcommenter'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  Plug 'rust-lang/rust.vim'
-  Plug 'sroelants/clojure-fancify-symbols.vim'
-  Plug 'tpope/vim-fireplace'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-salve'
-  Plug 'tpope/vim-sensible'
-  Plug 'tpope/vim-sexp-mappings-for-regular-people'
-  Plug 'tpope/vim-surround'
-  Plug 'venantius/vim-cljfmt'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'windwp/nvim-autopairs'
-
-call plug#end()
-
-lua << EOF
-
 --------------------------------------------
 -- Help guide:
 -- https://github.com/nanotee/nvim-lua-guide
 --------------------------------------------
+
+require('plugins')
 
 -- global variables
 vim.g.airline_theme = 'nord'
@@ -301,5 +256,3 @@ require('nvim-tree').setup {
 }
 
 require("tmux").setup()
-
-EOF
