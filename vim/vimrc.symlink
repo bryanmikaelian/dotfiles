@@ -133,9 +133,6 @@ let g:dashboard_custom_shortcut={
 \ 'book_marks'         : '<Leader> f b',
 \ }
 
-" bell
-set vb t_vb= " No Beeping or flashing...
-
 lua << EOF
 
 --------------------------------------------
@@ -200,6 +197,14 @@ vim.api.nvim_set_keymap('n', '<Leader>fc', '<cmd>Telescope colorscheme<CR>', { n
 vim.api.nvim_set_keymap('n', '<Leader>fb', '<cmd>Telescope marks<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>fbf', '<cmd>Telescope buffers<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>fh', '<cmd>Telescope help_tags<CR>', { noremap = true })
+
+-- fugitive
+vim.api.nvim_set_keymap('n', '<Leader>g', ':Git<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>ga', ':Git add<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>gc', ':Git commit<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>gs', ':Git status<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>gd', ':Git diff<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>gb', ':Git blame<CR>', { noremap = true })
 
 -----------------
 -- plugin configs
