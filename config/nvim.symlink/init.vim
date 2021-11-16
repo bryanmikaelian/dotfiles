@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
   
   " plugins
   Plug 'arcticicestudio/nord-vim'
+  Plug 'aserowy/tmux.nvim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'edkolev/tmuxline.vim'
   Plug 'ervandew/supertab'
@@ -42,103 +43,38 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-" Relative numbers
-set relativenumber
-set numberwidth=3
-autocmd WinEnter,FocusGained * :setlocal number relativenumber
-autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
-
-" Copy paste
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
-
-" Switch words
-nmap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><C-o>:noh<CR>
-
-" Special Case Text Formatting
-au FileType python,go set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
-" Language syntax highlighting
-au BufNewFile,BufRead {Gemfile,Rakefile,Vagrantfile,config.ru}    set ft=ruby " random files that are ruby-esq
-au BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup() " markdown
-au BufNewFile,BufRead *.json set ft=javascript " json
-augroup filetype javascript syntax=javascript
-au BufNewFile,BufRead *.babelrc set ft=javascript " babel
-au BufNewFile,BufRead *.hamlc set ft=haml
-au BufNewFile,BufRead *.{handlebars,hbs,ejs} set ft=html
-au BufNewFile,BufRead *.cr set ft=crystal
-
-" Configuration
-set nocompatible
-set nobackup
-set nowritebackup
-set noswapfile
-filetype plugin indent on
-
-" Mouse
-set mouse=a
-
-" C-# switches to tab
-nmap <Leader>1 1gt
-nmap <Leader>2 2gt
-nmap <Leader>3 3gt
-nmap <Leader>4 4gt
-nmap <Leader>5 5gt
-nmap <Leader>6 6gt
-
-" Switch between panes more naturally
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-noremap <C-H> <C-W><C-H>
-
-" Nvim Tree
-let g:nvim_tree_window_picker_exclude = {
-    \   'filetype': [
-    \     'packer',
-    \     'qf'
-    \   ],
-    \   'buftype': [
-    \     'terminal'
-    \   ]
-    \ }
-let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } " List of filenames that gets highlighted with NvimTreeSpecialFile
-
-" a list of groups can be found at `:help nvim_tree_highlight`
-highlight NvimTreeFolderIcon guibg=blue
-
-" Vim Airline
-let g:airline_theme='nord'
-let g:airline_powerline_fonts = 1
-
-" Prettier
-let g:prettier#autoformat = 0
-
-" ctags
-set tags=tags
-
-" Fugitive
-set wildmode=list:longest,list:full
-
-" dashboard
-let g:dashboard_default_executive = "telescope"
-let g:dashboard_custom_shortcut={
-\ 'last_session'       : '',
-\ 'find_history'       : '<Leader> f o',
-\ 'find_file'          : '<Leader> f f',
-\ 'new_file'           : '',
-\ 'change_colorscheme' : '<Leader> f c',
-\ 'find_word'          : '<Leader> f g',
-\ 'book_marks'         : '<Leader> f b',
-\ }
-
 lua << EOF
 
 --------------------------------------------
 -- Help guide:
 -- https://github.com/nanotee/nvim-lua-guide
 --------------------------------------------
+
+-- global variables
+vim.g.airline_theme = 'nord'
+vim.g.airline_powerline_fonts = 2
+vim.g['prettier#autoFormat'] = 0
+vim.g.dashboard_default_executive = 'telescope'
+vim.g.dashboard_custom_shortcut = {
+  ['last_session']      = '',
+  ['find_history']      = '<Leader> f o',
+  ['find_file']         = '<Leader> f f',
+  ['new_file']           = '',
+  ['change_colorscheme'] = '<Leader> f c',
+  ['find_word']         = '<Leader> f g',
+  ['book_marks']         = '<Leader> f b',
+}
+vim.g.nvim_tree_special_files = {
+  ['README.md'] = true,
+  ['Makefile'] = true
+}
+
+-- general config
+vim.opt.compatible = false
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.mouse = { a = true }
 
 -- ui
 vim.opt.laststatus = 2
@@ -156,10 +92,13 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.smarttab = false
 vim.opt.encoding = 'utf-8'
-vim.o.shortmess = vim.o.shortmess .. 'a'
+vim.opt.shortmess:append({ a = true })
 vim.opt.autoread = true
+vim.opt.wildmode = "list:longest,list:full"
 
 -- visual
+vim.opt.relativenumber = true
+vim.opt.numberwidth = 3
 vim.opt.showmatch = true
 vim.opt.mat = 5
 vim.opt.hlsearch = true
@@ -168,9 +107,13 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.api.nvim_command([[
+autocmd WinEnter,FocusGained * :setlocal number relativenumber
+autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
+]])
 
 -- colors
-vim.api.nvim_command [[colorscheme nord]]
+vim.api.nvim_command([[colorscheme nord]])
 vim.opt.syntax = 'enable'
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
@@ -180,9 +123,9 @@ vim.opt.termguicolors = true
 ----------
 
 -- splits
-vim.api.nvim_set_keymap('', '<Leader>sc<CR>', ':close', { noremap = true })
-vim.api.nvim_set_keymap('', '<Leader>sh<CR>', ':sp', { noremap = true })
-vim.api.nvim_set_keymap('', '<Leader>sv<CR>', ':vsp', { noremap = true })
+vim.api.nvim_set_keymap('', '<Leader>sc', ':close<CR>', { noremap = true })
+vim.api.nvim_set_keymap('', '<Leader>sh', ':sp<CR>', { noremap = true })
+vim.api.nvim_set_keymap('', '<Leader>sv', ':vsp<CR>', { noremap = true })
 
 -- neovim tree
 vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true })
@@ -190,7 +133,7 @@ vim.api.nvim_set_keymap('n', '<Leader>r', ':NvimTreeRefresh<CR>', { noremap = tr
 vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeFindFile<CR>', { noremap = true })
 
 -- telescope
-vim.api.nvim_set_keymap('n', '<Leader>fo', '<cmd>Telescope old_files<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>fo', '<cmd>Telescope oldfiles<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>fc', '<cmd>Telescope colorscheme<CR>', { noremap = true })
@@ -206,12 +149,25 @@ vim.api.nvim_set_keymap('n', '<Leader>gs', ':Git status<CR>', { noremap = true }
 vim.api.nvim_set_keymap('n', '<Leader>gd', ':Git diff<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>gb', ':Git blame<CR>', { noremap = true })
 
+-- navigation
+vim.api.nvim_set_keymap('n', '<C-J>', '<C-W><C-J>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-K>', '<C-W><C-K>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-L>', '<C-W><C-L>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-H>', '<C-W><C-H>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>1', '1gt', {})
+vim.api.nvim_set_keymap('n', '<Leader>2', '2gt', {})
+vim.api.nvim_set_keymap('n', '<Leader>3', '3gt', {})
+vim.api.nvim_set_keymap('n', '<Leader>4', '4gt', {})
+vim.api.nvim_set_keymap('n', '<Leader>5', '5gt', {})
+vim.api.nvim_set_keymap('n', '<Leader>6', '6gt', {})
+
+
 -----------------
 -- plugin configs
 -----------------
 require('gitsigns').setup()
 
-require'indent_blankline'.setup{
+require'indent_blankline'.setup {
     buftype_exclude = {"terminal"},
     show_current_context = true
 }
@@ -343,5 +299,7 @@ require('nvim-tree').setup {
      }
   }
 }
+
+require("tmux").setup()
 
 EOF
