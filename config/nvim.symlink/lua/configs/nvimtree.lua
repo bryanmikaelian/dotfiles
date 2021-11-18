@@ -1,4 +1,48 @@
 local nvimtree = require('nvim-tree')
+local g = vim.g
+
+g.nvim_tree_window_picker_exclude = {
+   filetype = { 'notify', 'packer', 'qf' },
+   buftype = { 'terminal' },
+}
+
+g.nvim_tree_show_icons = {
+   folders = 1,
+   folder_arrows = 1,
+   files = 1,
+   git = 1
+}
+
+g.nvim_tree_icons = {
+  default =  '',
+  symlink =  '',
+  git =  {
+    unstaged =  "✗",
+    staged =  "✓",
+    unmerged =  "",
+    renamed =  "➜",
+    untracked =  "★",
+    deleted =  "",
+    ignored =  "◌"
+  },
+  folder =  {
+    arrow_open =  "",
+    arrow_closed =  "",
+    default =  "",
+    open =  "",
+    empty =  "",
+    empty_open =  "",
+    symlink =  "",
+    symlink_open =  "",
+  },
+  lsp =  {
+     hint =  "",
+     info =  "",
+     warning =  "",
+     error =  "",
+   }
+}
+
 
 nvimtree.setup {
   disable_netrw       = true,
@@ -25,12 +69,6 @@ nvimtree.setup {
   filters = {
     dotfiles = false,
     custom = {}
-  },
-  show_icons = {
-    git = true,
-    folders = true,
-    files = true,
-    folder_arrows = true
   },
   view = {
     width = 40,
@@ -68,34 +106,5 @@ nvimtree.setup {
       list = {}
     }
   },
-  icons = {
-    default =  '',
-    symlink =  '',
-    git =  {
-      unstaged =  "✗",
-      staged =  "✓",
-      unmerged =  "",
-      renamed =  "➜",
-      untracked =  "★",
-      deleted =  "",
-      ignored =  "◌"
-    },
-    folder =  {
-      arrow_open =  "",
-      arrow_closed =  "",
-      default =  "",
-      open =  "",
-      empty =  "",
-      empty_open =  "",
-      symlink =  "",
-      symlink_open =  "",
-    },
-    lsp =  {
-       hint =  "",
-       info =  "",
-       warning =  "",
-       error =  "",
-     }
-  }
 }
 
