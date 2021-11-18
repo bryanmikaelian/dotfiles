@@ -5,10 +5,22 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- third party
-  use 'arcticicestudio/nord-vim'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use 'shaunsingh/nord.nvim'
+  -- use 'vim-airline/vim-airline'
+  -- use 'vim-airline/vim-airline-themes'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function()
+      require('lualine').setup()
+    end
+  }
 
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = require('./configs/bufferline')
+  }
   use {
     'aserowy/tmux.nvim',
     config = function()
@@ -23,7 +35,10 @@ return require('packer').startup(function()
     run = ':GoUpdateBinaries' 
   }
 
-  use 'famiu/feline.nvim'
+  -- use {
+  --  'famiu/feline.nvim',
+  --  config = require('./configs/feline')
+  -- }
   use 'glepnir/dashboard-nvim'
   use 'guns/vim-sexp'
   use 'guns/vim-clojure-static'
@@ -46,10 +61,12 @@ return require('packer').startup(function()
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require'indent_blankline'.setup {
-          buftype_exclude = {"terminal"},
-          show_current_context = true
-      }
+      require('indent_blankline').setup({
+          indentLine_enabled = 1,
+          buftype_exclude = {"terminal", "dashboard"},
+          show_current_context = true,
+          show_first_indent_level = false,
+      })
     end
   }
   use {

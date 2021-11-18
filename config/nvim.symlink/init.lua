@@ -6,8 +6,8 @@
 require('plugins')
 
 -- global variables
-vim.g.airline_theme = 'nord'
-vim.g.airline_powerline_fonts = 2
+-- vim.g.airline_theme = 'nord'
+-- vim.g.airline_powerline_fonts = 2
 vim.g['prettier#autoFormat'] = 0
 vim.g.dashboard_default_executive = 'telescope'
 vim.g.dashboard_custom_shortcut = {
