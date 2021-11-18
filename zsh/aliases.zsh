@@ -19,16 +19,8 @@ alias mdf="cd ~/.dotfiles && mvim ~/.dotfiles"
 alias tmux="tmux -2"
 alias tmuxkill="tmux kill-session"
 
-# DBs
-alias sup="mysqlstart; rup" 
-# Docker
-alias dockercleanup="docker rm `docker ps -aq`"
-
 # MySQL + mycli
 alias mysql="mycli"
-
-# Hub
-alias git="hub"
 
 # k8
 alias kc="kubectl"

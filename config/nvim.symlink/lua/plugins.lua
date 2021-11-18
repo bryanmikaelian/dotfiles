@@ -9,48 +9,90 @@ return require('packer').startup(function()
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
 
-  use 'aserowy/tmux.nvim'
+  use {
+    'aserowy/tmux.nvim',
+    config = function()
+      require('tmux').setup()
+    end
+  }
   use 'christoomey/vim-tmux-navigator'
   use 'edkolev/tmuxline.vim'
   use 'ervandew/supertab'
   use {
-    'fatih/vim-go', run = ':GoUpdateBinaries' 
+    'fatih/vim-go',
+    run = ':GoUpdateBinaries' 
   }
 
   use 'famiu/feline.nvim'
- use 'glepnir/dashboard-nvim'
- use 'guns/vim-sexp'
- use 'guns/vim-clojure-static'
- use 'guns/vim-clojure-highlight'
- use 'honza/vim-snippets'
- use 'kyazdani42/nvim-web-devicons'
- use 'kyazdani42/nvim-tree.lua'
- use 'lewis6991/gitsigns.nvim'
- use 'lukas-reineke/indent-blankline.nvim'
- use {
+  use 'glepnir/dashboard-nvim'
+  use 'guns/vim-sexp'
+  use 'guns/vim-clojure-static'
+  use 'guns/vim-clojure-highlight'
+  use 'honza/vim-snippets'
+  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = require('./configs/nvimtree')
+ }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function() 
+      require('gitsigns').setup()
+    end
+  }
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require'indent_blankline'.setup {
+          buftype_exclude = {"terminal"},
+          show_current_context = true
+      }
+    end
+  }
+  use {
      'neoclide/coc.nvim',
      branch = 'release'
- }
- use 'nvim-telescope/telescope.nvim'
- use {
-   'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
- }
- use 'onsails/lspkind-nvim'
- use 'p00f/nvim-ts-rainbow'
- use 'preservim/nerdcommenter'
- use {
-   'prettier/vim-prettier', run = 'yarn install'
- }
- use 'rust-lang/rust.vim'
- use 'sroelants/clojure-fancify-symbols.vim'
- use 'tpope/vim-fireplace'
- use 'tpope/vim-fugitive'
- use 'tpope/vim-repeat'
- use 'tpope/vim-salve'
- use 'tpope/vim-sensible'
- use 'tpope/vim-sexp-mappings-for-regular-people'
- use 'tpope/vim-surround'
- use 'venantius/vim-cljfmt'
- use 'windwp/nvim-autopairs'
+  }
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = require('./configs/telescope')
+  }
+  use {
+     'nvim-treesitter/nvim-treesitter', 
+     run = ':TSUpdate',
+     config = require('.configs/treesitter')
+  }
+  use {
+    'onsails/lspkind-nvim',
+    config = function()
+      require('lspkind').init({})
+    end
+  }
+
+  use 'p00f/nvim-ts-rainbow'
+  use {
+   'prettier/vim-prettier',
+   run = 'yarn install'
+  }
+  use 'rust-lang/rust.vim'
+  use 'sroelants/clojure-fancify-symbols.vim'
+  use 'tpope/vim-fireplace'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-salve'
+  use 'tpope/vim-sensible'
+  use 'tpope/vim-sexp-mappings-for-regular-people'
+  use 'tpope/vim-surround'
+  use 'venantius/vim-cljfmt'
+
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup()
+    end
+  }
 
 end)
