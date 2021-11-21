@@ -76,7 +76,7 @@ nvimtree.setup {
     hide_root_folder = false,
     side = 'right',
     auto_resize = false,
-    ignore = {'.git', 'node_modules', '.cache'},
+    ignore = {'.git', 'node_modules', '.cache', 'target', 'lsp'},
     gitignore = true,
     auto_open = false,
     auto_close = false,

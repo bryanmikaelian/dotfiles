@@ -5,9 +5,10 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- third party
-  use 'shaunsingh/nord.nvim'
-  -- use 'vim-airline/vim-airline'
-  -- use 'vim-airline/vim-airline-themes'
+  use {
+    'shaunsingh/nord.nvim',
+    config = require('nord').set()
+  }
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons'},
@@ -31,7 +32,7 @@ return require('packer').startup(function()
     run = ':GoUpdateBinaries' 
   }
 
-  -- use {
+-- use {
   --  'famiu/feline.nvim',
   --  config = require('./configs/feline')
   -- }
@@ -78,8 +79,10 @@ return require('packer').startup(function()
     'onsails/lspkind-nvim',
     config = require('lspkind').init({})
   }
-
-  use 'p00f/nvim-ts-rainbow'
+  use {
+    'p00f/nvim-ts-rainbow',
+    ft = {'clj', 'cljs', 'lsp'}
+  }
   use {
    'prettier/vim-prettier',
    run = 'yarn install'
@@ -99,5 +102,17 @@ return require('packer').startup(function()
     'windwp/nvim-autopairs',
     config = require('nvim-autopairs').setup()
   }
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+  end
+}
 
 end)

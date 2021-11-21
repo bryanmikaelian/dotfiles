@@ -12,6 +12,9 @@ treesitter.setup({
     extended_mode = true,
     max_file_lines = nil,
     colors = {
+      "#d8dee9",
+      "#e5e9f0",
+      "#eceff4",
       "#8fbcbb",
       "#88C0D0",
       "#81A1C1",
