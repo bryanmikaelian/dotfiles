@@ -4,7 +4,6 @@
 --------------------------------------------
 
 require('plugins')
-require'lualine'.setup()
 
 -- global variables
 -- vim.g.airline_theme = 'nord'

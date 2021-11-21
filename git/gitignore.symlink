@@ -89,3 +89,4 @@ tags
 .vscode/launch.json
 .vscode/settings.json
 .idea
+config/nvim.symlink/plugin

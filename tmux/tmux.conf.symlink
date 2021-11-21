@@ -100,53 +100,10 @@ set-option -g renumber-windows on
 
 set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
 
-# COLOUR (base16)
-
-#set -g @prefix_highlight_copy_mode_attr "fg=#ffcb6b,bg=default"
-# set -g status-right ""
-# set -g window-status-format "#[fg=#18FFFF,bg=#263238] #I #[fg=#18FFFF,bg=#263238] #W #[fg=#18FFFF,bg=default,nobold,noitalics,nounderscore]"
-# set -g window-status-format "#[fg=#ffc6d,bg=default] #I #[fg=#ffc6d,bg=#263238] #W #[fg=$ffc6d,bg=#ffc6d,nobold,noitalics,nounderscore]"
-# set -g window-status-current-format "#[fg=#ffc6d,bg=default] #I #[fg=#ffc6d,bg=#263238] #W #[fg=#ffc6d,bg=#ffc6d,nobold,noitalics,nounderscore]"
-# setw -g window-status-current-attr dim
-
-# default statusbar colors
-# set -g status-style "fg=#d4cfc9,bg=#272935"
-
-# default window title colors
-# setw window-status-style "fg=#d4cfc9,bg=default"
-
-# active window title colors
-# setw -g window-status-current-style "fg=#ffc66d,bg=default"
-
-# pane border
-# set -g pane-border-style "fg=#272935"
-# set -g pane-active-border-style "fg=#3a4055"
-
-# message text
-# set -g message-style "fg=#e6e1dc,bg=#272935"
-
-# pane number display
-# set -g display-panes-active-colour "#a5c261"
-# set -g display-panes-colour "#ffc66d"
-
-# clock
-# setw -g clock-mode-colour "#a5c261"
-
-# copy mode highligh
-# setw -g mode-style "fg=#d4cfc9,bg=#3a4055"
-
-# bell
-# setw -g window-status-bell-style "fg=#272935,bg=#da4939"
-
-
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-
-# # Other examples:
-# # set -g @plugin 'github_username/plugin_name'
-# # set -g @plugin 'git@github.com:user/plugin'
-# # set -g @plugin 'git@bitbucket.com:user/plugin'
+set -g @plugin "arcticicestudio/nord-tmux"
 #
-# # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

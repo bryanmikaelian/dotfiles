@@ -10,14 +10,8 @@ return require('packer').startup(function()
   -- use 'vim-airline/vim-airline-themes'
   use {
     'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    setup = function()
-      require('lualine').setup({
-        options = {
-          theme = 'nord'
-        }
-      })
-    end
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = require('./configs/lualine')
   }
 
   use {
@@ -27,9 +21,7 @@ return require('packer').startup(function()
   }
   use {
     'aserowy/tmux.nvim',
-    config = function()
-      require('tmux').setup()
-    end
+    config = require('tmux').setup()
   }
   use 'christoomey/vim-tmux-navigator'
   use 'edkolev/tmuxline.vim'
@@ -58,20 +50,16 @@ return require('packer').startup(function()
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function() 
-      require('gitsigns').setup()
-    end
+    config = require('gitsigns').setup()
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('indent_blankline').setup({
+    config = require('indent_blankline').setup({
           indentLine_enabled = 1,
           buftype_exclude = {"terminal", "dashboard"},
           show_current_context = true,
           show_first_indent_level = false,
-      })
-    end
+    })
   }
   use {
      'neoclide/coc.nvim',
@@ -88,9 +76,7 @@ return require('packer').startup(function()
   }
   use {
     'onsails/lspkind-nvim',
-    config = function()
-      require('lspkind').init({})
-    end
+    config = require('lspkind').init({})
   }
 
   use 'p00f/nvim-ts-rainbow'
@@ -111,9 +97,7 @@ return require('packer').startup(function()
 
   use {
     'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup()
-    end
+    config = require('nvim-autopairs').setup()
   }
 
 end)
