@@ -26,7 +26,6 @@ return require('packer').startup(function()
   }
   use 'christoomey/vim-tmux-navigator'
   use 'edkolev/tmuxline.vim'
-  use 'ervandew/supertab'
   use {
     'fatih/vim-go',
     run = ':GoUpdateBinaries' 
@@ -113,6 +112,7 @@ return require('packer').startup(function()
         -- refer to the configuration section below
       }
   end
+
 }
 
 end)

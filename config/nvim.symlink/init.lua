@@ -6,8 +6,6 @@
 require('plugins')
 
 -- global variables
--- vim.g.airline_theme = 'nord'
--- vim.g.airline_powerline_fonts = 2
 vim.g['prettier#autoFormat'] = 0
 vim.g.dashboard_default_executive = 'telescope'
 vim.g.dashboard_custom_shortcut = {
@@ -23,6 +21,8 @@ vim.g.nvim_tree_special_files = {
   ['README.md'] = true,
   ['Makefile'] = true
 }
+
+vim.g.nord_disable_background = false
 
 -- general config
 vim.opt.compatible = false
@@ -77,6 +77,19 @@ vim.opt.termguicolors = true
 -- keymaps
 ----------
 
+
+-- completion
+vim.api.nvim_command([[
+  inoremap <silent><expr> <TAB> pumvisible() ? coc#_select_confirm() : coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  let g:coc_snippet_next = '<tab>'
+]])
+
 -- splits
 vim.api.nvim_set_keymap('', '<Leader>sc', ':close<CR>', { noremap = true })
 vim.api.nvim_set_keymap('', '<Leader>sh', ':sp<CR>', { noremap = true })
@@ -104,17 +117,15 @@ vim.api.nvim_set_keymap('n', '<Leader>gs', ':Git status<CR>', { noremap = true }
 vim.api.nvim_set_keymap('n', '<Leader>gd', ':Git diff<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>gb', ':Git blame<CR>', { noremap = true })
 
--- navigation
+-- pane navigation
 vim.api.nvim_set_keymap('n', '<C-J>', '<C-W><C-J>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-K>', '<C-W><C-K>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-L>', '<C-W><C-L>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-H>', '<C-W><C-H>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>1', '1gt', {})
-vim.api.nvim_set_keymap('n', '<Leader>2', '2gt', {})
-vim.api.nvim_set_keymap('n', '<Leader>3', '3gt', {})
-vim.api.nvim_set_keymap('n', '<Leader>4', '4gt', {})
-vim.api.nvim_set_keymap('n', '<Leader>5', '5gt', {})
-vim.api.nvim_set_keymap('n', '<Leader>6', '6gt', {})
+
+-- bufferline
+vim.api.nvim_set_keymap('n', '<TAB>', ':BufferLineCycleNext<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferLineCyclePrev<CR>', { noremap = true })
 
 -- trouble 
 vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
