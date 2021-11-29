@@ -5,10 +5,10 @@
   # signingkey = C78DFE418FB4151E
 
   # Bryan's MacBook Pro
-  signingkey = AA9F4CB587330C56
+  # signingkey = AA9F4CB587330C56
 
   # Bryan's Netlify Laptop
-  # signingkey = 02C3268F0EE4D6A6
+  signingkey = 02C3268F0EE4D6A6
 
   # Bryan's Gaming Machine - Arch Linux
   # signingkey = EB0E6837C031F06C

@@ -7,22 +7,22 @@ return require('packer').startup(function()
   -- third party
   use {
     'shaunsingh/nord.nvim',
-    config = require('nord').set()
+    config = function() require('nord').set() end,
   }
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons'},
-    config = require('./configs/lualine')
+    config = function() require('./configs/lualine') end,
   }
 
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = require('./configs/bufferline')
+    config = function() require('./configs/bufferline') end
   }
   use {
     'aserowy/tmux.nvim',
-    config = require('tmux').setup()
+    config = function() require('tmux').setup() end
   }
   use 'christoomey/vim-tmux-navigator'
   use 'edkolev/tmuxline.vim'
@@ -33,7 +33,7 @@ return require('packer').startup(function()
 
 -- use {
   --  'famiu/feline.nvim',
-  --  config = require('./configs/feline')
+  --  config = function() require('./configs/feline')
   -- }
   use 'glepnir/dashboard-nvim'
   use 'guns/vim-sexp'
@@ -43,23 +43,23 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use {
     'kyazdani42/nvim-tree.lua',
-    config = require('./configs/nvimtree')
- }
+    config = function() require('./configs/nvimtree') end
+  }
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = require('gitsigns').setup()
+    config = function() require('gitsigns').setup() end
   }
   use {
     'lukas-reineke/indent-blankline.nvim',
-    config = require('indent_blankline').setup({
+    config = function() require('indent_blankline').setup({
           indentLine_enabled = 1,
           buftype_exclude = {"terminal", "dashboard"},
           show_current_context = true,
           show_first_indent_level = false,
-    })
+    }) end,
   }
   use {
      'neoclide/coc.nvim',
@@ -67,16 +67,16 @@ return require('packer').startup(function()
   }
   use {
     'nvim-telescope/telescope.nvim',
-    config = require('./configs/telescope')
+    config = function() require('./configs/telescope') end
   }
   use {
-     'nvim-treesitter/nvim-treesitter', 
+     'nvim-treesitter/nvim-treesitter',
      run = ':TSUpdate',
-     config = require('.configs/treesitter')
+     config = function() require('.configs/treesitter') end
   }
   use {
     'onsails/lspkind-nvim',
-    config = require('lspkind').init({})
+    config = function() require('lspkind').init({}) end
   }
   use {
     'p00f/nvim-ts-rainbow',
@@ -99,20 +99,13 @@ return require('packer').startup(function()
 
   use {
     'windwp/nvim-autopairs',
-    config = require('nvim-autopairs').setup()
+    config = function() require('nvim-autopairs').setup() end
   }
 
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
-  end
-
-}
+    config =  function() require("trouble").setup({}) end,
+  }
 
 end)
