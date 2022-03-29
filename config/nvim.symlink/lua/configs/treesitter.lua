@@ -1,11 +1,13 @@
 local treesitter = require('nvim-treesitter.configs')
 
 treesitter.setup({
-  ensure_installed = "maintained",
+  ensure_installed = {
+    "lua",
+    "vim"
+  },
   highlight = {
     enable = true,
-    disable = {},
-    additional_vim_regex_highlighting = false
+    use_languagetree = true,
   },
   rainbow = {
     enable = true,

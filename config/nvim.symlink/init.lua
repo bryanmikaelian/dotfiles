@@ -68,9 +68,12 @@ autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
 ]])
 
 -- colors
-vim.api.nvim_command([[colorscheme nord]])
+require('onedark').setup({
+  style = "darker"
+})
+require('onedark').load()
 vim.opt.syntax = 'enable'
-vim.opt.background = 'dark'
+-- vim.opt.background = 'dark'
 vim.opt.termguicolors = true
 
 ----------

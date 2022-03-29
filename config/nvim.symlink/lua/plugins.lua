@@ -8,11 +8,6 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- fonts and UI
-  use {
-    'shaunsingh/nord.nvim',
-    config = function() require('nord').set() end,
-  }
-
   use 'kyazdani42/nvim-web-devicons'
 
   use {
@@ -37,6 +32,10 @@ return require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons'},
     config = function() require('./configs/lualine') end,
+  }
+
+  use {
+    'navarasu/onedark.nvim'
   }
 
   -- file manager
@@ -233,27 +232,6 @@ return require('packer').startup(function()
     run = ':GoUpdateBinaries' 
   }
 
-  use 'guns/vim-sexp'
-  use 'guns/vim-clojure-static'
-  use 'guns/vim-clojure-highlight'
-  use {
-    'p00f/nvim-ts-rainbow',
-    ft = {'clj', 'cljs', 'lsp'}
-  }
-  use {
-   'prettier/vim-prettier',
-   run = 'yarn install'
-  }
-  use 'rust-lang/rust.vim'
-  use 'sroelants/clojure-fancify-symbols.vim'
-  use 'tpope/vim-fireplace'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-salve'
-  use 'tpope/vim-sensible'
-  use 'tpope/vim-sexp-mappings-for-regular-people'
-  use 'tpope/vim-surround'
-  use 'venantius/vim-cljfmt'
   use {
     'windwp/nvim-autopairs',
     config = function() require('nvim-autopairs').setup() end
