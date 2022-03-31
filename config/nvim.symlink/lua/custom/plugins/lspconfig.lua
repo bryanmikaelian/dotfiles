@@ -4,7 +4,7 @@ M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
 
    -- lspservers with default config
-   local servers = { "ruby", "clojure", "javascript" }
+   local servers = { "solargraph", "clojure_lsp" }
 
    for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
