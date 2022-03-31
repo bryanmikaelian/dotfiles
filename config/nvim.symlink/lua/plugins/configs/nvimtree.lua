@@ -59,7 +59,7 @@ local default = {
    },
    view = {
       allow_resize = true,
-      side = "right",
+      side = "left",
       width = 40,
       hide_root_folder = true,
    },
