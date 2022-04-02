@@ -1,6 +1,7 @@
 [user]
   name = Bryan Mikaelian
-  email = bryan@netlify.com
+  # email = bryan@netlify.com
+  email = bryan.mikaelian@gmail.com
 
   # signingkey = C78DFE418FB4151E
 
@@ -8,10 +9,10 @@
   # signingkey = AA9F4CB587330C56
 
   # Bryan's Netlify Laptop
-  signingkey = 02C3268F0EE4D6A6
+  # signingkey = 02C3268F0EE4D6A6
 
-  # Bryan's Gaming Machine - Arch Linux
-  # signingkey = EB0E6837C031F06C
+  # Bryan's Gaming Machine - Linux
+  signingkey = 7C2B0246129238D7
 
 [color]
   ui = true
@@ -22,24 +23,24 @@
   branch = cyan bold
 
 [github]
-user = bryanmikaelian
+  user = bryanmikaelian
 
 [branch]
   autosetuprebase = always
 
 [alias]
-lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-s = status --short
-	shove = push --force-with-lease
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  s = status --short
+  shove = push --force-with-lease
 [core]
-	excludesfile = ~/.gitignore
-	askpass = /usr/bin/ksshaskpass
+  excludesfile = ~/.gitignore
+  # askpass = /usr/bin/ksshaskpass
 [grep]
-	lineNumber = true
+  lineNumber = true
 [commit]
-    gpgsign = true
+  gpgsign = true
 [gpg]
-	program = gpg
+  program = gpg
 [credential]
-    #helper = /usr/lib/git-core/git-credential-libsecret
-    helper = /usr/bin/ksshaskpass
+  helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+  # helper = /usr/bin/ksshaskpass
