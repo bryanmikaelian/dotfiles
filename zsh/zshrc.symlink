@@ -42,6 +42,9 @@ eval "$(rbenv init - zsh)"
 # solana
 export PATH="$PATH:$HOME/.local/share/solana/install/active_release/bin" 
 
+# vim-iced
+export PATH="$PATH:${HOME}/.local/share/nvim/site/pack/packer/opt/vim-iced/bin"
+
 # ruby archlinux
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
