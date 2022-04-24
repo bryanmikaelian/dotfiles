@@ -36,8 +36,26 @@ M.plugins = {
   install = {
     {
       "goolord/alpha-nvim"
+    },
+
+    {
+      "liquidz/vim-iced",
+      ft = { 'clj', 'cljs' }
+    },
+
+    {
+      "guns/vim-sexp",
+      ft = { 'clj', 'cljs' }
     }
   },
+}
+
+M.mappings = {
+  plugins = {
+    nvimtree = {
+      focus = ""
+    }
+  }
 }
 
 return M

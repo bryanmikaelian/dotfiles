@@ -221,17 +221,6 @@ local plugins = {
          require("core.mappings").telescope()
       end,
    },
-
-   -- language specific plugins
-   {
-     "liquidz/vim-iced",
-     ft = { 'clj', 'cljs' }
-   },
-
-   {
-     "guns/vim-sexp",
-     ft = { 'clj', 'cljs' }
-   }
 }
 
 --label plugins for operational assistance
