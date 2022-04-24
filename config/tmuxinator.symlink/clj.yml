@@ -46,10 +46,12 @@ on_project_start: clojure-lsp > /dev/null 2>1 &
 
 windows:
   - editor:
-      layout: ab85,211x51,0,0[211x35,0,0,0,211x15,0,36,2]
       panes:
-        - 
-        - 
+        -
+        -
+        -
+      layout: 4176,212x49,0,0[212x39,0,0{140x39,0,0,0,71x39,141,0,2},212x9,0,40,3]
   - repl:
       panes:
         -
+
