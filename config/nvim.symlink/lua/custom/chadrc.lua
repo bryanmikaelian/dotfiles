@@ -1,5 +1,3 @@
--- Just an example, supposed to be placed in /lua/custom/
-
 local M = {}
 
 -- make sure you maintain the structure of `core/default_config.lua` here,
@@ -39,13 +37,15 @@ M.plugins = {
     },
 
     {
-      "liquidz/vim-iced",
-      ft = { 'clj', 'cljs' }
+      "liquidz/vim-iced"
     },
 
     {
-      "guns/vim-sexp",
-      ft = { 'clj', 'cljs' }
+      "guns/vim-sexp"
+    },
+
+    { 
+      "tami5/vim-iced-compe"
     }
   },
 }
