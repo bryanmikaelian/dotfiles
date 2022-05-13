@@ -10,53 +10,47 @@ M.ui = {
 -- so setup_lspconf = any file but that should be in custom dir!
 
 M.plugins = {
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.lspconfig",
-    },
-  },
-  default_plugin_config_replace = {
-    nvim_treesitter = {
+  override = {
+    ["nvim-treesitter/nvim-treesitter"] = {
       ensure_installed = {
         "lua",
         "html",
         "ruby",
-        "clojure"
+        "clojure",
+        "go"
       }
     },
-    nvim_tree = {
+    ["kyazdani42/nvim-tree.lua"] = {
       view = {
         side = "right",
         width = 40,
       }
     }
   },
-  install = {
-    {
-      "goolord/alpha-nvim"
-    },
 
-    {
-      "liquidz/vim-iced"
+  options = {
+    lspconfig = {
+      setup_lspconf = "custom.plugins.lspconfig",
     },
+  },
 
-    {
-      "guns/vim-sexp"
-    },
+  user = {
+    ["goolord/alpha-nvim"] = {},
 
-    { 
-      "tami5/vim-iced-compe"
-    }
+    ["liquidz/vim-iced"] = {},
+
+    ["guns/vim-sexp"] = {},
+
+    ["tami5/vim-iced-compe"] =  {},
+    
+    ["fatih/vim-go"] = {},
   },
 }
 
 M.mappings = {
-  plugins = {
-    nvimtree = {
-      focus = ""
-    }
-  }
 }
+
+M.mappings = require "custom.mappings"
 
 return M
 
