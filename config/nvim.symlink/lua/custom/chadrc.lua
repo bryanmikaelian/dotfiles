@@ -17,7 +17,10 @@ M.plugins = {
         "html",
         "ruby",
         "clojure",
-        "go"
+        "go",
+        "javascript",
+        "typescript",
+        "tsx"
       }
     },
     ["kyazdani42/nvim-tree.lua"] = {

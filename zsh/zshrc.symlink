@@ -54,3 +54,4 @@ if [ -f '/home/bryan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/bryan/googl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/bryan/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/bryan/google-cloud-sdk/completion.zsh.inc'; fi
+fpath+=${ZDOTDIR:-~}/.zsh_functions
