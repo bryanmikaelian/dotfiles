@@ -23,6 +23,8 @@ M.general = {
 
    n = {
 
+      ["<ESC>"] = { "<cmd> noh <CR>", "  no highlight" },
+
       -- switch between windows
       ["<C-h>"] = { "<C-w>h", " window left" },
       ["<C-l>"] = { "<C-w>l", " window right" },
@@ -52,7 +54,7 @@ M.general = {
    },
 
    t = {
-      ["jk"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+      ["<C-x>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
    },
 }
 
@@ -69,7 +71,7 @@ M.bufferline = {
       -- close buffer + hide terminal buffer
       ["<leader>x"] = {
          function()
-            nvchad.close_buffer()
+            require("core.utils").close_buffer()
          end,
          "   close buffer",
       },
@@ -129,7 +131,7 @@ M.lspconfig = {
          "   lsp implementation",
       },
 
-      ["<C-k>"] = {
+      ["<leader>ls"] = {
          function()
             vim.lsp.buf.signature_help()
          end,
@@ -145,7 +147,7 @@ M.lspconfig = {
 
       ["<leader>ra"] = {
          function()
-            vim.lsp.buf.rename()
+            require("ui.renamer").open()
          end,
          "   lsp rename",
       },
