@@ -4,7 +4,7 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-   theme = "nord",
+   theme = "onenord",
 }
 
 -- so setup_lspconf = any file but that should be in custom dir!
@@ -35,6 +35,9 @@ M.plugins = {
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig",
     },
+    statusline = {
+      separator_style = "arrow"
+    }
   },
 
   user = {
@@ -45,7 +48,7 @@ M.plugins = {
     ["guns/vim-sexp"] = {},
 
     ["tami5/vim-iced-compe"] =  {},
-    
+
     ["fatih/vim-go"] = {},
   },
 }
