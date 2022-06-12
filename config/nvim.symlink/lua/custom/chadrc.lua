@@ -50,6 +50,8 @@ M.plugins = {
     ["tami5/vim-iced-compe"] =  {},
 
     ["fatih/vim-go"] = {},
+
+    ["tpope/vim-sexp-mappings-for-regular-people"] = {}
   },
 }
 
