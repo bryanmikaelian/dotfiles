@@ -4,15 +4,17 @@ if not present then
    return
 end
 
+require("base46").load_highlight "nvimtree"
+
 local options = {
    filters = {
       dotfiles = false,
-      exclude = { "custom" },
+      exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
    },
    disable_netrw = true,
    hijack_netrw = true,
+   open_on_setup = false,
    ignore_ft_on_setup = { "alpha" },
-   open_on_tab = false,
    hijack_cursor = true,
    hijack_unnamed_buffer_when_opening = false,
    update_cwd = true,
@@ -21,6 +23,7 @@ local options = {
       update_cwd = false,
    },
    view = {
+      adaptive_size = true,
       side = "left",
       width = 25,
       hide_root_folder = true,
@@ -29,6 +32,9 @@ local options = {
       enable = false,
       ignore = true,
    },
+   filesystem_watchers = {
+      enable = true,
+    },
    actions = {
       open_file = {
          resize_window = true,
@@ -41,15 +47,15 @@ local options = {
       indent_markers = {
          enable = false,
       },
+
       icons = {
-         padding = " ",
-         symlink_arrow = " ➛ ",
          show = {
             file = true,
             folder = true,
             folder_arrow = true,
             git = false,
          },
+
          glyphs = {
             default = "",
             symlink = "",

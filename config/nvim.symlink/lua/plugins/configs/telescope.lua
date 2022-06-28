@@ -4,6 +4,10 @@ if not present then
    return
 end
 
+vim.g.theme_switcher_loaded = true
+
+require("base46").load_highlight "telescope"
+
 local options = {
    defaults = {
       vimgrep_arguments = {
@@ -43,7 +47,6 @@ local options = {
       border = {},
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       color_devicons = true,
-      use_less = true,
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
       file_previewer = require("telescope.previewers").vim_buffer_cat.new,
       grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
