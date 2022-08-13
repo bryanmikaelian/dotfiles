@@ -1,20 +1,20 @@
 local M = {}
 
-M.setup_lsp = function(attach, capabilities)
-   local lspconfig = require "lspconfig"
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local capabilities = require("plugins.configs.lspconfig").capabilities
 
-   -- lspservers with default config
-   local servers = { "solargraph", "clojure_lsp", "eslint", "gopls"}
+local lspconfig = require "lspconfig"
+local servers = { "solargraph", "clojure_lsp", "eslint", "gopls"}
+  
 
-   for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup {
-         on_attach = attach,
-         capabilities = capabilities,
-         flags = {
-            debounce_text_changes = 150,
-         },
-      }
-   end
-end
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+     on_attach = on_attach,
+     capabilities = capabilities,
+     flags = {
+        debounce_text_changes = 150,
+     },
+  }
+ end
 
 return M

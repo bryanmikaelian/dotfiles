@@ -51,7 +51,14 @@ M.plugins = {
 
     ["fatih/vim-go"] = {},
 
-    ["tpope/vim-sexp-mappings-for-regular-people"] = {}
+    ["tpope/vim-sexp-mappings-for-regular-people"] = {},
+
+    ["neovim/nvim-lspconfig"] = {
+        config = function()
+          require "plugins.configs.lspconfig"
+          require "custom.plugins.lspconfig"
+        end,
+    },
   },
 }
 
