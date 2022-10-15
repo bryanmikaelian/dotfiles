@@ -4,7 +4,7 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-   theme = "everforest",
+   theme = "nightowl",
 }
 
 -- so setup_lspconf = any file but that should be in custom dir!
@@ -21,6 +21,9 @@ M.plugins = {
         "javascript",
         "typescript",
         "tsx"
+      },
+      rainbow = {
+        enabled = true
       }
     },
     ["kyazdani42/nvim-tree.lua"] = {
@@ -32,9 +35,6 @@ M.plugins = {
   },
 
   options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.lspconfig",
-    },
     statusline = {
       separator_style = "arrow"
     }
@@ -59,6 +59,8 @@ M.plugins = {
           require "custom.plugins.lspconfig"
         end,
     },
+
+    ["p00f/nvim-ts-rainbow"] = {},
   },
 }
 
