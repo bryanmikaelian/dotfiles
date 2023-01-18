@@ -1,3 +1,5 @@
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 export PATH="./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:$HOME/.rvm/bin:$GOPATH/bin:/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/bin"
 
 # Shell
@@ -27,7 +29,7 @@ compinit
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # ssh
-eval "$(ssh-agent -s)"
+# eval "$(ssh-agent -s)"
 
 # GPG
 export GPG_TTY=$(tty)
@@ -41,8 +43,6 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 # rbenv
 eval "$(rbenv init - zsh)"
 
-# solana
-export PATH="$PATH:$HOME/.local/share/solana/install/active_release/bin" 
 
 # vim-iced
 export PATH="$PATH:${HOME}/.local/share/nvim/site/pack/packer/start/vim-iced/bin"
@@ -60,3 +60,9 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # nvim via bob
 export PATH="$PATH:${HOME}/.local/share/neovim/bin"
+
+export FLYCTL_INSTALL="/home/bryan/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# lvim
+export PATH="$PATH:${HOME}/.local/bin"

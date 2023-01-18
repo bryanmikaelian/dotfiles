@@ -12,7 +12,7 @@ root: ~/Code/netlify
 # Project hooks
 
 # Runs on project start, always
-on_project_start: solargraph socket &>/dev/null &
+# on_project_start: solargraph socket &>/dev/null &
 
 # Run on project start, the first time
 # on_project_first_start: command
@@ -48,7 +48,7 @@ windows:
   - bb:
       layout: ab85,211x51,0,0[211x35,0,0,0,211x15,0,36,2]
       panes:
-        - cd ~/Code/github.com/netlify/bitballoon && nvim
+        - cd ~/Code/github.com/netlify/bitballoon && lvim
         - cd ~/Code/github.com/netlify/bitballoon
   - support:
       panes:

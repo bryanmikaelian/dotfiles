@@ -7,7 +7,7 @@ alias crb='cd ~/Code/Ruby'
 alias rst='touch ~/.pow/restart.txt'
 #
 # RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # rbenv
 eval "$(rbenv init - --no-rehash)"

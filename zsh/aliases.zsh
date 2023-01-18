@@ -23,7 +23,7 @@ alias tmuxkill="tmux kill-session"
 alias mysql="mycli"
 
 # k8
-alias kc="kubectl"
+# alias kc="kubectl"
 
 # netlify
 alias bbstg="gcloud container clusters get-credentials netlify-staging-dsm-1 --region us-central1 --project staging-267123; kubectl exec -n bitballoon-staging -it $(kubectl -n bitballoon-staging get pods --selector role=bitballoon-api -o jsonpath='{.items[0].metadata.name}') -- bash rails-console.sh"
