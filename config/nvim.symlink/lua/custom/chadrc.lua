@@ -4,7 +4,7 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-   theme = "nightowl",
+   theme = "tokyonight"
 }
 
 -- so setup_lspconf = any file but that should be in custom dir!

@@ -179,7 +179,7 @@ schemes:
   # Tokyo Night theme, based on both:
   #   https://github.com/ghifarit53/tokyonight-vim
   #   https://github.com/enkia/tokyo-night-vscode-theme
-  tokyo-night:
+  tokyo-night: &tokyo-night
     # Default colors
     primary:
       background: '0x1a1b26'
@@ -1054,5 +1054,5 @@ schemes:
       cyan:    '#35a77c'
       white:   '#dfddc8'
 
-colors: *everforest_dark_hard
+colors: *tokyo-night
 

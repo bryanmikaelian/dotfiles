@@ -48,7 +48,7 @@ windows:
   - bb:
       layout: ab85,211x51,0,0[211x35,0,0,0,211x15,0,36,2]
       panes:
-        - cd ~/Code/github.com/netlify/bitballoon && lvim
+        - cd ~/Code/github.com/netlify/bitballoon && vim
         - cd ~/Code/github.com/netlify/bitballoon
   - support:
       panes:
