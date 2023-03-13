@@ -1,6 +1,5 @@
 # editor
 alias e=nvim
-alias vim=nvim
 
 # cd
 alias ..='cd ..'
@@ -13,7 +12,7 @@ alias ll="ls -l"
 alias la='ls -A'
 
 # dotfiles
-alias mdf="cd ~/.dotfiles && mvim ~/.dotfiles"
+alias mdf="cd ~/.dotfiles && nvim ~/.dotfiles"
 
 # tmux
 alias tmux="tmux -2"

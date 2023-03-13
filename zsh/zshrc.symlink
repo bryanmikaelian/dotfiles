@@ -63,6 +63,3 @@ export PATH="$PATH:${HOME}/.local/share/neovim/bin"
 
 export FLYCTL_INSTALL="/home/bryan/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-# lvim
-export PATH="$PATH:${HOME}/.local/bin"
