@@ -1,7 +1,10 @@
 local M = {}
 
 M.ui = {
-   theme = "onenord"
+  theme = "gruvbox",
+  statusline = {
+    theme = "vscode"
+  }
 }
 
 M.plugins = require "custom.plugins"
