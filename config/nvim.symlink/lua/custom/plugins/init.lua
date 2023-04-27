@@ -54,7 +54,9 @@ return {
 
   ["folke/which-key.nvim"] = {
     disable = false
-  }
+  },
+
+  ["MunifTanjim/prettier.nvim"] = {},
 
 }
 

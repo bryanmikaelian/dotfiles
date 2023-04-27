@@ -16,4 +16,26 @@ for _, lsp in ipairs(servers) do
   }
  end
 
+local prettier = require("prettier")
+
+
+prettier.setup({
+  bin = 'prettier',
+  filetypes = {
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
+})
+
+
 return M
