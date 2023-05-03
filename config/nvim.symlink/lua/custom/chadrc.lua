@@ -1,7 +1,7 @@
 local M = {}
 
 M.ui = {
-  theme = "gruvbox",
+  theme = "catppuccin",
   statusline = {
     theme = "vscode"
   }

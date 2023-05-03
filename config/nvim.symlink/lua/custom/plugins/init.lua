@@ -58,5 +58,6 @@ return {
 
   ["MunifTanjim/prettier.nvim"] = {},
 
+  ["rose-pine/neovim"] = {},
 }
 
