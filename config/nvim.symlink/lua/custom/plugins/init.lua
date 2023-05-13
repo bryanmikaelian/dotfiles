@@ -37,7 +37,11 @@ return {
 
   ["tami5/vim-iced-compe"] =  {},
 
-  ["fatih/vim-go"] = {},
+  ["ray-x/go.nvim"] = {
+    config = function()
+      require('go').setup()
+    end
+  },
 
   ["tpope/vim-sexp-mappings-for-regular-people"] = {},
 
