@@ -13,4 +13,5 @@ alias rst='touch ~/.pow/restart.txt'
 eval "$(rbenv init - --no-rehash)"
 
 # bitballoon
-alias bbt="$HOME/Code/github.com/netlify/bitballoon/script/ci.sh -dql"
+alias bbt="docker-compose exec -it api bin/rails test"
+alias bbtv="docker-compose exec -e UPDATE_VCR=1 -it api bin/rails test"

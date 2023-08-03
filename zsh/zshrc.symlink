@@ -40,10 +40,6 @@ eval "$(starship init zsh)"
 
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-# rbenv
-eval "$(rbenv init - zsh)"
-
-
 # vim-iced
 export PATH="$PATH:${HOME}/.local/share/nvim/site/pack/packer/start/vim-iced/bin"
 
@@ -59,7 +55,19 @@ if [ -f '/home/bryan/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/bryan
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # nvim via bob
-export PATH="$PATH:${HOME}/.local/share/neovim/bin"
+export PATH="$PATH:${HOME}/.local/share/bob/nvim-bin"
 
 export FLYCTL_INSTALL="/home/bryan/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/bryan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+# asdf
+. /opt/asdf-vm/asdf.sh
