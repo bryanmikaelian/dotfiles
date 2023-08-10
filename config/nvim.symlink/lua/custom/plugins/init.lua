@@ -63,5 +63,9 @@ return {
   ["MunifTanjim/prettier.nvim"] = {},
 
   ["rose-pine/neovim"] = {},
+
+  ["simrat39/rust-tools.nvim"] = {},
+
+  ["puremourning/vimspector"] = {},
 }
 
