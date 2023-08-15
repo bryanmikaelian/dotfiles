@@ -95,4 +95,4 @@
   (require 'tree-sitter-langs)
   (setq tree-sitter-debug-jump-buttons t
         ;; and this highlights the entire sub tree in your code
-        tree-sitter-debug-highlight-jump-region t)))
+        tree-sitter-debug-highlight-jump-region t))
