@@ -49,3 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 (package! catppuccin-theme)
+(package! org-bullets)
+(package! flycheck-clj-kondo)
+(package! org-fancy-priorities)
+(package! tree-sitter)
