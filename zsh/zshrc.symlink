@@ -39,7 +39,6 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 eval "$(starship init zsh)"
 
 export PATH="$PATH:$(go env GOPATH)/bin"
-
 # vim-iced
 export PATH="$PATH:${HOME}/.local/share/nvim/site/pack/packer/start/vim-iced/bin"
 
@@ -71,3 +70,6 @@ esac
 
 # asdf
 . /opt/asdf-vm/asdf.sh
+
+# doom emacs
+export PATH="$PATH:/${HOME}/.config/emacs/bin"
