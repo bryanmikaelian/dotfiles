@@ -53,3 +53,4 @@
 (package! flycheck-clj-kondo)
 (package! org-fancy-priorities)
 (package! tree-sitter)
+(package! deadgrep)
