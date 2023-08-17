@@ -54,3 +54,5 @@
 (package! org-fancy-priorities)
 (package! tree-sitter)
 (package! deadgrep)
+(package! lsp-mode)
+(package! lsp-ui)
