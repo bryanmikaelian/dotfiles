@@ -72,4 +72,4 @@ esac
 . /opt/asdf-vm/asdf.sh
 
 # doom emacs
-export PATH="$PATH:/${HOME}/.config/emacs/bin"
+export PATH="$PATH:${HOME}/.config/emacs/bin"

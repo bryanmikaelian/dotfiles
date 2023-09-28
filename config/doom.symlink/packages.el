@@ -56,3 +56,4 @@
 (package! deadgrep)
 (package! lsp-mode)
 (package! lsp-ui)
+(package! dockerfile-mode)
