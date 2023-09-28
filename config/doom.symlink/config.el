@@ -106,3 +106,7 @@
 (use-package! lsp-mode
   :config
   (setq lsp-headerline-breadcrumb-enable nil))
+
+(use-package! minitest-mode
+  :config
+  (setq minitest-use-rails t))
