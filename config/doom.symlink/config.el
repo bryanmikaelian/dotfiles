@@ -105,8 +105,9 @@
 
 (use-package! lsp-mode
   :config
-  (setq lsp-headerline-breadcrumb-enable nil))
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-solargraph-use-bundler t))
 
-(use-package! minitest-mode
+(use-package! minitest
   :config
   (setq minitest-use-rails t))
