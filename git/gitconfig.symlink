@@ -3,16 +3,8 @@
   # email = bryan@netlify.com
   email = bryan.mikaelian@gmail.com
 
-  # signingkey = C78DFE418FB4151E
-
-  # Bryan's MacBook Pro
-  signingkey = AA9F4CB587330C56
-
-  # Bryan's Netlify Laptop
-  # signingkey = 02C3268F0EE4D6A6
-
-  # Bryan's Gaming Machine - Linux
-  #signingkey = 7C2B0246129238D7
+  # 1password
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGj8KNEBGFIVL4D/dh/MpPLEwdPqEM2D6PNktXlshgeo
 
 [color]
   ui = true
@@ -34,13 +26,11 @@
   shove = push --force-with-lease
 [core]
   excludesfile = ~/.gitignore
-  # askpass = /usr/bin/ksshaskpass
 [grep]
   lineNumber = true
 [commit]
-  gpgsign = false
+  gpgsign = true
 [gpg]
-  program = gpg
-[credential]
-  helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-  # helper = /usr/bin/ksshaskpass
+  format = ssh
+[gpg "ssh"]
+  program = "/opt/1Password/op-ssh-sign"
