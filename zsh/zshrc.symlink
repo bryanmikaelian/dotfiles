@@ -26,8 +26,6 @@ compinit
 # export FZF_DEFAULT_COMMAND='fd --type f'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
-
 # ssh
 # eval "$(ssh-agent -s)"
 
@@ -45,12 +43,6 @@ export PATH="$PATH:${HOME}/.local/share/nvim/site/pack/packer/start/vim-iced/bin
 # ruby archlinux
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/bryan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/bryan/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/bryan/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/bryan/google-cloud-sdk/completion.zsh.inc'; fi
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # nvim via bob
@@ -69,7 +61,16 @@ esac
 
 
 # asdf
-. /opt/asdf-vm/asdf.sh
+. "$HOME/.asdf/asdf.sh"
 
 # doom emacs
 export PATH="$PATH:${HOME}/.config/emacs/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/bryan/Code/github.com/netlify/google-cloud-sdk/path.zsh.inc' ]; then . '/home/bryan/Code/github.com/netlify/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/bryan/Code/github.com/netlify/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/bryan/Code/github.com/netlify/google-cloud-sdk/completion.zsh.inc'; fi
+
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
