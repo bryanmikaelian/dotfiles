@@ -74,3 +74,6 @@ if [ -f '/home/bryan/Code/github.com/netlify/google-cloud-sdk/completion.zsh.inc
 
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# any local env vars
+source "${HOME}/.zshenv"
