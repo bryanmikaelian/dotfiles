@@ -127,9 +127,21 @@
 
 (use-package! lsp-mode
   :config
-  (setq lsp-headerline-breadcrumb-enable nil)
-  (setq lsp-solargraph-use-bundler t))
+  (setq lsp-headerline-breadcrumb-enable nil))
 
 (use-package! minitest
+  :mode ("/\\.test\\'" . text-mode)
   :config
   (setq minitest-use-rails t))
+
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(map! :leader
+      :desc "lsp-ui-imenu"
+      "c m" #'lsp-ui-imenu)

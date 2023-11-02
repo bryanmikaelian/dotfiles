@@ -57,3 +57,5 @@
 (package! lsp-mode)
 (package! lsp-ui)
 (package! dockerfile-mode)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
