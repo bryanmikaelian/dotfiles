@@ -59,10 +59,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
-# asdf
-. "$HOME/.asdf/asdf.sh"
-
 # doom emacs
 export PATH="$PATH:${HOME}/.config/emacs/bin"
 
