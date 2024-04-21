@@ -1,6 +1,5 @@
 [user]
   name = Bryan Mikaelian
-  # email = bryan@netlify.com
   email = bryan.mikaelian@gmail.com
 
   # 1password
@@ -33,7 +32,10 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
+  # linux
   program = "/opt/1Password/op-ssh-sign"
+
+  # macOS
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [url "git@github.com:"]
     insteadOf = https://github.com/
