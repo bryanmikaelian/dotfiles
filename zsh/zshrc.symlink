@@ -1,79 +1,28 @@
-[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
-
 export PATH="./bin:$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:$HOME/.rvm/bin:$GOPATH/bin:/bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/bin"
-
-# Shell
 export SHELL="$(which zsh)"
-
-# Editor
+export ZSH=$HOME/.oh-my-zsh
+export DISABLE_LS_COLORS="false"
+export DOTFILES=$HOME/.dotfiles
 export EDITOR='nvim'
+export PROJECTS=~/Code/github.com
+export STARSHIP_CONFIG="${HOME}/.config/starship.toml"
 
-# Theme
-export ZSH_THEME=eastwood
+# source every .zsh file in this repo
+for config_file ($DOTFILES/**/*.zsh) source $config_file
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+  # load zsh env vars
+source "${HOME}/.zshenv"
 
-# source every .zsh file in this rep
-for config_file ($HOME/.dotfiles/**/*.zsh) source $config_file
+# load oh-my-zsh
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
+
+# Starship Prompt
+eval "$(starship init zsh)"
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit
 
-
-# FZF
-# export FZF_DEFAULT_COMMAND='fd --type f'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# ssh
-# eval "$(ssh-agent -s)"
-
-# GPG
-export GPG_TTY=$(tty)
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-
-# starship
-eval "$(starship init zsh)"
-
-export PATH="$PATH:$(go env GOPATH)/bin"
-# vim-iced
-export PATH="$PATH:${HOME}/.local/share/nvim/site/pack/packer/start/vim-iced/bin"
-
-# ruby archlinux
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-export PATH="$PATH:$GEM_HOME/bin"
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-
-# nvim via bob
-export PATH="$PATH:${HOME}/.local/share/bob/nvim-bin"
-
-export FLYCTL_INSTALL="/home/bryan/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-# pnpm
-export PNPM_HOME="/home/bryan/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# doom emacs
-export PATH="$PATH:${HOME}/.config/emacs/bin"
-
-# krew
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/bryan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/bryan/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/bryan/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/bryan/google-cloud-sdk/completion.zsh.inc'; fi
-
-# any local env vars
-source "${HOME}/.zshenv"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# url-quote-magic
+autoload url-quote-magic
+zle -N self-insert url-quote-magic

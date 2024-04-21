@@ -1,8 +1,13 @@
-# ZSH Configs
-ZSH=$HOME/.oh-my-zsh
-DISABLE_LS_COLORS="false"
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete docker colorize)
+fpath=($fpath $DOTFILES/zsh/functions)
 
-source $ZSH/oh-my-zsh.sh
+# functions
+autoload -U $DOTFILES/zsh/functions/*(:t)
 
-# BAD AUTOCORRECT
-unsetopt correct_all
+setopt COMPLETE_ALIASES # no aliases until zsh-autocomplete is done
+setopt COMPLETE_IN_WORD # move cursor to end of word after zsh-autocomplete
+setopt HIST_IGNORE_ALL_DUPS # no duplicate history items
+setopt HIST_REDUCE_BLANKS # remove blanks
+setopt HIST_VERIFY # expand history instead of automatically executing
+
+unsetopt correct # dont correct spelling errors
