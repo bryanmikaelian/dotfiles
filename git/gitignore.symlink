@@ -69,7 +69,7 @@ project/
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Crashlytics plugin (for Android Studio and IntelliJ)
+# Crashlytics plugin (for Android Studio and InelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
@@ -90,3 +90,5 @@ tags
 .vscode/settings.json
 .idea
 config/nvim.symlink/plugin
+
+.tmuxinator
