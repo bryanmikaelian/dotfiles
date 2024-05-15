@@ -19,6 +19,9 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # Starship Prompt
 eval "$(starship init zsh)"
 
+# reload functions
+freload() { while (( $# )); do; unfunction $1; autoload -U $1; shift; done }
+
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
 compinit

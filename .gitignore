@@ -12,3 +12,6 @@ config/config.symlink/fish/fishd.*
 config/config.symlink/yarn
 config/config.symlink/configstore
 config/config.symlink/karabiner
+
+# No work-specific stuff in source control
+zsh/work.zsh
