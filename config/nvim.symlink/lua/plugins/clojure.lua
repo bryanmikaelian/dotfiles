@@ -7,4 +7,8 @@ return {
     "liquidz/vim-iced",
     ft = { "clojure", "clojurescript" },
   },
+  {
+    "hiphish/rainbow-delimiters.nvim",
+    ft = { "clojure", "clojurescript" },
+  },
 }
