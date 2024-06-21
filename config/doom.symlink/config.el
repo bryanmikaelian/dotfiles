@@ -25,8 +25,8 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "JetBrains Mono NerdFont" :size 16)
-      doom-variable-pitch-font (font-spec :family "JetBrains Mono NerdFont" :size 16))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -36,7 +36,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-moonlight)
+(setq doom-theme 'catppuccin)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -123,7 +123,7 @@
 
 (use-package! catppuccin-theme
   :config
-  (setq catppuccin-flavor 'mocha))
+  (setq catppuccin-flavor 'macchiato))
 
 (use-package! lsp-mode
   :config
