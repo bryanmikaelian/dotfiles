@@ -1,6 +1,6 @@
 return {
   {
-    "zbindenren/copilot.vim",
+    "zbindenren/copilot.lua",
     ft = { "clojure", "clojurescript", "lua" },
   },
 }
