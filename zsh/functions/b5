@@ -1,0 +1,2 @@
+
+cd $GOPATH/src/go.1password.io/b5 && b5env -c tmuxinator b5;

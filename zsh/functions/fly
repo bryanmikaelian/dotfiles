@@ -1,0 +1,3 @@
+#!/bin/bash
+
+open "https://internal1p.com/fly/?q=$*"

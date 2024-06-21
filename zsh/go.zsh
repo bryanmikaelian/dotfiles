@@ -1,5 +1,7 @@
-# go binaries
-# export PATH="$PATH:$(go env GOPATH)/bin"
-export PATH="$PATH:/opt/homebrew/opt/go@1.20/bin"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
+
+# go binary
+export PATH="$PATH:/opt/homebrew/opt/go@1.21/bin"
+
+# third-party binaries
+export PATH="$PATH:$(go env GOPATH)/bin"

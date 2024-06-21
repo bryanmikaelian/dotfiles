@@ -1,8 +1,6 @@
 [user]
   name = Bryan Mikaelian
   email = bryan.mikaelian@gmail.com
-
-  # 1password
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGj8KNEBGFIVL4D/dh/MpPLEwdPqEM2D6PNktXlshgeo
 
 [color]
@@ -18,11 +16,6 @@
 
 [branch]
   autosetuprebase = always
-
-[alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  s = status --short
-  shove = push --force-with-lease
 [core]
   excludesfile = ~/.gitignore
 [grep]
@@ -33,9 +26,12 @@
   format = ssh
 [gpg "ssh"]
   # linux
-  program = "/opt/1Password/op-ssh-sign"
+  # program = "/opt/1Password/op-ssh-sign"
 
   # macOS
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+  insteadOf = https://github.com/
+
+[url "ssh://git@gitlab.1password.io:2227"]
+	insteadOf = https://gitlab.1password.io
