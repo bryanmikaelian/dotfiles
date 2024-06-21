@@ -85,7 +85,8 @@
   :hook
   (org-mode . org-fancy-priorities-mode)
   :config
-  (setq org-fancy-priorities-list '("P0" "P1" "P2" "P3")))
+  (setq org-fancy-priorities-list '("P0" "P1" "P2" "P3"))
+  (setq org-src-fontify-natively t))
 
 (use-package! tree-sitter
   :hook (prog-mode . turn-on-tree-sitter-mode)
@@ -128,16 +129,3 @@
 (use-package! lsp-mode
   :config
   (setq lsp-headerline-breadcrumb-enable nil))
-
-(use-package! minitest
-  :mode ("/\\.test\\'" . text-mode)
-  :config
-  (setq minitest-use-rails t))
-
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
