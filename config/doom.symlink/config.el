@@ -26,7 +26,8 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15))
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
+      doom-unicode-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -45,6 +46,7 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/.org/")
+(setq org-default-notes-files (concat org-directory "/ingress.org"))
 
 (setq auth-sources '("~/.authinfo"))
 
@@ -129,3 +131,4 @@
 (use-package! lsp-mode
   :config
   (setq lsp-headerline-breadcrumb-enable nil))
+
