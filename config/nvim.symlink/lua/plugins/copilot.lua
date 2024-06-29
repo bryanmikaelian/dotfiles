@@ -1,6 +1,6 @@
 return {
   {
-    "zbindenren/copilot.lua",
+    "zbirenbaum/copilot.lua",
     ft = { "clojure", "clojurescript", "lua" },
   },
 }
