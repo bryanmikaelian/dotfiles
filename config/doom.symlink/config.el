@@ -26,8 +26,7 @@
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
-      doom-unicode-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15))
+      doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 14))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -46,7 +45,72 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/.org/")
-(setq org-default-notes-files (concat org-directory "/ingress.org"))
+
+(after! org
+  :config
+  (setq org-startup-indented t ;; vertically align non-prefixed text with headlines
+        org-return-follows-link t ;; RET opens org mode links
+        org-ellipsis "  " ;; Replace Ellipsis with custom text
+        org-pretty-entities t ;; render UTC-8 characters for things like \alpha
+        org-hide-emphasis-markers t ;; hide things italics, bold, etc
+        org-agenda-block-separator "" ;; newline seperator between blocks in agenda
+        org-fontify-quote-and-verse-blocks t) ;; assign faces to quote and verse blocks
+
+  (let* ((variable-tuple
+          (cond ((x-list-fonts "Roboto Mono")         '(:family "Roboto Mono"))
+                ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+                ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+                ((x-list-fonts "Verdana")         '(:font "Verdana"))
+                ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+                (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+         (base-font-color     (face-foreground 'default nil 'default))
+         (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+
+    (custom-theme-set-faces
+     'user
+     `(org-level-8 ((t (,@headline ,@variable-tuple))))
+     `(org-level-7 ((t (,@headline ,@variable-tuple))))
+     `(org-level-6 ((t (,@headline ,@variable-tuple))))
+     `(org-level-5 ((t (,@headline ,@variable-tuple))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+     `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))))
+
+  (custom-theme-set-faces
+   'user
+   '(org-block ((t (:inherit fixed-pitch))))
+   '(org-code ((t (:inherit (shadow fixed-pitch)))))
+   '(org-document-info ((t (:foreground "dark orange"))))
+   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+   '(org-link ((t (:foreground "royal blue" :underline t))))
+   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-property-value ((t (:inherit fixed-pitch))) t)
+   '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
+   '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+   '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
+
+  (custom-theme-set-faces
+   'user
+   '(variable-pitch ((t (:family "Roboto Mono" :height 180 :weight thin))))
+   '(fixed-pitch ((t ( :family "JetBrainsMono Nerd Font Mono" :height 160)))))
+
+  (add-hook! 'org-mode-hook 'variable-pitch-mode)
+  (add-hook! 'org-mode-hook 'visual-line-mode))
+
+(use-package org-bullets
+  :config
+  (add-hook! 'org-mode-hook (org-bullets-mode 1)))
+
+(use-package! org-fancy-priorities
+  :hook
+  (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("P0" "P1" "P2" "P3"))
+  (setq org-src-fontify-natively t))
 
 (setq auth-sources '("~/.authinfo"))
 
@@ -83,12 +147,6 @@
 ;; they are implemented.
 ;;(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-(use-package! org-fancy-priorities
-  :hook
-  (org-mode . org-fancy-priorities-mode)
-  :config
-  (setq org-fancy-priorities-list '("P0" "P1" "P2" "P3"))
-  (setq org-src-fontify-natively t))
 
 (use-package! tree-sitter
   :hook (prog-mode . turn-on-tree-sitter-mode)
@@ -126,9 +184,8 @@
 
 (use-package! catppuccin-theme
   :config
-  (setq catppuccin-flavor 'macchiato))
+  (setq catppuccin-flavor 'latte))
 
 (use-package! lsp-mode
   :config
   (setq lsp-headerline-breadcrumb-enable nil))
-
