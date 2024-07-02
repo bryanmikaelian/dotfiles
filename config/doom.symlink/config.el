@@ -25,8 +25,9 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
-      doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 14))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14)
+      doom-symbol-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -36,7 +37,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'doom-earl-grey)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -57,48 +58,28 @@
         org-fontify-quote-and-verse-blocks t) ;; assign faces to quote and verse blocks
 
   (let* ((variable-tuple
-          (cond ((x-list-fonts "Roboto Mono")         '(:family "Roboto Mono"))
+          (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
                 ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
                 ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
                 ((x-list-fonts "Verdana")         '(:font "Verdana"))
                 ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
                 (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
-         (base-font-color     (face-foreground 'default nil 'default))
-         (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+         (fixed-font        '(:font  "JetBrainsMono Nerd Font Mono"))
+         (base-font-color    (face-foreground 'default nil 'default))
+         (headline          `(:inherit default :foreground ,base-font-color)))
 
     (custom-theme-set-faces
      'user
-     `(org-level-8 ((t (,@headline ,@variable-tuple))))
-     `(org-level-7 ((t (,@headline ,@variable-tuple))))
-     `(org-level-6 ((t (,@headline ,@variable-tuple))))
-     `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
-     `(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil))))))
+     `(org-level-8 ((t (,@headline ,@fixed-font))))
+     `(org-level-7 ((t (,@headline ,@fixed-font))))
+     `(org-level-6 ((t (,@headline ,@fixed-font))))
+     `(org-level-5 ((t (,@headline ,@fixed-font))))
+     `(org-level-4 ((t (,@headline ,@fixed-font :height 1.0 :weight semi-bold))))
+     `(org-level-3 ((t (,@headline ,@fixed-font :height 1.15 :weight semi-bold))))
+     `(org-level-2 ((t (,@headline ,@fixed-font :height 1.25 :weight bold))))
+     `(org-level-1 ((t (,@headline ,@fixed-font :height 1.5 :weight bold))))
+     `(org-document-title ((t (,@headline ,@fixed-font :height 1.75  :weight extra-bold))))))
 
-  (custom-theme-set-faces
-   'user
-   '(org-block ((t (:inherit fixed-pitch))))
-   '(org-code ((t (:inherit (shadow fixed-pitch)))))
-   '(org-document-info ((t (:foreground "dark orange"))))
-   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
-   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
-   '(org-link ((t (:foreground "royal blue" :underline t))))
-   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-property-value ((t (:inherit fixed-pitch))) t)
-   '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
-   '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
-   '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
-   '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
-
-  (custom-theme-set-faces
-   'user
-   '(variable-pitch ((t (:family "Roboto Mono" :height 180 :weight thin))))
-   '(fixed-pitch ((t ( :family "JetBrainsMono Nerd Font Mono" :height 160)))))
-
-  (add-hook! 'org-mode-hook 'variable-pitch-mode)
   (add-hook! 'org-mode-hook 'visual-line-mode))
 
 (use-package org-bullets
@@ -181,10 +162,6 @@
       "f g" #'consult-ripgrep)
 
 (setq epa-pinentry-mode 'loopback)
-
-(use-package! catppuccin-theme
-  :config
-  (setq catppuccin-flavor 'latte))
 
 (use-package! lsp-mode
   :config
