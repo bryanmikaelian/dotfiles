@@ -53,9 +53,20 @@
         org-return-follows-link t ;; RET opens org mode links
         org-ellipsis "  " ;; Replace Ellipsis with custom text
         org-pretty-entities t ;; render UTC-8 characters for things like \alpha
-        org-hide-emphasis-markers t ;; hide things italics, bold, etc
+        org-hide-emphasis-markers t ;; hire things italics, bold, etc
         org-agenda-block-separator "" ;; newline seperator between blocks in agenda
-        org-fontify-quote-and-verse-blocks t) ;; assign faces to quote and verse blocks
+        org-fontify-quote-and-verse-blocks t  ;; assign faces to quote and verse blocks
+
+        org-agenda-files '("~/.org")
+
+        org-capture-templates '(("i" "Work Item" entry (file "~/.org/op/inbox.org")
+                                 "* [ ] %?\n %i")
+
+                                ("m" "Work Meeting" entry (file "~/.org/op/inbox.org")
+                                 "* %?\n\nSCHEDULED:%^t")
+
+                                ("s" "Scratch" plain (file "~/.org/op/scratch.org")
+                                 "%?")))
 
   (let* ((variable-tuple
           (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
