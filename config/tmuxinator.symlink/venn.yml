@@ -53,3 +53,6 @@ windows:
   - lazygit:
       panes:
         - lg
+  - repl:
+      panes:
+        - bb repl
