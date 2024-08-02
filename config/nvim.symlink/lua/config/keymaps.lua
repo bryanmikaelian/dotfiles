@@ -3,7 +3,11 @@
 -- Add any additional keymaps here
 
 -- unbind location and quickfix options
-local map = LazyVim.safe_keymap_set
+local fzf = require("fzf-lua")
 
-map("n", "<leader>xl", "<Nop>")
-map("n", "<leader>xq", "<Nop>")
+local grep_code = function()
+  fzf.live_grep({ resume = true })
+end
+
+vim.keymap.set("n", "<leader>fs", grep_code, { noremap = true })
+vim.keymap.set("n", "<leader>fh", fzf.buffers, { noremap = true, silent = true })
