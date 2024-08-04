@@ -55,4 +55,4 @@ windows:
         - lg
   - repl:
       panes:
-        - bb repl
+        - bb dev
