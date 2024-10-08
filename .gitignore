@@ -15,3 +15,4 @@ config/config.symlink/karabiner
 
 # No work-specific stuff in source control
 zsh/work.zsh
+config/nvim.symlink/lua/plugins/work.lua
