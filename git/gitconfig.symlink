@@ -1,9 +1,8 @@
 [user]
   name = Bryan Mikaelian
   email = bryan.mikaelian@gmail.com
-
-  # 1password
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGj8KNEBGFIVL4D/dh/MpPLEwdPqEM2D6PNktXlshgeo
+  # signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGj8KNEBGFIVL4D/dh/MpPLEwdPqEM2D6PNktXlshgeo
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB1JxY3CNLZF+YKgrp3D0QVV2coE9e98FpgekNPNKnbx
 
 [color]
   ui = true
@@ -33,9 +32,12 @@
   format = ssh
 [gpg "ssh"]
   # linux
-  program = "/opt/1Password/op-ssh-sign"
+  # program = "/opt/1Password/op-ssh-sign"
 
   # macOS
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+  insteadOf = https://github.com/
+
+[url "ssh://git@gitlab.1password.io:2227"]
+  insteadOf = https://gitlab.1password.io
