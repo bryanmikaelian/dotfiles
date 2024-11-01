@@ -1,7 +1,7 @@
 # /home/bryan/.config/tmuxinator/venn.yml
 
 name: venn
-root: ~/Code/github.com/venn-billing/agent/
+root: ~/Code/github.com/vennbilling/venn/
 
 # Optional tmux socket
 # socket_name: foo
@@ -12,7 +12,7 @@ root: ~/Code/github.com/venn-billing/agent/
 # Project hooks
 
 # Runs on project start, always
-on_project_start: clojure-lsp > /dev/null 2>1 &
+on_project_start:
 
 # Run on project start, the first time
 # on_project_first_start: command
@@ -55,4 +55,4 @@ windows:
         - lg
   - repl:
       panes:
-        - bb dev
+        - clj -A:repl:dev:test
