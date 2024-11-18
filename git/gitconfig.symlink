@@ -1,6 +1,6 @@
 [user]
   name = Bryan Mikaelian
-  email = bryan.mikaelian@gmail.com
+  email = bryan.mikaelian@agilebits.com
   # signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGj8KNEBGFIVL4D/dh/MpPLEwdPqEM2D6PNktXlshgeo
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB1JxY3CNLZF+YKgrp3D0QVV2coE9e98FpgekNPNKnbx
 
