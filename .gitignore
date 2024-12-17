@@ -15,4 +15,6 @@ config/config.symlink/karabiner
 
 # No work-specific stuff in source control
 zsh/work.zsh
+zsh/functions/work
 config/nvim.symlink/lua/plugins/work.lua
+config/kitty.symlink/profiles/work.conf
