@@ -92,3 +92,7 @@ tags
 config/nvim.symlink/plugin
 
 .tmuxinator.yml
+
+.lazy.lua
+
+

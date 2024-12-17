@@ -29,3 +29,4 @@ compinit
 # url-quote-magic
 autoload url-quote-magic
 zle -N self-insert url-quote-magic
+export PATH="/opt/homebrew/opt/mysql-client@8.4/bin:$PATH"
