@@ -140,6 +140,8 @@
 ;;(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 
+(add-hook! 'window-setup-hook #'toggle-frame-maximized)
+
 (use-package! tree-sitter
   :hook (prog-mode . turn-on-tree-sitter-mode)
   :hook (tree-sitter-after-on . tree-sitter-hl-mode)
@@ -177,3 +179,4 @@
 (use-package! lsp-mode
   :config
   (setq lsp-headerline-breadcrumb-enable nil))
+
