@@ -57,4 +57,4 @@
 (package! lsp-mode)
 (package! lsp-ui)
 (package! dockerfile-mode)
-(package! go-dlv)
+(package! dap-mode)

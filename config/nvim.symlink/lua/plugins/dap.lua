@@ -1,5 +1,3 @@
-print("Loading DAP configurations")
-
 return {
   {
     "mfussenegger/nvim-dap",

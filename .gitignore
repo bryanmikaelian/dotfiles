@@ -18,3 +18,4 @@ zsh/work.zsh
 zsh/functions/work
 config/nvim.symlink/lua/plugins/work.lua
 config/kitty.symlink/profiles/work.conf
+config/doom.symlink/local.el
