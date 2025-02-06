@@ -25,9 +25,9 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
-      doom-symbol-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 15))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14)
+      doom-symbol-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -164,6 +164,7 @@
           (markdown "https://github.com/ikatyang/tree-sitter-markdown")
           (python "https://github.com/tree-sitter/tree-sitter-python")
           (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
+          (rust "https://github.com/tree-sitter/tree-sitter-rust")
           (toml "https://github.com/tree-sitter/tree-sitter-toml")
           (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
           (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
@@ -188,3 +189,12 @@
 (use-package! dap-mode
   :config
   (require 'dap-dlv-go))
+
+(after! compile
+  (setq compilation-environment '("TERM=xterm-256color")))
+
+(after! projectile
+  (setq projectile-switch-project-action #'projectile-dired-other-window)
+  (setq projectile-track-known-projects-automatically nil)
+  (setq projectile-per-project-compilation-buffer t)
+  (setq projectile-run-use-comint-mode t))

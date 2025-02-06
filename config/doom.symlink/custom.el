@@ -7,7 +7,7 @@
    '("691d671429fa6c6d73098fc6ff05d4a14a323ea0a18787daeb93fde0e48ab18b" "00cec71d41047ebabeb310a325c365d5bc4b7fab0a681a2a108d32fb161b4006" default))
  '(org-agenda-files
    '("~/.org/op/proj/tsp-additional-members.org" "/Users/bryanmikaelian/.org/op/proj/disable-family-to-business.org" "/Users/bryanmikaelian/.org/op/index.org" "/Users/bryanmikaelian/.org/index.org"))
- '(package-selected-packages '(magit)))
+ '(package-selected-packages '(tree-sitter-langs magit)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
