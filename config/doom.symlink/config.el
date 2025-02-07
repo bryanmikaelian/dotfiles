@@ -61,30 +61,23 @@
 
         org-agenda-files '("~/.org")
 
-        org-capture-templates '(("i" "Work Item" entry (file "~/.org/op/inbox.org")
-                                 "* [ ] %?\n %i")
-
-                                ("m" "Work Meeting" entry (file "~/.org/op/inbox.org")
-                                 "* %?\n\nSCHEDULED:%^t")
-
-                                ("s" "Scratch" plain (file "~/.org/op/scratch.org")
+        org-capture-templates '(("s" "Work TODO" plain (file "~/.org/op/inbox.org")
                                  "%?")))
 
-  (let* ((fixed-font        '(:font  "JetBrainsMono Nerd Font Mono"))
-         (base-font-color    (face-foreground 'default nil 'default))
-         (headline          `(:inherit default :foreground ,base-font-color)))
+  (custom-set-faces!
+    '(org-document-title :height 1.5 :weight extra-bold)
+    '(org-document-info :height 1.00)
+    '(org-document-info-keyword :height 1.00)
+    '(org-level-1 :height 1.5 :weight bold)
+    '(org-level-2 :height 1.25 :weight bold)
+    '(org-level-3 :height 1.15 :weight semi-bold)
+    '(org-level-4 :height 1.00 :weight semi-bold)
+    '(org-level-5 :inherit default)
+    '(org-level-6 :inherit default)
+    '(org-level-7 :inherit default)
+    '(org-level-8 :inherit default))
 
-    (custom-theme-set-faces
-     'user
-     `(org-level-8 ((t (,@headline ,@fixed-font))))
-     `(org-level-7 ((t (,@headline ,@fixed-font))))
-     `(org-level-6 ((t (,@headline ,@fixed-font))))
-     `(org-level-5 ((t (,@headline ,@fixed-font))))
-     `(org-level-4 ((t (,@headline ,@fixed-font :height 1.0 :weight semi-bold))))
-     `(org-level-3 ((t (,@headline ,@fixed-font :height 1.15 :weight semi-bold))))
-     `(org-level-2 ((t (,@headline ,@fixed-font :height 1.25 :weight bold))))
-     `(org-level-1 ((t (,@headline ,@fixed-font :height 1.5 :weight bold))))
-     `(org-document-title ((t (,@headline ,@fixed-font :height 1.75  :weight extra-bold))))))
+
 
   (add-hook! 'org-mode-hook 'visual-line-mode))
 
@@ -194,7 +187,7 @@
   (setq compilation-environment '("TERM=xterm-256color")))
 
 (after! projectile
-  (setq projectile-switch-project-action #'projectile-dired-other-window)
+  (setq projectile-switch-project-action #'projectile-dired)
   (setq projectile-track-known-projects-automatically nil)
   (setq projectile-per-project-compilation-buffer t)
   (setq projectile-run-use-comint-mode t))
