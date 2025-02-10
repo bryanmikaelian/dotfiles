@@ -43,6 +43,9 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+;; Local config to this machine
+(load! "local")
+
 ;;;;;;;;;;;
 ;; Org Mode
 ;;;;;;;;;;;
@@ -61,8 +64,17 @@
 
         org-agenda-files '("~/.org")
 
-        org-capture-templates '(("s" "Work TODO" plain (file "~/.org/op/inbox.org")
-                                 "%?")))
+        org-capture-templates '(("a" "Action Item" plain (file+headline "~/.org/op/inbox.org" "Actionable")
+                                 "** TODO %?")
+
+
+                                ("s" "Slack Message" plain (file+headline "~/.org/op/inbox.org" "Actionable")
+                                 "** TODO %^{PROMPT} %T")
+
+                                ("d" "Defer" plain (file+headline "~/.org/op/inbox.org" "Later")
+                                 "** HOLD %?")
+
+                                ))
 
   (custom-set-faces!
     '(org-document-title :height 1.5 :weight extra-bold)
@@ -187,7 +199,19 @@
   (setq compilation-environment '("TERM=xterm-256color")))
 
 (after! projectile
+  (map! :leader "p I" #'projectile-ibuffer)
+
   (setq projectile-switch-project-action #'projectile-dired)
   (setq projectile-track-known-projects-automatically nil)
   (setq projectile-per-project-compilation-buffer t)
   (setq projectile-run-use-comint-mode t))
+
+;; AI
+(after! chatgpt-shell
+  (setq chatgpt-shell-anthropic-key (auth-source-pick-first-password :host "api.anthropic.com")))
+
+;; Org Mode Sync
+(after! org
+  (map! :leader
+        (:prefix "e l m"
+         :desc "Agenda Sync"  "o" #'org-agenda-redo)))
