@@ -15,6 +15,9 @@
 [github]
   user = bryanmikaelian
 
+[gitlab]
+  user = bryanmikaelian
+
 [branch]
   autosetuprebase = always
 
