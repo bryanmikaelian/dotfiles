@@ -90,8 +90,20 @@
     '(org-level-8 :inherit default))
 
 
+  (add-hook! 'org-mode-hook 'visual-line-mode)
 
-  (add-hook! 'org-mode-hook 'visual-line-mode))
+  (defun my/org-agenda-refresh-timer ()
+    (dolist (window (window-list))
+      (with-current-buffer (window-buffer window)
+        (when (derived-mode-p 'org-agenda-mode)
+          (org-agenda-redo)))))
+
+  (setq org-agenda-prefix-format '((agenda . " %i %-12:c%?-12t% s")
+                                   (todo . " %i %-12:c")
+                                   (tags . " %i %-12:c")
+                                   (search . " %i %-12:c")))
+
+  (run-with-timer 0 60 'my/org-agenda-refresh-timer))
 
 (use-package org-bullets
   :config
@@ -104,7 +116,6 @@
   (setq org-fancy-priorities-list '("P0" "P1" "P2" "P3"))
   (setq org-src-fontify-natively t))
 
-(setq auth-sources '("~/.authinfo"))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -140,8 +151,55 @@
 ;;(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 
-;; Always start emacs maximized
+;;;;;;;;;;;;;;;;;;
+;; Generic Configs
+;;;;;;;;;;;;;;;;;;
 (add-hook! 'window-setup-hook #'toggle-frame-maximized)
+(setq auth-sources '("~/.authinfo"))
+
+;;;;;
+;; UI
+;;;;;
+(after! compile
+  (setq compilation-environment '("TERM=xterm-256color")))
+
+(after! projectile
+  (map! :leader "p I" #'projectile-ibuffer)
+
+  (setq projectile-switch-project-action #'projectile-dired)
+  (setq projectile-track-known-projects-automatically nil)
+  (setq projectile-per-project-compilation-buffer t)
+  (setq projectile-run-use-comint-mode t))
+
+;;;;;;
+;; RSS
+;;;;;;
+(use-package! elfeed
+  :config
+  ;;(setq elfeed-search-filter "@1-days-ago +unread")
+  (setq elfeed-feeds
+        '(
+          ;; Blogs
+          "https://hnrss.org/frontpage" ;; hacker news
+          "https://planet.clojure.in/atom.xml"
+          "https://www.stallman.org/rss/rss.xml"
+          "https://fasterthanli.me/index.xml"
+          "https://medium.com/feed/netflix-techblog"
+          "https://zachholman.com/atom.xml"
+          "http://www.martinfowler.com/feed.atom"
+          "https://research.google/blog/rss/"
+
+          ;; News
+          "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines"
+
+          ;; Official Programming Languages
+          "https://clojure.org/feed.xml"
+          "https://blog.rust-lang.org/feed.xml"
+          "https://www.ruby-lang.org/en/feeds/news.rss"
+
+          ;; reddit
+          "https://www.reddit.com/r/politicaldiscussion/.rss")))
+
 
 ;;;;;;;;;;;;;
 ;; Treesitter
@@ -179,14 +237,16 @@
 ;; GPG
 ;;;;;;;
 (after! epg
-  (setq epg-pinentry-mode 'loopback))
+  (setq epg-pinentry-mode 'loopback)
+  (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode))
 
 ;;;;;;;
 ;; LSP
 ;;;;;;;
-(use-package! lsp-mode
-  :config
-  (setq lsp-headerline-breadcrumb-enable nil))
+(after! eglot
+  (setq eglot-ignored-server-capabilities (remove :inlayHintProvider eglot-ignored-server-capabilities))
+  (add-to-list 'eglot-server-programs
+               '(typescript-tsx-mode . ("typescript-language-server" "--stdio"))))
 
 ;;;;;;;
 ;; DAP
@@ -195,23 +255,18 @@
   :config
   (require 'dap-dlv-go))
 
-(after! compile
-  (setq compilation-environment '("TERM=xterm-256color")))
-
-(after! projectile
-  (map! :leader "p I" #'projectile-ibuffer)
-
-  (setq projectile-switch-project-action #'projectile-dired)
-  (setq projectile-track-known-projects-automatically nil)
-  (setq projectile-per-project-compilation-buffer t)
-  (setq projectile-run-use-comint-mode t))
-
+;;;;;;
 ;; AI
-(after! chatgpt-shell
-  (setq chatgpt-shell-anthropic-key (auth-source-pick-first-password :host "api.anthropic.com")))
+;;;;;;
+(use-package! gptel
+  :config
+  (setq! gptel-api-key (auth-source-pick-first-password :host "api.anthropic.com"))
+  (gptel-make-anthropic "Claude"
+                        :stream t
+                        :key (auth-source-pick-first-password :host "api.anthropic.com")))
 
-;; Org Mode Sync
-(after! org
-  (map! :leader
-        (:prefix "e l m"
-         :desc "Agenda Sync"  "o" #'org-agenda-redo)))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Language Specific Configs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(after! rust-mode
+  (setq rust-format-on-save t))

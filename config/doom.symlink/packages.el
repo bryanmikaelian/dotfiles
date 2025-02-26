@@ -58,4 +58,5 @@
 (package! lsp-ui)
 (package! dockerfile-mode)
 (package! dap-mode)
-(package! chatgpt-shell)
+(package! gptel)
+(package! elfeed)
