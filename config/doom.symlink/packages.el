@@ -60,3 +60,6 @@
 (package! dap-mode)
 (package! gptel)
 (package! elfeed)
+(package! jest)
+(package! copilot
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))

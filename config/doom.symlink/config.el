@@ -174,13 +174,11 @@
 ;;;;;;
 ;; RSS
 ;;;;;;
-(use-package! elfeed
-  :config
-  ;;(setq elfeed-search-filter "@1-days-ago +unread")
+(after! elfeed
   (setq elfeed-feeds
         '(
           ;; Blogs
-          "https://hnrss.org/frontpage" ;; hacker news
+          "https://hnrss.org/frontpage"
           "https://planet.clojure.in/atom.xml"
           "https://www.stallman.org/rss/rss.xml"
           "https://fasterthanli.me/index.xml"
@@ -189,17 +187,11 @@
           "http://www.martinfowler.com/feed.atom"
           "https://research.google/blog/rss/"
 
-          ;; News
-          "https://feeds.content.dowjones.io/public/rss/mw_realtimeheadlines"
-
           ;; Official Programming Languages
           "https://clojure.org/feed.xml"
           "https://blog.rust-lang.org/feed.xml"
           "https://www.ruby-lang.org/en/feeds/news.rss"
-
-          ;; reddit
-          "https://www.reddit.com/r/politicaldiscussion/.rss")))
-
+          "https://fedoramagazine.org/feed/")))
 
 ;;;;;;;;;;;;;
 ;; Treesitter
@@ -241,29 +233,24 @@
   (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode))
 
 ;;;;;;;
-;; LSP
-;;;;;;;
-(after! eglot
-  (setq eglot-ignored-server-capabilities (remove :inlayHintProvider eglot-ignored-server-capabilities))
-  (add-to-list 'eglot-server-programs
-               '(typescript-tsx-mode . ("typescript-language-server" "--stdio"))))
-
-;;;;;;;
 ;; DAP
 ;;;;;;;
-(use-package! dap-mode
-  :config
+(after! dap-mode
+  (setq dap-auto-configure-mode t)
+
   (require 'dap-dlv-go))
+
 
 ;;;;;;
 ;; AI
 ;;;;;;
-(use-package! gptel
-  :config
-  (setq! gptel-api-key (auth-source-pick-first-password :host "api.anthropic.com"))
-  (gptel-make-anthropic "Claude"
-                        :stream t
-                        :key (auth-source-pick-first-password :host "api.anthropic.com")))
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Language Specific Configs
