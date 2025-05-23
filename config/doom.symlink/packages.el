@@ -63,3 +63,5 @@
 (package! jest)
 (package! copilot
   :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
+(package! claude-code
+  :recipe (:host github :repo "anthropics/claude-code" :files ("*.el")))

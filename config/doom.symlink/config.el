@@ -37,7 +37,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord-aurora)
+(setq doom-theme 'catppuccin)
+(setq catppuccin-flavor 'mocha)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -166,8 +167,8 @@
 (after! projectile
   (map! :leader "p I" #'projectile-ibuffer)
 
-  (setq projectile-switch-project-action #'projectile-dired)
-  (setq projectile-track-known-projects-automatically nil)
+  (setq projectile-switch-project-action #'projectile-find-file)
+  (setq projectile-track-known-projects-automatically t)
   (setq projectile-per-project-compilation-buffer t)
   (setq projectile-run-use-comint-mode t))
 
@@ -245,6 +246,8 @@
 ;; AI
 ;;;;;;
 (use-package! copilot
+  :config
+  (setq warning-suppress-log-types '((copilot)))
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
               ("<tab>" . 'copilot-accept-completion)
@@ -252,8 +255,19 @@
               ("C-TAB" . 'copilot-accept-completion-by-word)
               ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
+(use-package! claude-code
+  :hook (claude-code--start . sm-setup-claude-faces)
+  :config
+  (require 'claude-code)
+  (map! :leader "c c" claude-code-command-map)
+  (claude-code-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Language Specific Configs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(after! lsp-mode
+  (setq lsp-enable-file-watchers t
+        lsp-file-watch-threshold 5000))
+
 (after! rust-mode
   (setq rust-format-on-save t))
