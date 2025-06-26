@@ -37,7 +37,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'doom-nord)
 (setq catppuccin-flavor 'mocha)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -172,6 +172,11 @@
   (setq projectile-per-project-compilation-buffer t)
   (setq projectile-run-use-comint-mode t))
 
+(use-package treemacs-evil
+  :after treemacs
+  :config
+  :ensure t)
+
 ;;;;;;
 ;; RSS
 ;;;;;;
@@ -271,3 +276,12 @@
 
 (after! rust-mode
   (setq rust-format-on-save t))
+
+(after! cider
+  (add-hook 'cider-repl-mode-hook #'visual-line-mode)
+  (set-popup-rules!
+    '(("^\\*cider-repl"
+       :side right
+       :width 75
+       :quit nil
+       :ttl nil))))
