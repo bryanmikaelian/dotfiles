@@ -8,7 +8,7 @@
  '(org-agenda-files
    '("/Users/bryanmikaelian/.org/op/proj/sk-us-compliance.org" "/Users/bryanmikaelian/.org/op/proj/tsp-pricing-packaging-updates.org" "/Users/bryanmikaelian/.org/op/general.org" "/Users/bryanmikaelian/.org/op/inbox.org" "/Users/bryanmikaelian/.org/index.org"))
  '(package-selected-packages
-   '(jest jest-test-mode eglot elfeed swift-mode chatgpt-shell tree-sitter-langs magit))
+   '(treemacs jest jest-test-mode eglot elfeed swift-mode chatgpt-shell tree-sitter-langs magit))
  '(package-vc-selected-packages
    '((claude-code :url "https://github.com/stevemolitor/claude-code.el"))))
 (custom-set-faces

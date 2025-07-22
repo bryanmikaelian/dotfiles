@@ -95,4 +95,5 @@ config/nvim.symlink/plugin
 
 .lazy.lua
 
-
+# LLM
+CLAUDE.local.md
