@@ -14,7 +14,7 @@ config/config.symlink/configstore
 config/config.symlink/karabiner
 
 # No work-specific stuff in source control
-git/gitconfig-work.symlink
+git/gitconfig-work*
 zsh/work.zsh
 zsh/functions/work
 config/nvim.symlink/lua/plugins/work.lua
