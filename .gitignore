@@ -21,3 +21,6 @@ config/nvim.symlink/lua/plugins/work.lua
 config/kitty.symlink/profiles/work.conf
 config/doom.symlink/local.el
 config/1password.symlink/ssh/agent.toml
+
+# No LLM models
+*.mdb

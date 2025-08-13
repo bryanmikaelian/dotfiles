@@ -1,0 +1,32 @@
+{
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "base_keymap": "VSCode",
+  "outline_panel": {
+    "dock": "right"
+  },
+  "terminal": {
+    "dock": "right"
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "dock": "right",
+    "model_parameters": [],
+    "default_model": {
+      "provider": "ollama",
+      "model": "qwen3:8b"
+    }
+  },
+  "vim_mode": true,
+  "ui_font_size": 13.5,
+  "buffer_font_size": 13.5,
+  "ui_font_family": "JetBrainsMonoNL Nerd Font",
+  "theme": {
+    "mode": "system",
+    "light": "Tokyo Night Storm",
+    "dark": "One Dark"
+  },
+  "formatter": "prettier",
+  "relative_line_numbers": true
+}
