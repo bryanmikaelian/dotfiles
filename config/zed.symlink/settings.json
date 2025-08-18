@@ -1,4 +1,14 @@
 {
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
   "features": {
     "edit_prediction_provider": "zed"
   },
@@ -7,7 +17,7 @@
     "dock": "right"
   },
   "terminal": {
-    "dock": "right"
+    "dock": "bottom"
   },
   "agent": {
     "always_allow_tool_actions": true,
@@ -24,9 +34,10 @@
   "ui_font_family": "JetBrainsMonoNL Nerd Font",
   "theme": {
     "mode": "system",
-    "light": "Tokyo Night Storm",
+    "light": "Nord",
     "dark": "One Dark"
   },
-  "formatter": "prettier",
-  "relative_line_numbers": true
+  "relative_line_numbers": true,
+  "format_on_save": "on",
+  "formatter": "auto"
 }
