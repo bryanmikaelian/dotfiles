@@ -17,7 +17,10 @@
     "dock": "right"
   },
   "terminal": {
-    "dock": "bottom"
+    "dock": "right",
+    "shell": {
+      "program": "zsh"
+    }
   },
   "agent": {
     "always_allow_tool_actions": true,
@@ -29,8 +32,8 @@
     }
   },
   "vim_mode": true,
-  "ui_font_size": 13.5,
-  "buffer_font_size": 13.5,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
   "ui_font_family": "JetBrainsMonoNL Nerd Font",
   "theme": {
     "mode": "system",
