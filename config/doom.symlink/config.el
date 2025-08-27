@@ -25,9 +25,9 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14)
-      doom-symbol-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14)
-      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font Mono" :size 14))
+(setq doom-font (font-spec :family "Roboto Mono" :size 14)
+      doom-symbol-font (font-spec :family "Roboto Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 14))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -37,12 +37,11 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
-(setq catppuccin-flavor 'mocha)
+(setq doom-theme 'doom-nord-light)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type nil)
 
 ;; Local config to this machine
 (load! "local")
@@ -54,44 +53,27 @@
 (setq org-directory "~/.org/")
 
 (after! org
-  :config
-  (setq org-startup-indented t ;; vertically align non-prefixed text with headlines
+  (setq org-hide-leading-stars nil ;; hide leading stars
+        org-startup-indented t ;; vertically align non-prefixed text with headlines
+        org-adapt-indentation nil ;; indent according to outline level
+
+        ;; appearance
+        org-fontify-whole-heading-line t ;; fontify the whole heading line
+        org-fontify-done-headline t ;; fontify headline when marked done
+        org-fontify-quote-and-verse-blocks t  ;; assign faces to quote and verse blocks
+
+        org-hidden-keywords '(title author date email)
         org-return-follows-link t ;; RET opens org mode links
-        org-ellipsis "  " ;; Replace Ellipsis with custom text
+        org-ellipsis "…" ;; Replace Ellipsis with custom text
         org-pretty-entities t ;; render UTC-8 characters for things like \alpha
         org-hide-emphasis-markers t ;; hire things italics, bold, etc
         org-agenda-block-separator "" ;; newline seperator between blocks in agenda
-        org-fontify-quote-and-verse-blocks t  ;; assign faces to quote and verse blocks
-
-        org-agenda-files '("~/.org")
-
-        org-capture-templates '(("a" "Action Item" plain (file+headline "~/.org/op/inbox.org" "Actionable")
-                                 "** TODO %?")
+        org-agenda-files '("~/.org"))
 
 
-                                ("s" "Slack Message" plain (file+headline "~/.org/op/inbox.org" "Actionable")
-                                 "** TODO %^{PROMPT} %T")
-
-                                ("d" "Defer" plain (file+headline "~/.org/op/inbox.org" "Later")
-                                 "** HOLD %?")
-
-                                ))
-
-  (custom-set-faces!
-    '(org-document-title :height 1.5 :weight extra-bold)
-    '(org-document-info :height 1.00)
-    '(org-document-info-keyword :height 1.00)
-    '(org-level-1 :height 1.5 :weight bold)
-    '(org-level-2 :height 1.25 :weight bold)
-    '(org-level-3 :height 1.15 :weight semi-bold)
-    '(org-level-4 :height 1.00 :weight semi-bold)
-    '(org-level-5 :inherit default)
-    '(org-level-6 :inherit default)
-    '(org-level-7 :inherit default)
-    '(org-level-8 :inherit default))
-
-
+  (setq-hook! 'org-mode-hook line-spacing 0.1)
   (add-hook! 'org-mode-hook 'visual-line-mode)
+  (add-hook! 'org-mode-hook #'+zen/toggle)
 
   (defun my/org-agenda-refresh-timer ()
     (dolist (window (window-list))
@@ -104,19 +86,32 @@
                                    (tags . " %i %-12:c")
                                    (search . " %i %-12:c")))
 
-  (run-with-timer 0 60 'my/org-agenda-refresh-timer))
+  (run-with-timer 0 300 'my/org-agenda-refresh-timer))
 
-(use-package org-bullets
-  :config
-  (add-hook! 'org-mode-hook (org-bullets-mode 1)))
+(custom-set-faces!
+  '(org-document-title :height 1.2 :weight bold rinherit default)
+  '(org-document-info :height 1.00)
+  '(org-level-1 :height 1.15 :weight bold :inherit default)
+  '(org-level-2 :height 1.1 :weight semi-bold :inherit default)
+  '(org-level-3 :height 1.05 :weight medium :inherit default)
+  '(org-level-4 :height 1.0 :weight medium :inherit default)
+  '(org-level-5 :height 1.0 :weight normal :inherit default)
+  '(org-level-6 :height 1.0 :weight normal :inherit default)
+  '(org-level-7 :height 1.0 :weight normal :inherit default)
+  '(org-level-8 :height 1.0 :weight normal :inherit default)
+  '(header-line :background unspecified
+                :underline nil
+                :box (:line-width 1 :color "#ECEFF4")
+                :inherit defaulr))
 
-(use-package! org-fancy-priorities
-  :hook
-  (org-mode . org-fancy-priorities-mode)
-  :config
-  (setq org-fancy-priorities-list '("P0" "P1" "P2" "P3"))
-  (setq org-src-fontify-natively t))
+(font-lock-add-keywords 'org-mode
+  '(("^\\(\\*+\\) " 1 `(:family "Roboto Mono"
+                        :height 0.8
+                        :foreground ,(doom-color 'bg)) prepend))
+  'append)
 
+
+;; replicate nano emacs writer-mode with *
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -180,24 +175,6 @@
 ;;;;;;
 ;; RSS
 ;;;;;;
-(after! elfeed
-  (setq elfeed-feeds
-        '(
-          ;; Blogs
-          "https://hnrss.org/frontpage"
-          "https://planet.clojure.in/atom.xml"
-          "https://www.stallman.org/rss/rss.xml"
-          "https://fasterthanli.me/index.xml"
-          "https://medium.com/feed/netflix-techblog"
-          "https://zachholman.com/atom.xml"
-          "http://www.martinfowler.com/feed.atom"
-          "https://research.google/blog/rss/"
-
-          ;; Official Programming Languages
-          "https://clojure.org/feed.xml"
-          "https://blog.rust-lang.org/feed.xml"
-          "https://www.ruby-lang.org/en/feeds/news.rss"
-          "https://fedoramagazine.org/feed/")))
 
 ;;;;;;;;;;;;;
 ;; Treesitter
@@ -246,27 +223,7 @@
 
   (require 'dap-dlv-go))
 
-
 ;;;;;;
-;; AI
-;;;;;;
-(use-package! copilot
-  :config
-  (setq warning-suppress-log-types '((copilot)))
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
-
-(use-package! claude-code
-  :hook (claude-code--start . sm-setup-claude-faces)
-  :config
-  (require 'claude-code)
-  (map! :leader "c c" claude-code-command-map)
-  (claude-code-mode))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Language Specific Configs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
