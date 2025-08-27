@@ -1,5 +1,5 @@
 # editor
-alias e=nvim
+alias e="$EDITOR"
 
 # cd
 alias ..='cd ..'
@@ -13,3 +13,6 @@ alias la='ls -A'
 # tmux
 alias tmux="tmux -2"
 alias tmuxkill="tmux kill-session"
+
+# others
+alias gdf="cd ~/.dotfiles"

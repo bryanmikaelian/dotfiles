@@ -1,0 +1,1 @@
+/Users/bryanmikaelian/.emacs.d/straight/repos/evil-escape/evil-escape.el
