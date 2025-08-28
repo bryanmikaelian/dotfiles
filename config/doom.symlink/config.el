@@ -37,7 +37,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord-light)
+(setq doom-theme 'doom-one-light)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -98,17 +98,7 @@
   '(org-level-5 :height 1.0 :weight normal :inherit default)
   '(org-level-6 :height 1.0 :weight normal :inherit default)
   '(org-level-7 :height 1.0 :weight normal :inherit default)
-  '(org-level-8 :height 1.0 :weight normal :inherit default)
-  '(header-line :background unspecified
-                :underline nil
-                :box (:line-width 1 :color "#ECEFF4")
-                :inherit defaulr))
-
-(font-lock-add-keywords 'org-mode
-  '(("^\\(\\*+\\) " 1 `(:family "Roboto Mono"
-                        :height 0.8
-                        :foreground ,(doom-color 'bg)) prepend))
-  'append)
+  '(org-level-8 :height 1.0 :weight normal :inherit default))
 
 
 ;; replicate nano emacs writer-mode with *
@@ -171,6 +161,15 @@
   :after treemacs
   :config
   :ensure t)
+
+(setq indicate-empty-lines nil)
+
+(after! zen-mode
+  (add-hook 'zen-mode-hook
+            (lambda ()
+              (if zen-mode
+                  (git-gutter-mode -1)
+                (git-gutter-mode 1)))))
 
 ;;;;;;
 ;; RSS
