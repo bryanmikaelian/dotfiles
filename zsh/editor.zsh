@@ -6,3 +6,4 @@ export PATH="$PATH:${HOME}/.config/emacs/bin"
 
 # zed
 export PATH="$PATH:${HOME}/.local/bin"
+
