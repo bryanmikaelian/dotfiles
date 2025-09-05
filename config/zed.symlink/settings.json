@@ -27,8 +27,8 @@
     "dock": "right",
     "model_parameters": [],
     "default_model": {
-      "provider": "ollama",
-      "model": "qwen3:8b"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
     }
   },
   "vim_mode": true,
