@@ -10,11 +10,11 @@ return {
       })
     end,
   },
-
+  { "arcticicestudio/nord-vim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "everforest",
+      colorscheme = "nord",
     },
   },
 }

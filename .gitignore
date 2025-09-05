@@ -27,3 +27,5 @@ config/1password.symlink/ssh/agent.toml
 
 emacs/repos
 emacs/straight/build
+
+lazy-lock.json
