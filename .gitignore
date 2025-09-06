@@ -1,0 +1,31 @@
+vim/tmp
+vim/.DS_Store
+vim/.netrwhist
+vim/vim.symlink/.DS_Store
+vim/vim.symlink/.netrwhist
+vim/vim.symlink/plugged
+
+config/config.symlink/fish/fish_history
+config/fish_read_history
+config/config.symlink/fish/fishd.*
+
+config/config.symlink/yarn
+config/config.symlink/configstore
+config/config.symlink/karabiner
+
+# No work-specific stuff in source control
+git/gitconfig-work*
+zsh/work.zsh
+zsh/functions/work
+config/nvim.symlink/lua/plugins/work.lua
+config/kitty.symlink/profiles/work.conf
+config/doom.symlink/local.el
+config/1password.symlink/ssh/agent.toml
+
+# No LLM models
+*.mdb
+
+emacs/repos
+emacs/straight/build
+
+lazy-lock.json

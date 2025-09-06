@@ -1,0 +1,59 @@
+{
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "base_keymap": "VSCode",
+  "outline_panel": {
+    "dock": "right"
+  },
+  "terminal": {
+    "dock": "right",
+    "shell": {
+      "program": "zsh"
+    }
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "dock": "right",
+    "model_parameters": [],
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    }
+  },
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "ui_font_family": "JetBrainsMonoNL Nerd Font",
+  "theme": {
+    "mode": "system",
+    "light": "Nord",
+    "dark": "One Dark"
+  },
+  "relative_line_numbers": true,
+  "format_on_save": "on",
+  "languages": {
+    "JavaScript": {
+      "formatter": "prettier"
+    },
+    "TypeScript": {
+      "formatter": "prettier"
+    },
+    "Rust": {
+      "formatter": "rustfmt"
+    },
+    "Go": {
+      "formatter": "goimports"
+    }
+  }
+}
