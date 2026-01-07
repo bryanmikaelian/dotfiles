@@ -13,6 +13,8 @@ config/config.symlink/yarn
 config/config.symlink/configstore
 config/config.symlink/karabiner
 
+config/kitty.symlink/**/*.py
+
 # No work-specific stuff in source control
 git/gitconfig-work*
 zsh/work.zsh
