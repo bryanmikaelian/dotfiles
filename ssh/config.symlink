@@ -3,3 +3,7 @@ Host personalgit
 	User git
 	IdentityFile ~/.ssh/personal.pub
 	IdentitiesOnly yes
+
+Host *
+	PubKeyAcceptedKeyTypes +ssh-rsa
+	StrictHostKeyChecking accept-new

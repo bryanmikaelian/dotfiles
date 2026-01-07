@@ -16,13 +16,6 @@ config/config.symlink/karabiner
 config/kitty.symlink/**/*.py
 
 # No work-specific stuff in source control
-git/gitconfig-work*
-zsh/work.zsh
-zsh/functions/work
-config/nvim.symlink/lua/plugins/work.lua
-config/kitty.symlink/profiles/work.conf
-config/doom.symlink/local.el
-config/1password.symlink/ssh/agent.toml
 
 # No LLM models
 *.mdb
@@ -31,3 +24,12 @@ emacs/repos
 emacs/straight/build
 
 lazy-lock.json
+
+# No work stuff
+work.lua
+zsh/functions/work
+zsh/work.zsh
+git/gitconfig-work*
+config/kitty.symlink/profiles/work.conf
+config/doom.symlink/local.el
+config/1password.symlink/ssh/agent.toml

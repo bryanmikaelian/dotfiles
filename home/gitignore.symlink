@@ -97,6 +97,8 @@ config/nvim.symlink/plugin
 
 # LLM
 CLAUDE.local.md
+QWEN.md
 
 # MISE
 mise.local.toml
+
