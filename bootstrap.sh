@@ -137,7 +137,7 @@ install_dotfiles() {
 
     # Handle OS-specific gitconfig
     log_info "Setting up OS-specific gitconfig"
-    local gitconfig_os_source="$DOTFILES_DIR/git/gitconfig-${os}.symlink"
+    local gitconfig_os_source="$DOTFILES_DIR/home/gitconfig-${os}.symlink"
     local gitconfig_os_target="$HOME/.gitconfig-os"
 
     if [[ -f "$gitconfig_os_source" ]]; then
@@ -243,7 +243,7 @@ This script will:
 - Handle files in claude/ directory by placing them in ~/.claude/
 - Handle files in ssh/ directory by placing them in ~/.ssh/
 - Handle files in home/ directory by placing them in ~/
-- Create OS-specific gitconfig symlinks
+- Create OS-specific gitconfig symlinks from home/ (gitconfig-macos/linux.symlink → ~/.gitconfig-os)
 - Backup existing files before overwriting
 - Create necessary directories
 

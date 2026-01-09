@@ -25,7 +25,6 @@ This repo is how I manage dotfiles across multiple machines.
 │   └── zed.symlink/
 ├── emacs/            - Emacs configuration
 │   └── emacs.d.symlink/
-├── git/              - Git OS-specific configs (special handling)
 ├── home/             - Files symlinked to ~/ with dot prefix
 ├── ssh/              - SSH configs symlinked to ~/.ssh/
 └── zsh/              - Zsh shell configurations
@@ -51,15 +50,12 @@ All files/directories ending in `.symlink` get symlinked based on their location
 4. **home/** → `~/` (with dot prefix)
    - `home/zshrc.symlink` → `~/.zshrc`
    - `home/gitconfig.symlink` → `~/.gitconfig`
+   - `home/gitconfig-macos.symlink` → `~/.gitconfig-os` (on macOS, via special logic)
+   - `home/gitconfig-linux.symlink` → `~/.gitconfig-os` (on Linux, via special logic)
    - `home/tmux.conf.symlink` → `~/.tmux.conf`
    - `home/gitignore.symlink` → `~/.gitignore`
 
-5. **git/** → OS-specific handling (special case)
-   - `git/gitconfig-macos.symlink` → `~/.gitconfig-os` (on macOS)
-   - `git/gitconfig-linux.symlink` → `~/.gitconfig-os` (on Linux)
-   - Note: This should probably be moved to home/ for consistency
-
-6. **Everything else** → `~/` (with dot prefix)
+5. **Everything else** → `~/` (with dot prefix)
 
 # Installation
 
