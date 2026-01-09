@@ -1,4 +1,5 @@
 ---
+name: search
 description: Searches for answers to basic questions.
 mode: subagent
 model: anthropic/claude-haiku-4-5-20251001
