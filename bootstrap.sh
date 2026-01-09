@@ -107,6 +107,13 @@ install_dotfiles() {
             # Handle nested config directories
             local config_subdir="${dir_name#config/}"
             target="$HOME/.config/$config_subdir/$target_name"
+        elif [[ "$dir_name" == "claude" ]]; then
+            # Special case for Claude directory
+            target="$HOME/.claude/$target_name"
+        elif [[ "$dir_name" == claude/* ]]; then
+            # Handle nested claude directories
+            local claude_subdir="${dir_name#claude/}"
+            target="$HOME/.claude/$claude_subdir/$target_name"
         elif [[ "$dir_name" == "ssh" ]]; then
             # Special case for SSH directory
             target="$HOME/.ssh/$target_name"
@@ -166,6 +173,13 @@ uninstall_dotfiles() {
             # Handle nested config directories
             local config_subdir="${dir_name#config/}"
             target="$HOME/.config/$config_subdir/$target_name"
+        elif [[ "$dir_name" == "claude" ]]; then
+            # Special case for Claude directory
+            target="$HOME/.claude/$target_name"
+        elif [[ "$dir_name" == claude/* ]]; then
+            # Handle nested claude directories
+            local claude_subdir="${dir_name#claude/}"
+            target="$HOME/.claude/$claude_subdir/$target_name"
         elif [[ "$dir_name" == "ssh" ]]; then
             # Special case for SSH directory
             target="$HOME/.ssh/$target_name"
@@ -226,6 +240,7 @@ Examples:
 This script will:
 - Create symlinks for all .symlink files in your dotfiles directory
 - Handle files in config/ directory by placing them in ~/.config/
+- Handle files in claude/ directory by placing them in ~/.claude/
 - Handle files in ssh/ directory by placing them in ~/.ssh/
 - Handle files in home/ directory by placing them in ~/
 - Create OS-specific gitconfig symlinks

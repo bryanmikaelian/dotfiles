@@ -12,8 +12,9 @@ This repo is how I manage dotfiles across multiple machines.
 
 ```
 .
-├── agents/           - Agent configurations
-├── claude/           - Claude-specific files
+├── claude/           - Claude Code configurations
+│   ├── agents.symlink/     - Custom agent configurations
+│   └── CLAUDE.md.symlink   - Global Claude preferences
 ├── config/           - Config files symlinked to ~/.config/
 │   ├── doom.symlink/
 │   ├── kitty.symlink/
@@ -37,21 +38,25 @@ All files/directories ending in `.symlink` get symlinked based on their location
    - `config/kitty.symlink/` → `~/.config/kitty/`
    - `config/starship.toml.symlink` → `~/.config/starship.toml`
 
-2. **ssh/** → `~/.ssh/`
+2. **claude/** → `~/.claude/`
+   - `claude/CLAUDE.md.symlink` → `~/.claude/CLAUDE.md`
+   - `claude/agents.symlink/` → `~/.claude/agents/`
+
+3. **ssh/** → `~/.ssh/`
    - `ssh/config.symlink` → `~/.ssh/config`
 
-3. **home/** → `~/` (with dot prefix)
+4. **home/** → `~/` (with dot prefix)
    - `home/zshrc.symlink` → `~/.zshrc`
    - `home/gitconfig.symlink` → `~/.gitconfig`
    - `home/tmux.conf.symlink` → `~/.tmux.conf`
    - `home/gitignore.symlink` → `~/.gitignore`
 
-4. **git/** → OS-specific handling (special case)
+5. **git/** → OS-specific handling (special case)
    - `git/gitconfig-macos.symlink` → `~/.gitconfig-os` (on macOS)
    - `git/gitconfig-linux.symlink` → `~/.gitconfig-os` (on Linux)
    - Note: This should probably be moved to home/ for consistency
 
-5. **Everything else** → `~/` (with dot prefix)
+6. **Everything else** → `~/` (with dot prefix)
 
 # Installation
 
