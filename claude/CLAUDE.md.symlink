@@ -1,0 +1,5 @@
+# General Rules
+
+- Always use Context7 MCP when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
+- Assume I am on a UNIX-like OS
+- Concise and succinct answers are my preferred response
