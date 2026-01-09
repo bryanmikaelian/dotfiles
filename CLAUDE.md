@@ -19,6 +19,8 @@ This repo is how I manage dotfiles across multiple machines.
 │   ├── doom.symlink/
 │   ├── kitty.symlink/
 │   ├── nvim.symlink/
+│   ├── opencode.symlink/   - OpenCode configurations
+│   │   └── agent.symlink   - Symlink to claude/agents.symlink
 │   ├── tmuxinator.symlink/
 │   └── zed.symlink/
 ├── emacs/            - Emacs configuration
@@ -36,6 +38,7 @@ All files/directories ending in `.symlink` get symlinked based on their location
 
 1. **config/** → `~/.config/`
    - `config/kitty.symlink/` → `~/.config/kitty/`
+   - `config/opencode.symlink/` → `~/.config/opencode/`
    - `config/starship.toml.symlink` → `~/.config/starship.toml`
 
 2. **claude/** → `~/.claude/`
