@@ -47,5 +47,3 @@
 # work specific overrides
 [include]
   path = ~/.gitconfig-work
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
