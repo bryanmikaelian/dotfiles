@@ -7,6 +7,8 @@ return {
     formatters_by_ft = {
       clojure = { "cljstyle" },
       lua = { "stylua" },
+      typescript = { "prettier" },
+      typescriptreact = { "prettier" },
     },
   },
 }
