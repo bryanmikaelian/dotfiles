@@ -1,64 +1,30 @@
 # Overview
 
-This repo is how I manage dotfiles across multiple machines.
+Dotfiles managed via symlinks. Files ending in `.symlink` are linked to their target locations by `bootstrap.sh`.
 
-# Pre-reqs
+# Agentic Coding Rules
 
-- `zsh` and oh my zsh have to be installed first
-- I use the terminal kitty but any terminal should work
-- It is OS agnostic (sans Windows)
+- **Always ask permission before significant changes** - Don't switch tools/editors (nvim→emacs), change shell configs, or modify core workflows without approval
+- **Use plan mode heavily** - For any non-trivial changes, enter plan mode to explore and propose an approach before implementing
 
-# Directory Structure
+# Agents
 
-```
-.
-├── claude/           - Claude Code configurations
-│   ├── agents.symlink/     - Custom agent configurations
-│   └── CLAUDE.md.symlink   - Global Claude preferences
-├── config/           - Config files symlinked to ~/.config/
-│   ├── doom.symlink/
-│   ├── kitty.symlink/
-│   ├── nvim.symlink/
-│   ├── opencode.symlink/   - OpenCode configurations
-│   │   └── agent.symlink   - Symlink to claude/agents.symlink
-│   ├── tmuxinator.symlink/
-│   └── zed.symlink/
-├── emacs/            - Emacs configuration
-│   └── emacs.d.symlink/
-├── home/             - Files symlinked to ~/ with dot prefix
-├── ssh/              - SSH configs symlinked to ~/.ssh/
-└── zsh/              - Zsh shell configurations
-    └── functions/
-```
+**Repo-specific agents:** `./.claude/agents/` - Only for this dotfiles repo (e.g., dotbot)
+**Global agents:** `claude/agents.symlink/global/` → `~/.claude/agents/global/` - Available in all projects
+
+When creating new agents, put dotfiles-related agents in `./.claude/agents/` and cross-project agents in `claude/agents.symlink/global/`.
 
 # Symlinking Rules
 
-All files/directories ending in `.symlink` get symlinked based on their location:
+- `config/*.symlink` → `~/.config/`
+- `claude/*.symlink` → `~/.claude/`
+- `ssh/*.symlink` → `~/.ssh/`
+- `home/*.symlink` → `~/.filename` (adds dot prefix)
+- `zsh/functions/*` → autoloaded zsh functions
 
-1. **config/** → `~/.config/`
-   - `config/kitty.symlink/` → `~/.config/kitty/`
-   - `config/opencode.symlink/` → `~/.config/opencode/`
-   - `config/starship.toml.symlink` → `~/.config/starship.toml`
+OS-specific: `home/gitconfig-{macos,linux}.symlink` → `~/.gitconfig-os`
 
-2. **claude/** → `~/.claude/`
-   - `claude/CLAUDE.md.symlink` → `~/.claude/CLAUDE.md`
-   - `claude/agents.symlink/` → `~/.claude/agents/`
+# Commands
 
-3. **ssh/** → `~/.ssh/`
-   - `ssh/config.symlink` → `~/.ssh/config`
-
-4. **home/** → `~/` (with dot prefix)
-   - `home/zshrc.symlink` → `~/.zshrc`
-   - `home/gitconfig.symlink` → `~/.gitconfig`
-   - `home/gitconfig-macos.symlink` → `~/.gitconfig-os` (on macOS, via special logic)
-   - `home/gitconfig-linux.symlink` → `~/.gitconfig-os` (on Linux, via special logic)
-   - `home/tmux.conf.symlink` → `~/.tmux.conf`
-   - `home/gitignore.symlink` → `~/.gitignore`
-
-5. **Everything else** → `~/` (with dot prefix)
-
-# Installation
-
-- `bootstrap.sh install` runs the show when installing
-- `bootstrap.sh uninstall` removes symlinks and restores backups
-- The script automatically backs up existing files before symlinking
+- `bootstrap.sh install` - create symlinks (backs up existing files)
+- `bootstrap.sh uninstall` - remove symlinks and restore backups
