@@ -1,0 +1,53 @@
+# cheatmac - macOS hidden text navigation cheatsheet
+
+# Check if running on macOS
+if [[ "$OSTYPE" != darwin* ]]; then
+    echo "cheatmac: This cheatsheet is for macOS-specific keybindings"
+    return 1
+fi
+
+bold="\033[1m"
+dim="\033[2m"
+yellow="\033[33m"
+blue="\033[34m"
+purple="\033[35m"
+cyan="\033[36m"
+reset="\033[0m"
+
+echo ""
+echo -e "${bold}${purple}  macOS Text Navigation${reset}${dim} — the Emacs keybindings hiding in every native text field${reset}"
+echo ""
+
+echo -e "${bold}${blue}  MOVEMENT${reset}"
+echo -e "    ${yellow}Ctrl-A / Ctrl-E${reset}      Beginning / End of line"
+echo -e "    ${yellow}Ctrl-F / Ctrl-B${reset}      Forward / Back one char"
+echo -e "    ${yellow}Ctrl-N / Ctrl-P${reset}      Next / Previous line"
+echo -e "    ${yellow}⌥-F / ⌥-B${reset}           Forward / Back one word"
+echo -e "    ${yellow}⌘-← / ⌘-→${reset}           Beginning / End of line"
+echo -e "    ${yellow}⌘-↑ / ⌘-↓${reset}           Beginning / End of document"
+echo ""
+
+echo -e "${bold}${blue}  EDITING${reset}"
+echo -e "    ${yellow}Ctrl-D${reset}               Delete char forward"
+echo -e "    ${yellow}Ctrl-H${reset}               Delete char backward"
+echo -e "    ${yellow}Ctrl-K${reset}               Kill to end of line"
+echo -e "    ${yellow}Ctrl-Y${reset}               Yank (paste from kill ring)"
+echo -e "    ${yellow}Ctrl-T${reset}               Transpose two characters"
+echo -e "    ${yellow}Ctrl-O${reset}               Insert newline after cursor"
+echo ""
+
+echo -e "${bold}${blue}  WORD DELETE${reset}"
+echo -e "    ${yellow}⌥-⌫${reset}                 Delete previous word"
+echo -e "    ${yellow}⌥-Fn-⌫${reset}              Delete next word"
+echo ""
+
+echo -e "${bold}${blue}  SELECTION${reset}${dim} (add ⇧ to movement keys)${reset}"
+echo -e "    ${yellow}⇧-⌘-← / ⇧-⌘-→${reset}     Select to line start/end"
+echo -e "    ${yellow}⇧-⌥-← / ⇧-⌥-→${reset}     Select previous/next word"
+echo -e "    ${yellow}⇧-⌘-↑ / ⇧-⌘-↓${reset}     Select to doc start/end"
+echo ""
+
+echo -e "${dim}  Works in all native macOS text fields (NSTextField/NSTextView)"
+echo -e "  Won't work in Electron apps (Slack, VS Code, Discord)"
+echo -e "  Inherited from NeXTSTEP (1989) → Mac OS X → macOS${reset}"
+echo ""
