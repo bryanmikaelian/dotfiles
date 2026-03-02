@@ -1,0 +1,11 @@
+# Show git diff stats across all repos in current workspace
+local repos=$(find . -maxdepth 2 -name .git -type d ! -path ./.git | sed 's|/\.git||' | sort)
+
+for repo in ${(f)repos}; do
+  local d=$(git -C "$repo" diff --stat 2>/dev/null)
+  if [ -n "$d" ]; then
+    echo "\033[1;33m$repo\033[0m"
+    echo "$d"
+    echo ""
+  fi
+done

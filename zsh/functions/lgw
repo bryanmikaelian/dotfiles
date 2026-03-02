@@ -1,0 +1,7 @@
+# Find git repos in current directory and open lazygit in selected one
+local repos=$(find . -maxdepth 2 -name .git -type d ! -path ./.git | sed 's|/\.git||' | sort)
+local repo=$(echo "$repos" | fzf --prompt="repo> ")
+
+if [ -n "$repo" ]; then
+  cd "$repo" && lazygit
+fi
