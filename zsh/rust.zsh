@@ -1,1 +1,1 @@
-export PATH="$HOME/.cargo/bin:$PATH"
+# Cargo bin path already included in main zshrc PATH
