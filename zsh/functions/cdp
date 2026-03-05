@@ -1,0 +1,4 @@
+# cd to a project path
+# Usage: cdp <path>
+local project_path="${1:?Usage: cdp <path>}"
+cd "${project_path:A}"

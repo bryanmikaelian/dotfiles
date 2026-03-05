@@ -1,0 +1,20 @@
+# Agentic coding layout: claude | lazygit | blank terminal
+# Usage: ac <path>
+local project_path="${1:?Usage: ac <path>}"
+project_path="${project_path:A}"
+
+if [ ! -d "$project_path" ]; then
+  echo "Error: $project_path is not a directory"
+  return 1
+fi
+
+# Tab 1: Claude
+kitty @ launch --type=tab --cwd="$project_path" --title="claude"
+kitty @ send-text --match="title:claude" "claude\r"
+
+# Tab 2: lazygit
+kitty @ launch --type=tab --cwd="$project_path" --title="lazygit"
+kitty @ send-text --match="title:lazygit" "lazygit\r"
+
+# Tab 3: blank terminal
+kitty @ launch --type=tab --cwd="$project_path" --title="terminal"
