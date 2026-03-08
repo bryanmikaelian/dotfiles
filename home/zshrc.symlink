@@ -24,7 +24,7 @@ esac
 for config_file ($DOTFILES/**/*.zsh) source $config_file
 
 # load zsh env vars
-source "${HOME}/.zshenv"
+[[ -f "${HOME}/.zshenv" ]] && source "${HOME}/.zshenv"
 
 # load oh-my-zsh
 source $HOME/.oh-my-zsh/oh-my-zsh.sh

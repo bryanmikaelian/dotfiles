@@ -44,6 +44,122 @@ detect_os() {
     esac
 }
 
+# Install Homebrew
+install_homebrew() {
+    if command -v brew &>/dev/null; then
+        log_success "Homebrew already installed"
+        return
+    fi
+    log_info "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # Add brew to PATH for the rest of this script
+    local os=$(detect_os)
+    if [[ "$os" == "macos" ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    fi
+    log_success "Homebrew installed"
+}
+
+# Install Oh My Zsh
+install_ohmyzsh() {
+    if [[ -d "$HOME/.oh-my-zsh" ]]; then
+        log_success "Oh My Zsh already installed"
+        return
+    fi
+    log_info "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    log_success "Oh My Zsh installed"
+}
+
+# Install Oh My Zsh custom plugins
+install_omz_plugins() {
+    local ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+
+    local plugins=(
+        "zsh-autosuggestions|https://github.com/zsh-users/zsh-autosuggestions"
+        "zsh-syntax-highlighting|https://github.com/zsh-users/zsh-syntax-highlighting"
+        "fast-syntax-highlighting|https://github.com/zdharma-continuum/fast-syntax-highlighting"
+        "zsh-autocomplete|https://github.com/marlonrichert/zsh-autocomplete"
+    )
+
+    for entry in "${plugins[@]}"; do
+        local name="${entry%%|*}"
+        local url="${entry##*|}"
+        local dest="$ZSH_CUSTOM/plugins/$name"
+        if [[ -d "$dest" ]]; then
+            log_success "Oh My Zsh plugin '$name' already installed"
+        else
+            log_info "Installing Oh My Zsh plugin: $name"
+            git clone "$url" "$dest"
+            log_success "Installed '$name'"
+        fi
+    done
+}
+
+# Install prerequisites
+install_prerequisites() {
+    local os=$(detect_os)
+    log_info "Installing prerequisites for $os..."
+
+    # Homebrew (macOS and Linux)
+    install_homebrew
+
+    # Kitty
+    if command -v kitty &>/dev/null; then
+        log_success "Kitty already installed"
+    else
+        if [[ "$os" == "macos" ]]; then
+            log_info "Installing Kitty..."
+            brew install --cask kitty
+            log_success "Kitty installed"
+        else
+            log_warning "Kitty: install manually on Linux (https://sw.kovidgoyal.net/kitty/binary/)"
+        fi
+    fi
+
+    # Starship
+    if command -v starship &>/dev/null; then
+        log_success "Starship already installed"
+    else
+        log_info "Installing Starship..."
+        brew install starship
+        log_success "Starship installed"
+    fi
+
+    # JetBrainsMono Nerd Font
+    if [[ "$os" == "macos" ]]; then
+        if brew list --cask font-jetbrains-mono-nerd-font &>/dev/null 2>&1; then
+            log_success "JetBrainsMono Nerd Font already installed"
+        else
+            log_info "Installing JetBrainsMono Nerd Font..."
+            brew install --cask font-jetbrains-mono-nerd-font
+            log_success "JetBrainsMono Nerd Font installed"
+        fi
+    else
+        log_warning "JetBrainsMono Nerd Font: install manually on Linux (https://www.nerdfonts.com/font-downloads)"
+    fi
+
+    # mise
+    if command -v mise &>/dev/null; then
+        log_success "mise already installed"
+    else
+        log_info "Installing mise..."
+        brew install mise
+        log_success "mise installed"
+    fi
+
+    # Oh My Zsh
+    install_ohmyzsh
+
+    # Oh My Zsh plugins
+    install_omz_plugins
+
+    log_success "Prerequisites installation complete!"
+}
+
 # Create backup of existing file
 backup_file() {
     local file="$1"
@@ -83,6 +199,9 @@ create_symlink() {
 install_dotfiles() {
     local os=$(detect_os)
     log_info "Detected OS: $os"
+
+    # Install prerequisites before symlinking
+    install_prerequisites
 
     log_info "Installing dotfiles from: $DOTFILES_DIR"
 
