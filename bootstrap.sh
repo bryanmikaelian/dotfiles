@@ -151,6 +151,24 @@ install_prerequisites() {
         log_success "mise installed"
     fi
 
+    # bob (neovim version manager)
+    if command -v bob &>/dev/null; then
+        log_success "bob already installed"
+    else
+        log_info "Installing bob..."
+        brew install bob
+        log_success "bob installed"
+    fi
+
+    # lazygit
+    if command -v lazygit &>/dev/null; then
+        log_success "lazygit already installed"
+    else
+        log_info "Installing lazygit..."
+        brew install lazygit
+        log_success "lazygit installed"
+    fi
+
     # Oh My Zsh
     install_ohmyzsh
 
