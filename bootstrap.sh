@@ -160,6 +160,24 @@ install_prerequisites() {
         log_success "bob installed"
     fi
 
+    # neovim (via bob)
+    if command -v nvim &>/dev/null; then
+        log_success "neovim already available"
+    else
+        log_info "Installing and activating latest stable neovim via bob..."
+        bob use stable
+        log_success "neovim installed and activated"
+    fi
+
+    # claude code
+    if command -v claude &>/dev/null; then
+        log_success "Claude Code already installed"
+    else
+        log_info "Installing Claude Code..."
+        curl -fsSL https://claude.ai/install.sh | bash
+        log_success "Claude Code installed"
+    fi
+
     # lazygit
     if command -v lazygit &>/dev/null; then
         log_success "lazygit already installed"
