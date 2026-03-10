@@ -1,8 +1,9 @@
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete docker colorize)
-fpath=($fpath $DOTFILES/zsh/functions)
+fpath=($fpath $DOTFILES/zsh/functions $DOTFILES/zsh/functions/work)
 
 # functions
 autoload -U $DOTFILES/zsh/functions/*(:t)
+autoload -U $DOTFILES/zsh/functions/work/*(:t)
 
 setopt COMPLETE_ALIASES # no aliases until zsh-autocomplete is done
 setopt COMPLETE_IN_WORD # move cursor to end of word after zsh-autocomplete
