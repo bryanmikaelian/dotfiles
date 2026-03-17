@@ -12,3 +12,16 @@ alias gsiu='git submodule init && git submodule update'
 alias gsu='git submodule foreach git pull'
 
 alias lg='lazygit'
+
+# merge a worktree branch into current branch, then clean up
+gmwt() {
+  local branch
+  branch=$(git worktree list | grep -v '(bare)' | grep "$HOME/.claude/worktrees/" | awk '{print $3}' | tr -d '[]' | fzf --prompt="merge worktree> ") || return
+
+  local wt_path
+  wt_path=$(git worktree list | grep "\[$branch\]" | awk '{print $1}')
+
+  git merge "$branch" && \
+    git worktree remove "$wt_path" && \
+    git branch -D "$branch"
+}
