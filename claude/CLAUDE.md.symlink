@@ -73,3 +73,13 @@
 ## Org Mode
 
 - Agents should leverage org mode's priorities, deadlines, schedules, and task management.
+- Agents must set org priorities (`[#A]`, `[#B]`, `[#C]`) on tasks and subtasks when creating them
+- Use tags for filtering and status (e.g. `:backend:`, `:frontend:`, `:blocked:`, `:waiting:`)
+- Use property drawers for structured metadata (linked plan file, owning agent/worktree, base branch)
+- Use `SCHEDULED` and `DEADLINE` when dates are known
+- Do NOT use: clocking (`CLOCK:`), effort estimates, babel/code blocks, custom link types, or column view — these add noise with no value for agents
+- All org file reads/writes must go through the `org-bot` agent — other agents should not directly modify org files
+- Use `[/]` (or `[%]`) statistics cookies on parent headings to track task/subtask completion (e.g. `** TODO Implement auth [/]`)
+- Archive completed tasks with `:ARCHIVE:` tag or move to `+archive.org` sibling file to keep active files clean
+- Refile tasks to the appropriate heading/file when scope or ownership changes — don't leave orphaned TODOs
+- When a project is officially kicked off, move it from the category file (e.g. `work.org`) to `./projects/PROJECT-NAME.org` as a dedicated project file
