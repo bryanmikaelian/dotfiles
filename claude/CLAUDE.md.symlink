@@ -2,17 +2,17 @@
 
 - Assume I am on a UNIX-like OS
 - Concise and succinct answers are my preferred response
-- Tasks are defined in ~/.claude/tasks/*.(md|org) files. These are long running TODO items.
+- Tasks are defined in ~/.claude/tasks/*.md / *.org files. These are long running TODO items.
 
 # Writing Code
 
-- Test first approach is required. Write the tests and code against it
+- Test first approach is required. Write tests first, then implement against them.
 - Agentic flow is required. If no agents exist, spin them up.
 - Agents should spin up other agents to do implementation or code reviews
 
 # Ownership
 
-- You have ownership of anything in local
+- You have ownership of anything in the local environment
 - You have no write access in production.
 - If the user asks for queries or code to run in production, that is fine. The user will own execution.
 
@@ -22,24 +22,35 @@
 - Create worktrees under `~/.claude/worktrees/`, NOT under the project's `.claude/` directory. Keep the project's `.claude` dir clean.
 - Branch names must be prefixed with `bryan/` (e.g. `bryan/enterprise-entitlements`).
 - Example: `git worktree add ~/.claude/worktrees/<name> -b bryan/<name> <base-branch>`
+- Never commit. The user likes to own comitting
 
 # Project Management
 
 - Files represent categories of projects i.e. work.md / work.org -> work projects
 - Specific projects are defined in each file
 
+# Planning
+
+- The user is a heavy claude code user and manages projects and tasks from ~/.claude
+- Repos that leverage claude will have a .claude folder. If it doesn't exist, assume the user doesn't want claude in there
+
 ## Problem Statement and Solution
 
 - Projects have a problem statement. This cannot be edited by anyone but the user.
 - Projects have a proposed solution. This cannot be edited by anyone but the user.
 
-### Tasks v Subtasks
+### Planning Work
+- Once the user approves a plan, tasks should be broken down under the project in the .md or .org file
+- Link the claude plan.md file to the project in the .md or .org file
+- Ask the user to approve the work breakdown before moving forward. Apply any feedback.
+
+#### Tasks v Subtasks
 
 - Tasks and subtasks always require an agent team
 - Tasks and subtasks can be modified by anyone
 - Tasks and subtasks should always be done in plan mode
-- Solution can only be deemed "shipped" the user but tasks and subtasks can be marked as complete by the agent
-- Tasks and subtasks can be worked on in parallel since we leverage subtrees
+- Solution can only be deemed "shipped" by the user but tasks and subtasks can be marked as complete by the agent
+- Tasks and subtasks can be worked on in parallel since we leverage worktrees
 - Small, focused tasks are better than a task that says "implement feature"
 
 ### Project Priorities
@@ -61,4 +72,4 @@
 
 ## Org Mode
 
-- Agents should leverage org modes priorities, deadlines, schedules and task management.
+- Agents should leverage org mode's priorities, deadlines, schedules, and task management.
