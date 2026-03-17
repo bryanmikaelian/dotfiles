@@ -290,12 +290,20 @@ install_dotfiles() {
         create_symlink "$linkable" "$target"
     done < <(find "$DOTFILES_DIR" -name "*.symlink" -print0)
 
-    # Symlink ~/.org to ~/.claude/tasks for org-mode access
+    # Symlink ~/.org to ~/.claude/ideas for org-mode access
     log_info "Setting up org-mode symlink"
-    if [[ -d "$HOME/.claude/tasks" ]]; then
-        create_symlink "$HOME/.claude/tasks" "$HOME/.org"
+    if [[ -d "$HOME/.claude/ideas" ]]; then
+        create_symlink "$HOME/.claude/ideas" "$HOME/.org"
     else
-        log_warning "~/.claude/tasks does not exist yet — skipping ~/.org symlink"
+        log_warning "~/.claude/ideas does not exist yet — skipping ~/.org symlink"
+    fi
+
+    # Symlink ~/.projects to ~/.claude/ideas for quick access
+    log_info "Setting up projects symlink"
+    if [[ -d "$HOME/.claude/ideas" ]]; then
+        create_symlink "$HOME/.claude/ideas" "$HOME/.projects"
+    else
+        log_warning "~/.claude/ideas does not exist yet — skipping ~/.projects symlink"
     fi
 
     # Handle OS-specific gitconfig
@@ -378,6 +386,12 @@ uninstall_dotfiles() {
     if [[ -L "$HOME/.org" ]]; then
         log_info "Removing org-mode symlink: $HOME/.org"
         rm "$HOME/.org"
+    fi
+
+    # Remove projects symlink
+    if [[ -L "$HOME/.projects" ]]; then
+        log_info "Removing projects symlink: $HOME/.projects"
+        rm "$HOME/.projects"
     fi
 
     # Remove OS-specific gitconfig

@@ -1,0 +1,6 @@
+# cd to a project in ~/Code (fzf picker)
+local selected=$(find ~/Code -maxdepth 3 -name .git -type d 2>/dev/null | sed 's|/\.git||' | sort | fzf --prompt="project> ")
+
+if [ -n "$selected" ]; then
+  cd "$selected"
+fi

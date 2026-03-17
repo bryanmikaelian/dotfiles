@@ -1,0 +1,13 @@
+# cd to a git worktree (fzf picker)
+local worktrees=$(git worktree list --porcelain 2>/dev/null | grep '^worktree ' | sed 's/^worktree //' | tail -n +2)
+
+if [ -z "$worktrees" ]; then
+  echo "No worktrees found"
+  return 1
+fi
+
+local selected=$(echo "$worktrees" | fzf --prompt="worktree> ")
+
+if [ -n "$selected" ]; then
+  cd "$selected"
+fi

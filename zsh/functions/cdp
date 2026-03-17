@@ -1,4 +1,6 @@
-# cd to a project path
-# Usage: cdp <path>
-local project_path="${1:?Usage: cdp <path>}"
-cd "${project_path:A}"
+# cd to a project in ~/.projects (fzf picker)
+local selected=$(find ~/.projects -maxdepth 2 -type d 2>/dev/null | sort | fzf --prompt="project> ")
+
+if [ -n "$selected" ]; then
+  cd "$selected"
+fi

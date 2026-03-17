@@ -2,7 +2,8 @@
 
 - Assume I am on a UNIX-like OS
 - Concise and succinct answers are my preferred response
-- Tasks are defined in ~/.claude/tasks/*.md / *.org files. These are long running TODO items.
+- Ideas are tracked in `~/.claude/ideas/*.md` — managed via `/ideate`
+- Active projects live in `~/.claude/projects/` — kicked off via `/kickoff`
 
 # Writing Code
 
@@ -26,8 +27,9 @@
 
 # Project Management
 
-- Files represent categories of projects i.e. work.md / work.org -> work projects
-- Specific projects are defined in each file
+- Ideas are categorized in `~/.claude/ideas/<category>.md` (e.g. work.md, personal.md)
+- Each idea has an ID (e.g. WORK-1) and priority (P0-P4)
+- Active projects are kicked off from ideas via `/kickoff` and live in `~/.claude/projects/`
 
 # Planning
 
@@ -83,3 +85,26 @@
 - Archive completed tasks with `:ARCHIVE:` tag or move to `+archive.org` sibling file to keep active files clean
 - Refile tasks to the appropriate heading/file when scope or ownership changes — don't leave orphaned TODOs
 - When a project is officially kicked off, move it from the category file (e.g. `work.org`) to `./projects/PROJECT-NAME.org` as a dedicated project file
+
+# Agentic Workflow
+
+## Ideation
+- Ideas live in `~/.claude/ideas/*.md` with IDs (e.g. WORK-1, PERSONAL-3)
+- `/ideate <category> <priority>: <description>` — add an idea
+- `/ideate list` — list all ideas sorted P0→P4, alpha within each
+- .md files are brainstorming — no commitment to implement
+
+## Kicking off a project
+- `/kickoff <ID>` (e.g. `/kickoff WORK-3`) — start a project from an idea
+- Asks user for format (md or org) and problem statement / solution if not provided
+- Spawns project-lead → creates work breakdown in `~/.claude/projects/`
+- User reviews and approves before implementation begins
+- Ideas with `CHORE` or `BUG` in the ID (e.g. CHORE-1, BUG-3) don't require a full project doc — just execute directly
+
+## Implementation
+On user approval:
+1. Project-lead spawns worker agents per task (parallel where deps allow)
+2. Each worker uses its own worktree under `~/.claude/worktrees/`
+3. Workers update the project file as tasks complete
+4. Project-lead reports back when all tasks are done
+5. User owns commits and final sign-off
