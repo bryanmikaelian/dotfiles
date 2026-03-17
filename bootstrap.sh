@@ -290,6 +290,14 @@ install_dotfiles() {
         create_symlink "$linkable" "$target"
     done < <(find "$DOTFILES_DIR" -name "*.symlink" -print0)
 
+    # Symlink ~/.org to ~/.claude/tasks for org-mode access
+    log_info "Setting up org-mode symlink"
+    if [[ -d "$HOME/.claude/tasks" ]]; then
+        create_symlink "$HOME/.claude/tasks" "$HOME/.org"
+    else
+        log_warning "~/.claude/tasks does not exist yet — skipping ~/.org symlink"
+    fi
+
     # Handle OS-specific gitconfig
     log_info "Setting up OS-specific gitconfig"
     local gitconfig_os_source="$DOTFILES_DIR/home/gitconfig-${os}.symlink"
@@ -365,6 +373,12 @@ uninstall_dotfiles() {
             fi
         fi
     done < <(find "$DOTFILES_DIR" -name "*.symlink" -print0)
+
+    # Remove org-mode symlink
+    if [[ -L "$HOME/.org" ]]; then
+        log_info "Removing org-mode symlink: $HOME/.org"
+        rm "$HOME/.org"
+    fi
 
     # Remove OS-specific gitconfig
     local gitconfig_os_target="$HOME/.gitconfig-os"
