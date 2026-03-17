@@ -1,5 +1,64 @@
 # General Rules
 
-- Always use Context7 MCP when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.
 - Assume I am on a UNIX-like OS
 - Concise and succinct answers are my preferred response
+- Tasks are defined in ~/.claude/tasks/*.(md|org) files. These are long running TODO items.
+
+# Writing Code
+
+- Test first approach is required. Write the tests and code against it
+- Agentic flow is required. If no agents exist, spin them up.
+- Agents should spin up other agents to do implementation or code reviews
+
+# Ownership
+
+- You have ownership of anything in local
+- You have no write access in production.
+- If the user asks for queries or code to run in production, that is fine. The user will own execution.
+
+# Git
+
+- Prefer using git worktrees for isolated work, especially when multiple Claudes are working in parallel.
+- Create worktrees under `~/.claude/worktrees/`, NOT under the project's `.claude/` directory. Keep the project's `.claude` dir clean.
+- Branch names must be prefixed with `bryan/` (e.g. `bryan/enterprise-entitlements`).
+- Example: `git worktree add ~/.claude/worktrees/<name> -b bryan/<name> <base-branch>`
+
+# Project Management
+
+- Files represent categories of projects i.e. work.md / work.org -> work projects
+- Specific projects are defined in each file
+
+## Problem Statement and Solution
+
+- Projects have a problem statement. This cannot be edited by anyone but the user.
+- Projects have a proposed solution. This cannot be edited by anyone but the user.
+
+### Tasks v Subtasks
+
+- Tasks and subtasks always require an agent team
+- Tasks and subtasks can be modified by anyone
+- Tasks and subtasks should always be done in plan mode
+- Solution can only be deemed "shipped" the user but tasks and subtasks can be marked as complete by the agent
+- Tasks and subtasks can be worked on in parallel since we leverage subtrees
+- Small, focused tasks are better than a task that says "implement feature"
+
+### Project Priorities
+
+- Projects use a PN priority system
+  - P0: Critical
+  - P1: High
+  - P2: Important
+  - P3: Low
+  - P4: Nice to have
+- P0 can be implemented at any time
+- P1 can be implemented at any time after P0s are done
+- P2 or lower need user approval
+
+## Markdown
+
+- Projects are listed in priority order (P0 -> P4)
+- Tasks should use `[ ]` syntax
+
+## Org Mode
+
+- Agents should leverage org modes priorities, deadlines, schedules and task management.
