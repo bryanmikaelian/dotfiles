@@ -1,9 +1,9 @@
 ---
-name: ideate
+name: proj-ideate
 description: Manage ideas in ~/.claude/ideas/. Add new ideas with auto-assigned IDs or list all ideas sorted by priority.
 ---
 
-# /ideate — Idea Management Skill
+# /proj-ideate — Idea Management Skill
 
 You manage ideas stored in `~/.claude/ideas/`.
 
@@ -18,7 +18,7 @@ Parse accordingly. Category and priority are case-insensitive; normalize categor
 
 ---
 
-## Add behavior (`/ideate <category> <priority>: <description>`)
+## Add behavior (`/proj-ideate <category> <priority>: <description>`)
 
 1. **Determine the file:** `~/.claude/ideas/<category>.md` (lowercase category)
 2. **Create file if it doesn't exist** with this template:
@@ -45,7 +45,7 @@ Parse accordingly. Category and priority are case-insensitive; normalize categor
 
 ---
 
-## List behavior (`/ideate list`)
+## List behavior (`/proj-ideate list`)
 
 1. Read all `~/.claude/ideas/*.md` files using Glob
 2. Parse all entries from all files

@@ -1,15 +1,15 @@
 ---
-name: kickoff
+name: proj-kickoff
 description: Start a project from an idea. Looks up an idea by ID, asks for format preference, and spawns project-lead to create a full work breakdown.
 ---
 
-# /kickoff — Start a Project from an Idea
+# /proj-kickoff — Start a Project from an Idea
 
 You kick off a project from an existing idea in `~/.claude/ideas/`.
 
 ## Usage
 
-`/kickoff $ARGUMENTS` where `$ARGUMENTS` is an idea ID (e.g. `WORK-3`)
+`/proj-kickoff $ARGUMENTS` where `$ARGUMENTS` is an idea ID (e.g. `WORK-3`)
 
 ## Behavior
 
@@ -51,7 +51,7 @@ Problem Statement: <user's problem statement>
 Proposed Solution: <user's proposed solution>
 Target Repo: <repo path>
 
-Your task: Research the target repo codebase and create a full work breakdown in ~/.claude/projects/<slug>.<format>.
+Your task: Research the target repo codebase and create a full work breakdown in ~/.claude/ideas/projects/<slug>.<format>.
 
 Create small, focused tasks with dependencies and priorities. Each task should have enough detail for a worker agent to execute independently.
 

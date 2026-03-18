@@ -2,8 +2,8 @@
 
 - Assume I am on a UNIX-like OS
 - Concise and succinct answers are my preferred response
-- Ideas are tracked in `~/.claude/ideas/*.md` — managed via `/ideate`
-- Active projects live in `~/.claude/projects/` — kicked off via `/kickoff`
+- Ideas are tracked in `~/.claude/ideas/*.md` — managed via `/proj-ideate`
+- Active projects live in `~/.claude/ideas/projects/` — kicked off via `/proj-kickoff`
 
 # Writing Code
 
@@ -29,7 +29,7 @@
 
 - Ideas are categorized in `~/.claude/ideas/<category>.md` (e.g. work.md, personal.md)
 - Each idea has an ID (e.g. WORK-1) and priority (P0-P4)
-- Active projects are kicked off from ideas via `/kickoff` and live in `~/.claude/projects/`
+- Active projects are kicked off from ideas via `/proj-kickoff` and live in `~/.claude/ideas/projects/`
 
 # Planning
 
@@ -90,14 +90,20 @@
 
 ## Ideation
 - Ideas live in `~/.claude/ideas/*.md` with IDs (e.g. WORK-1, PERSONAL-3)
-- `/ideate <category> <priority>: <description>` — add an idea
-- `/ideate list` — list all ideas sorted P0→P4, alpha within each
+- `/proj-ideate <category> <priority>: <description>` — add an idea
+- `/proj-ideate list` — list all ideas sorted P0→P4, alpha within each
 - .md files are brainstorming — no commitment to implement
 
+## Initializing a project
+- `/proj-init <ID>` (e.g. `/proj-init WORK-3`) — create a project file from an idea with sections to fill out
+- Creates `~/.claude/ideas/projects/<id>-<slug>.md` (e.g. `work-5-migrate-existing-one-time-gifts.md`) with Context, Problem Statement, Solution, and Technical Requirements sections
+- Project files must include the task ID prefix in the filename for easy lookup
+- After creating the project file, add a link to it in the ideas list (e.g. `→ [project](projects/work-5-slug.md)`)
+
 ## Kicking off a project
-- `/kickoff <ID>` (e.g. `/kickoff WORK-3`) — start a project from an idea
+- `/proj-kickoff <ID>` (e.g. `/proj-kickoff WORK-3`) — start a project from an idea
 - Asks user for format (md or org) and problem statement / solution if not provided
-- Spawns project-lead → creates work breakdown in `~/.claude/projects/`
+- Spawns project-lead → creates work breakdown in `~/.claude/ideas/projects/`
 - User reviews and approves before implementation begins
 - Ideas with `CHORE` or `BUG` in the ID (e.g. CHORE-1, BUG-3) don't require a full project doc — just execute directly
 

@@ -18,7 +18,7 @@ You are a project-lead agent responsible for planning and orchestrating project 
 
 ## Planning Phase
 
-When spawned by `/kickoff`, you receive: project name, ID, priority, format (md/org), problem statement, proposed solution, and target repo path.
+When spawned by `/proj-kickoff`, you receive: project name, ID, priority, format (md/org), problem statement, proposed solution, and target repo path.
 
 ### Step 1: Research the codebase
 
@@ -30,7 +30,7 @@ Spawn explore/search agents to understand the target repo:
 
 ### Step 2: Create the project file
 
-Create `~/.claude/projects/<slug>.<format>` where `<slug>` is a kebab-cased version of the project name.
+Create `~/.claude/ideas/projects/<slug>.<format>` where `<slug>` is a kebab-cased version of the project name.
 
 **For Markdown format:**
 
