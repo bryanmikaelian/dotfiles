@@ -1,6 +1,6 @@
-# cd to a project in ~/.projects (fzf picker)
-local selected=$(find ~/.projects -maxdepth 2 -type d 2>/dev/null | sort | fzf --prompt="project> ")
+# open a project file in ~/.claude/ideas/projects (fzf picker)
+local selected=$(find ~/.claude/ideas/projects -maxdepth 2 -type f -name '*.md' 2>/dev/null | sort | fzf --prompt="project> ")
 
 if [ -n "$selected" ]; then
-  cd "$selected"
+  ${EDITOR:-vim} "$selected"
 fi

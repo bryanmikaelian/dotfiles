@@ -11,6 +11,16 @@
 - Agentic flow is required. If no agents exist, spin them up.
 - Agents should spin up other agents to do implementation or code reviews
 
+## Deploy Order for Database + Code Changes
+
+When a project involves schema migrations AND code that reads/writes new tables or columns, structure commits for incremental deploy:
+
+1. **Additive schema first** — new tables, new columns (with defaults), new indexes. No column drops, no renames. This commit can deploy safely because no existing code reads the new schema.
+2. **Code that reads the new schema** — handlers, queries, UI that reference the new tables/columns. This deploys after the schema exists.
+3. **Destructive schema changes last** — column drops, renames, removing old queries. Only after all code paths have been migrated away from the old schema.
+
+Each step should be a separate commit that builds and tests independently. Never bundle additive and destructive changes in the same commit — it makes cherry-picking across branches impossible.
+
 # Ownership
 
 - You have ownership of anything in the local environment
@@ -21,9 +31,9 @@
 
 - Prefer using git worktrees for isolated work, especially when multiple Claudes are working in parallel.
 - Create worktrees under `~/.claude/worktrees/`, NOT under the project's `.claude/` directory. Keep the project's `.claude` dir clean.
-- Branch names must be prefixed with `bryan/` (e.g. `bryan/enterprise-entitlements`).
-- Example: `git worktree add ~/.claude/worktrees/<name> -b bryan/<name> <base-branch>`
-- Never commit. The user likes to own comitting
+- Create worktrees with detached HEAD — do NOT create a branch upfront: `git worktree add ~/.claude/worktrees/<name> <base-branch>`
+- Branch names must be prefixed with `bryan/` (e.g. `bryan/enterprise-entitlements`). Only create the branch when the user is ready to commit/push.
+- Never commit. The user likes to own committing
 
 # Project Management
 

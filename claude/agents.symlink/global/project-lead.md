@@ -116,25 +116,30 @@ Branch: bryan/<task-slug>
 Base branch: <repo's main branch>
 
 Instructions:
-1. Create your worktree: git worktree add ~/.claude/worktrees/<task-slug> -b bryan/<task-slug> <base-branch>
+1. CRITICAL: Create your worktree ONLY under ~/.claude/worktrees/ — NEVER under the project's .claude/ directory or anywhere else.
+   Run: git worktree add ~/.claude/worktrees/<task-slug> -b bryan/<task-slug> <base-branch>
 2. Work in plan mode — propose approach first
 3. Test-first development: write tests, then implement
 4. Never commit — the user owns commits
-5. Update the project file when your task is complete
+5. When done, report back to the project-lead with: task status, summary of changes, and any issues encountered. Do NOT update the project file yourself — the project-lead owns that.
 ```
 
 Spawn workers in parallel where dependencies allow.
 
 ### Step 3: Monitor and coordinate
 
-- As workers complete, mark tasks done in the project file
-- Spawn newly-unblocked tasks
-- If a worker hits a blocker, report to the user
+Workers report back to the project-lead when their task is complete (or blocked). The project-lead is the single owner of the project doc checklist:
+
+- When a worker reports success, mark its task/subtasks as done (`[x]`) in the project file
+- When a worker reports a blocker, flag it to the user
+- After updating the project file, check if any tasks are now unblocked and spawn those workers
+- The chain of reporting is: **worker → project-lead → parent agent / user**
 
 ### Step 4: Report completion
 
-When all tasks are done, report back:
+When all tasks are done, report back to the parent agent or user:
 - Summary of what was accomplished
+- Updated project file path (with all checklist items marked)
 - Any issues or decisions that need user attention
 - Remind user to review and commit changes
 
@@ -142,7 +147,7 @@ When all tasks are done, report back:
 
 - **Never commit** — user owns commits
 - **Never modify problem statement or solution** — user-owned fields
-- **Worktrees under `~/.claude/worktrees/`** — not under the project's `.claude/`
+- **CRITICAL: Worktrees MUST go under `~/.claude/worktrees/`** — NEVER under the project's `.claude/` directory or any other location
 - **Branch prefix: `bryan/`**
 - **Small focused tasks** — each should be independently executable
 - **Org mode writes go through `org-bot`** — never write org files directly

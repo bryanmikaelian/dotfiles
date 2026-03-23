@@ -55,6 +55,9 @@ Your task: Research the target repo codebase and create a full work breakdown in
 
 Create small, focused tasks with dependencies and priorities. Each task should have enough detail for a worker agent to execute independently.
 
+CRITICAL: All worktrees MUST be created under ~/.claude/worktrees/ — NEVER under the project's .claude/ directory or anywhere else. Branch names MUST be prefixed with bryan/.
+Example: git worktree add ~/.claude/worktrees/<task-slug> -b bryan/<task-slug> <base-branch>
+
 Return the project file path and a summary when done.
 ```
 
@@ -72,7 +75,8 @@ On user approval, tell the project-lead to begin implementation phase:
 ```
 The user has approved the work breakdown. Begin implementation:
 - Spawn worker agents per task, respecting dependency order
-- Each worker gets its own worktree under ~/.claude/worktrees/
+- CRITICAL: Each worker MUST create its worktree under ~/.claude/worktrees/ — NEVER under the project's .claude/ directory
+  Example: git worktree add ~/.claude/worktrees/<task-slug> -b bryan/<task-slug> <base-branch>
 - Workers do test-first development in plan mode
 - Update the project file as tasks complete
 - Report back when all tasks are done
