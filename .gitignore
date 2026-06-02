@@ -33,3 +33,4 @@ git/gitconfig-work*
 config/kitty.symlink/profiles/work.conf
 config/doom.symlink/local.el
 config/1password.symlink/ssh/agent.toml
+claude/agents.symlink/work/*.md
