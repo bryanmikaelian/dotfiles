@@ -1,1 +1,0 @@
-/Users/bryanmikaelian/Code/github.com/boldsoftware/exe/billing/.ai/agents/exe-qa.md
