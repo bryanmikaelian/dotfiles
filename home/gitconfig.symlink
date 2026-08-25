@@ -27,6 +27,7 @@
 
 [core]
   excludesfile = ~/.gitignore
+  pager = delta
 
 [grep]
   lineNumber = true
@@ -47,3 +48,13 @@
 # work specific overrides
 [include]
   path = ~/.gitconfig-work
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    side-by-side = true
+
+[merge]
+    conflictStyle = zdiff3

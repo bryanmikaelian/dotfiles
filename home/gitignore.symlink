@@ -103,3 +103,5 @@ claude/agents.symlink/work*
 # MISE
 mise.local.toml
 
+
+**/.claude/settings.local.json
