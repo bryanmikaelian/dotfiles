@@ -13,8 +13,6 @@ config/config.symlink/yarn
 config/config.symlink/configstore
 config/config.symlink/karabiner
 
-config/kitty.symlink/**/*.py
-
 # No work-specific stuff in source control
 
 # No LLM models
@@ -30,7 +28,5 @@ work.lua
 zsh/functions/work
 zsh/work.zsh
 git/gitconfig-work*
-config/kitty.symlink/profiles/work.conf
 config/doom.symlink/local.el
-config/1password.symlink/ssh/agent.toml
 work/*.md

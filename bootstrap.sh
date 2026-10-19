@@ -107,17 +107,46 @@ install_prerequisites() {
     # Homebrew (macOS and Linux)
     install_homebrew
 
-    # Kitty
-    if command -v kitty &>/dev/null; then
-        log_success "Kitty already installed"
+    # Ghostty
+    if command -v ghostty &>/dev/null || [[ -d "/Applications/Ghostty.app" ]]; then
+        log_success "Ghostty already installed"
     else
         if [[ "$os" == "macos" ]]; then
-            log_info "Installing Kitty..."
-            brew install --cask kitty
-            log_success "Kitty installed"
+            log_info "Installing Ghostty..."
+            brew install --cask ghostty
+            log_success "Ghostty installed"
         else
-            log_warning "Kitty: install manually on Linux (https://sw.kovidgoyal.net/kitty/binary/)"
+            log_warning "Ghostty: install manually on Linux (https://ghostty.org/docs/install/binary)"
         fi
+    fi
+
+    # fzf
+    if command -v fzf &>/dev/null; then
+        log_success "fzf already installed"
+    else
+        log_info "Installing fzf..."
+        brew install fzf
+        log_success "fzf installed"
+    fi
+
+    # keychain (ssh-agent manager on Linux; macOS uses the system Keychain)
+    if [[ "$os" == "linux" ]]; then
+        if command -v keychain &>/dev/null; then
+            log_success "keychain already installed"
+        else
+            log_info "Installing keychain..."
+            brew install keychain
+            log_success "keychain installed"
+        fi
+    fi
+
+    # ripgrep (FZF_DEFAULT_COMMAND)
+    if command -v rg &>/dev/null; then
+        log_success "ripgrep already installed"
+    else
+        log_info "Installing ripgrep..."
+        brew install ripgrep
+        log_success "ripgrep installed"
     fi
 
     # Starship
@@ -176,6 +205,23 @@ install_prerequisites() {
         log_info "Installing Claude Code..."
         curl -fsSL https://claude.ai/install.sh | bash
         log_success "Claude Code installed"
+    fi
+
+    # Codex
+    if command -v codex &>/dev/null; then
+        log_success "Codex already installed"
+    else
+        if [[ "$os" == "macos" ]]; then
+            log_info "Installing Codex..."
+            brew install --cask codex
+            log_success "Codex installed"
+        elif command -v npm &>/dev/null; then
+            log_info "Installing Codex..."
+            npm install -g @openai/codex
+            log_success "Codex installed"
+        else
+            log_warning "Codex: install npm, then run 'npm install -g @openai/codex'"
+        fi
     fi
 
     # lazygit
@@ -238,6 +284,23 @@ install_dotfiles() {
 
     # Install prerequisites before symlinking
     install_prerequisites
+
+    # Allowed signers for verifying SSH-signed commits (gpg.ssh.allowedSignersFile)
+    if [[ -f "$HOME/.ssh/id_ed25519.pub" ]]; then
+        local email=$(git config --file "$DOTFILES_DIR/home/gitconfig.symlink" user.email)
+        echo "$email namespaces=\"git\" $(cut -d' ' -f1,2 "$HOME/.ssh/id_ed25519.pub")" > "$HOME/.ssh/allowed_signers"
+        log_success "Wrote ~/.ssh/allowed_signers"
+    else
+        log_warning "No ~/.ssh/id_ed25519.pub — skipping allowed_signers (generate a key with ssh-keygen -t ed25519)"
+    fi
+
+    # Projects directory ($PROJECTS in zshrc)
+    if [[ -d "$HOME/Code/github.com" ]]; then
+        log_success "Projects directory already exists"
+    else
+        mkdir -p "$HOME/Code/github.com"
+        log_success "Created $HOME/Code/github.com"
+    fi
 
     log_info "Installing dotfiles from: $DOTFILES_DIR"
 

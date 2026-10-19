@@ -1,2 +1,1 @@
-[gpg "ssh"]
-  program = "/opt/1Password/op-ssh-sign"
+# OS-specific git overrides (SSH signing uses the default ssh-keygen + agent)

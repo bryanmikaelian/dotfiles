@@ -7,16 +7,11 @@ export EDITOR='nvim'
 export PROJECTS=~/Code/github.com
 export STARSHIP_CONFIG="${HOME}/.config/starship.toml"
 
-# Ensure SSH is managed by 1password
+# SSH keys are managed by the system ssh-agent + macOS Keychain (see ~/.ssh/config)
+# On Linux, keychain starts/reuses a single ssh-agent per login
 case "$OSTYPE" in
-  darwin*)
-    export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-    ;;
   linux*)
-    export SSH_AUTH_SOCK=~/.1password/agent.sock
-    ;;
-  *)
-    echo "1password SSH Agent not supported"
+    command -v keychain &>/dev/null && eval "$(keychain --eval --quiet id_ed25519)"
     ;;
 esac
 

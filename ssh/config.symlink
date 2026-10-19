@@ -3,9 +3,13 @@ Include ~/.ssh/config.d/*
 Host personalgit
 	HostName github.com
 	User git
-	IdentityFile ~/.ssh/personal.pub
+	IdentityFile ~/.ssh/id_ed25519
 	IdentitiesOnly yes
 
 Host *
+	IgnoreUnknown UseKeychain
+	AddKeysToAgent yes
+	UseKeychain yes
+	IdentityFile ~/.ssh/id_ed25519
 	PubKeyAcceptedKeyTypes +ssh-rsa
 	StrictHostKeyChecking accept-new

@@ -1,0 +1,34 @@
+# Ghostty config — mirrored from config/kitty.symlink
+# Docs: https://ghostty.org/docs/config/reference
+
+# Fonts
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 15
+
+# Theme (kitty: current-theme.conf / dark-theme.auto.conf)
+theme = light:Catppuccin Latte,dark:Catppuccin Macchiato
+
+# Bell (kitty: enable_audio_bell none)
+bell-features = no-audio,no-system
+
+# Shell integration
+shell-integration = detect
+
+# Option as alt so nvim <A-hjkl> resize mappings work
+macos-option-as-alt = left
+
+# Splits (kitty: next_window / previous_window / hsplit / vsplit)
+keybind = ctrl+shift+bracket_right=goto_split:next
+keybind = ctrl+shift+bracket_left=goto_split:previous
+keybind = ctrl+shift+minus=new_split:down
+keybind = ctrl+shift+backslash=new_split:right
+
+# Split navigation / resize (ctrl+hjkl and alt+hjkl are left to nvim)
+keybind = cmd+ctrl+h=goto_split:left
+keybind = cmd+ctrl+j=goto_split:down
+keybind = cmd+ctrl+k=goto_split:up
+keybind = cmd+ctrl+l=goto_split:right
+keybind = cmd+alt+h=resize_split:left,30
+keybind = cmd+alt+j=resize_split:down,30
+keybind = cmd+alt+k=resize_split:up,30
+keybind = cmd+alt+l=resize_split:right,30

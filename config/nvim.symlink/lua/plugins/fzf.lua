@@ -8,7 +8,7 @@ return {
     config = function()
       -- calling `setup` is optional for customization
       require("fzf-lua").setup({
-        file_icon_padding = " ", -- helps with kitty rendering
+        file_icon_padding = " ",
         lsp = {
           async_or_timeout = 10000,
         },

@@ -8,13 +8,18 @@ if [ ! -d "$project_path" ]; then
   return 1
 fi
 
-# Tab 1: Claude
-kitty @ launch --type=tab --cwd="$project_path" --title="claude"
-kitty @ send-text --match="title:claude" "claude\r"
-
-# Tab 2: lazygit
-kitty @ launch --type=tab --cwd="$project_path" --title="lazygit"
-kitty @ send-text --match="title:lazygit" "lazygit\r"
-
-# Tab 3: blank terminal
-kitty @ launch --type=tab --cwd="$project_path" --title="terminal"
+# Opens three Ghostty tabs in the front window via AppleScript
+osascript - "$project_path" <<'EOF'
+on run argv
+  set p to item 1 of argv
+  tell application "Ghostty"
+    set w to front window
+    -- Tab 1: Claude
+    new tab in w with configuration {initial working directory:p, initial input:"claude" & linefeed}
+    -- Tab 2: lazygit
+    new tab in w with configuration {initial working directory:p, initial input:"lazygit" & linefeed}
+    -- Tab 3: blank terminal
+    new tab in w with configuration {initial working directory:p}
+  end tell
+end run
+EOF

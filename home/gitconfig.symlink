@@ -1,7 +1,7 @@
 [user]
   name = Bryan Mikaelian
   email = bryan.mikaelian@gmail.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGj8KNEBGFIVL4D/dh/MpPLEwdPqEM2D6PNktXlshgeo
+  signingkey = ~/.ssh/id_ed25519.pub
 
 [color]
   ui = true
@@ -37,6 +37,9 @@
 
 [gpg]
   format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
